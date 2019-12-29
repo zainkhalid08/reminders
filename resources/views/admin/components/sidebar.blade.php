@@ -22,7 +22,7 @@
 
   <!-- Nav Item - Planner -->
   <li class="nav-item">
-    <a class="nav-link" href="{{-- route('admin.tag.search.form') --}}">
+    <a class="nav-link" href="{{ route('admin.post.index') }}">
       <i class="fas fa-fw fa-search"></i>
       <span>All Posts</span></a>
   </li>

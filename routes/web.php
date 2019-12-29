@@ -21,6 +21,9 @@ Route::prefix('adminn')->name('admin.')->group(function () {
 	Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
 	Route::get('post/create', 'AdminPostController@create')->name('post.create');
 	Route::post('post', 'AdminPostController@store')->name('post.store');
+	Route::get('posts', 'AdminPostController@index')->name('post.index');
+	Route::get('post/{post}/edit', 'AdminPostController@edit')->name('post.edit');
+	Route::put('posts/{post}', 'AdminPostController@update')->name('post.update');
 });
 
 Route::get('/', 'WelcomeController@welcome')->name('welcome');

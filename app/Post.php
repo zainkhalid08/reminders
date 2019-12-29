@@ -7,10 +7,11 @@ use App\Tag;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use App\Traits\PostViewHelper;
 
 class Post extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, PostViewHelper;
 
     /**
      * The attributes that are mass assignable.
@@ -48,7 +49,7 @@ class Post extends Model
      * @var array
      */
     protected $dates = [
-        'published_at',
+        'published_at', 'date'
     ];
 
     public function speaker()
@@ -76,8 +77,4 @@ class Post extends Model
         return $this->belongsToMany(Tag::class, 'post_tags');
     }
 
-    public function getDateAttribute($value)
-    {
-        return Carbon::parse($value)->format('d, M Y');
-    }
 }

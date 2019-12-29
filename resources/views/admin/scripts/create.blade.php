@@ -37,10 +37,12 @@
 			@endforelse
 		];
 
-	  	$('#tags-autocomplete-with-tagging').amsifySuggestags({
+	  	$('#tags-autocomplete-with-tagging').amsifySuggestags({ // https://github.com/amsify42/jquery.amsify.suggestags#more-settings
 			suggestions: tags,
-		});
-
+			selectOnHover: false,
+			backgrounds: ['#17a2b8', '#17a2b8', '#17a2b8', '#17a2b8', '#17a2b8'],
+			colors: ['white', 'white', 'white', 'white', 'white'],
+		});	
 		
     });
 </script>

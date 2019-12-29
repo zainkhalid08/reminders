@@ -11,7 +11,7 @@
         <div class="post-heading">
           <h1>{{ $post->title }}</h1>
           <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2> -->
-          <span class="meta">{{ $post->speaker->name }} | {{ $post->location->name }} | {{ $post->date }}</span>
+          <span class="meta">{{ $post->speaker->name }} | {{ $post->location->name }} | {{ $post->readableDate() }}</span>
         </div>
       </div>
     </div>

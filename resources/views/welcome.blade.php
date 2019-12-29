@@ -31,7 +31,7 @@
                 Problems look mighty small from 150 miles up
               </h3> -->
             </a>
-            <p class="post-meta">{{ $post->speaker->name }} | {{ $post->location->name }} | {{ $post->date }}</p>
+            <p class="post-meta">{{ $post->speaker->name }} | {{ $post->location->name }} | {{ $post->readableDate() }}</p>
           </div>
           <hr>
         @empty
