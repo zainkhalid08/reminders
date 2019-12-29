@@ -11,10 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
 
-Route::get('/post/1', function () {
-    return view('post');
+Route::prefix('adminn')->name('admin.')->group(function () {
+	Route::get('/', 'Auth\LoginController@showLoginForm')->name('login.view');
+	Route::post('login', 'Auth\LoginController@login')->name('login');
+	Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+	Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+	Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+	Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
+	Route::get('post/create', 'AdminPostController@create')->name('post.create');
+	Route::post('post', 'AdminPostController@store')->name('post.store');
 });
+
+Route::get('/', 'WelcomeController@welcome')->name('welcome');
+
+Route::resource('post', 'PostController')->only('index', 'store', 'show');

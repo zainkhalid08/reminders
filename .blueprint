@@ -1,0 +1,23 @@
+created:
+    - database/migrations/2019_12_26_134517_create_tags_table.php
+    - database/migrations/2019_12_26_134518_create_locations_table.php
+    - database/migrations/2019_12_26_134519_create_speakers_table.php
+    - database/migrations/2019_12_26_134520_create_posts_table.php
+    - database/migrations/2019_12_26_134521_create_post_tags_table.php
+    - app/Tag.php
+    - app/Location.php
+    - app/Speaker.php
+    - app/Post.php
+    - app/PostTag.php
+    - database/factories/TagFactory.php
+    - database/factories/LocationFactory.php
+    - database/factories/SpeakerFactory.php
+    - database/factories/PostFactory.php
+    - database/factories/PostTagFactory.php
+    - app/Http/Controllers/HomeController.php
+    - app/Http/Controllers/PostController.php
+    - app/Events/NewPost.php
+    - app/Http/Requests/PostStoreRequest.php
+    - resources/views/post/index.blade.php
+updated:
+    - routes/web.php

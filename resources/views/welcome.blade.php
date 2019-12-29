@@ -21,18 +21,22 @@
 <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="post-preview">
-          <a href="post.html">
-            <h2 class="post-title">
-              🕋 The Last Day
-            </h2>
-            <!-- <h3 class="post-subtitle">
-              Problems look mighty small from 150 miles up
-            </h3> -->
-          </a>
-          <p class="post-meta">Sheikh Salaah Al Budair | Masjid Al Haram | September 24, 2019</p>
-        </div>
-        <hr>
+        @forelse($posts as $post)
+          <div class="post-preview">
+            <a href="{{ route('post.show', ['post' => $post->id]) }}">
+              <h2 class="post-title">
+                🕋 {{ $post->title }}
+              </h2>
+              <!-- <h3 class="post-subtitle">
+                Problems look mighty small from 150 miles up
+              </h3> -->
+            </a>
+            <p class="post-meta">{{ $post->speaker->name }} | {{ $post->location->name }} | {{ $post->date }}</p>
+          </div>
+          <hr>
+        @empty
+          <p>Nothing posted just yet.</p>
+        @endforelse
         
         <!-- Pager -->
         <div class="clearfix">
