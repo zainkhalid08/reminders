@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function cannotCreatePost() : bool
+    {
+        return $this->email !== 'muhammadzainkhalid08@gmail.com' || $this->name !== 'zain' || $this->id !== 1;
+    }
 }

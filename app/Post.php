@@ -72,6 +72,16 @@ class Post extends Model
         return $query->whereNotNull('published_at');
     }
 
+    public function isUnpublished() : bool
+    {
+        return ! $this->published_at;
+    }
+
+    public function publish() 
+    {
+        return $this->published_at = now();
+    }
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'post_tags');

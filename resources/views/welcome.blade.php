@@ -25,7 +25,7 @@
           <div class="post-preview">
             <a href="{{ route('post.show', ['post' => $post->id]) }}">
               <h2 class="post-title">
-                🕋 {{ $post->title }}
+                {!! $post->title() !!}  
               </h2>
               <!-- <h3 class="post-subtitle">
                 Problems look mighty small from 150 miles up
@@ -39,9 +39,11 @@
         @endforelse
         
         <!-- Pager -->
+        @if($total > count($posts) )
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+          <a class="btn btn-primary float-right" href="{{ route('post.index') }}">Older Posts &rarr;</a>
         </div>
+        @endif
       </div>
     </div>
 </div> 

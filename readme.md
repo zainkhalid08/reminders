@@ -80,9 +80,10 @@ php artisan migrate --path=database/migrations/2014_10_12_000000_create_users_ta
 
 Second
 php artisan tinker
-App\User::create(['name' => 'zain', 'email' => 'muhammadzainkhalid08@gmail.com', 'password' => bcrypt('passwordhere')]);
+App\User::create(['name' => 'kidsconio', 'email' => 'kidscon.io@gmail.com', 'password' => bcrypt('passwordhere123')]);
 
 Third
 php artisan migrate --seed
 
 # Other
+

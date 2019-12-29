@@ -45,7 +45,17 @@
                         </div> 
                       </td>
                       <td>
-                        <a href="{{ route('admin.post.edit', $post->id) }}">edit</a>
+                        <a href="{{ route('admin.post.edit', $post->id) }}">edit</a> |
+                        <a href="{{ route('post.show', $post->id) }}">preview</a> |
+                        @if($post->isUnpublished())
+                          @php($route = route('admin.post.update.publish', $post->id))
+                          @php($formId = 'publish_form_'.$loop->iteration)
+                          <a href="{{ $route }}" onclick="event.preventDefault();document.getElementById('{{ $formId }}').submit();">pub</a>
+                          <form method="post" action="{{ $route }}" id="{{ $formId }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" form="{{ $formId }}">
+                            <input type="hidden" name="_method" value="PUT" form="{{ $formId }}">
+                          </form>
+                        @endif
                       </td>
                     </tr>
               @if ($loop->last)
@@ -68,4 +78,12 @@
   <script src="{{ asset('admin/vendor/datatables/jquery.dataTables.min.js') }}"></script>
   <script src="{{ asset('admin/fvendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
   <script src="{{ asset('admin/js/demo/datatables-demo.js') }}"></script>
+
+  @if($post->isUnpublished())
+  <script>
+    function process(argument = 's') {
+      alert(argument);
+    }
+  </script>
+  @endif
 @endsection

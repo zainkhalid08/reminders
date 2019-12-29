@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::all();
+        $posts = Post::published()->latest()->get();
 
         return view('post.index', compact('posts'));
     }
@@ -28,7 +28,7 @@ class PostController extends Controller
     {
         $post = Post::create($request->all());
 
-        event(new NewPost($post));
+        // event(new NewPost($post));
 
         $request->session()->flash('post.title', $post->title);
 
@@ -42,6 +42,9 @@ class PostController extends Controller
      */
     public function show(Request $request, Post $post)
     {
-        return view('post', ['post' => $post]);
+        if ($post->isUnpublished() && auth()->guest()) {
+            abort(404);
+        }
+        return view('post.show', ['post' => $post]);
     }
 }

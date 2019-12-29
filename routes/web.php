@@ -12,7 +12,7 @@
 */
 
 
-Route::prefix('adminn')->name('admin.')->group(function () {
+Route::prefix('adminn')->middleware('admin')->name('admin.')->group(function () {
 	Route::get('/', 'Auth\LoginController@showLoginForm')->name('login.view');
 	Route::post('login', 'Auth\LoginController@login')->name('login');
 	Route::post('logout', 'Auth\LoginController@logout')->name('logout');
@@ -23,7 +23,8 @@ Route::prefix('adminn')->name('admin.')->group(function () {
 	Route::post('post', 'AdminPostController@store')->name('post.store');
 	Route::get('posts', 'AdminPostController@index')->name('post.index');
 	Route::get('post/{post}/edit', 'AdminPostController@edit')->name('post.edit');
-	Route::put('posts/{post}', 'AdminPostController@update')->name('post.update');
+	Route::put('post/{post}', 'AdminPostController@update')->name('post.update');
+	Route::put('post/{post}/publish', 'AdminPostController@publish')->name('post.update.publish');
 });
 
 Route::get('/', 'WelcomeController@welcome')->name('welcome');

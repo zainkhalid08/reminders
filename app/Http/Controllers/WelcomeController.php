@@ -13,7 +13,9 @@ class WelcomeController extends Controller
      */
     public function welcome(Request $request)
     {
-    	$posts = Post::published()->limit(5)->get();
-	    return view('welcome', ['posts' => $posts]);
+    	$publishedPosts = Post::published();
+    	$posts = $publishedPosts->latest()->limit(config('post.welcome'))->get();
+    	$total = $publishedPosts->count();
+	    return view('welcome', compact('posts', 'total'));
     }
 }

@@ -50,55 +50,16 @@ class AdminPostController extends Controller
     public function store(PostRequest $request)
     {
     	// dd($request->all());
-    	// dd('passed');
 
-    	$speaker = Speaker::where('name', $request['speaker']);
-    	if ($speaker->count() == 0) {
-    		abort(404);
-    	} elseif ($speaker->count() !== 1) {
-    		return back()->withErrors(['speaker' => 'Duplicate speakers']);
+    	$response = $this->storeOrUpdate($request);
+
+    	if ($response['failed']) {
+    		return back()->withErrors([ $response['entity'] => 'Duplicate '.$response['entity'] ]);
     	}
-    	$speaker = $speaker->first();
-
-    	$location = Location::where('name', $request['location']);
-    	if ($location->count() == 0) {
-    		// abort(404);
-    	} elseif ($location->count() !== 1) {
-    		return back()->withErrors(['location' => 'Duplicate locations']);
-    	}
-    	$location = $location->first();
-
-
-        $post = Post::create([
-        	'title' => $request['title'],
-        	'speaker_id' => $speaker->id,
-        	'location_id' => $location->id,
-        	'date' => $request['date'],
-        	'video_src' => $request['video_src'],
-        	'content' => $request['content'],
-        	'user_id' => auth()->id(),
-        ]);
-
-        // dd($post);
-        $separateTags = $request->separateTags($request['tags']);
-    	foreach ($separateTags as $key => $tagName) {
-    		$tag = Tag::where('name', $tagName);
-    		if ($tag->count() == 0) {
-	    	// dd($tagName);
-	    		abort(404);
-	    	} elseif ($tag->count() !== 1) {
-	    		return back()->withErrors(['tag' => 'Duplicate tags']);
-	    	}
-	    	$tag = $tag->first();
-			$post->tags()->attach($tag->id);    		
-    	}
-
 
         // event(new NewPost($post));
 
-        $request->session()->flash('post.title', $post->title);
-
-        return redirect()->route('admin.post.index');
+        return redirect()->route($response['url']);
     }
 
     public function edit(Request $request, Post $post)
@@ -112,53 +73,24 @@ class AdminPostController extends Controller
 
     public function update(PostRequest $request, Post $post)
     {
-    	$speaker = Speaker::where('name', $request['speaker']);
-    	if ($speaker->count() == 0) {
-    		abort(404);
-    	} elseif ($speaker->count() !== 1) {
-    		return back()->withErrors(['speaker' => 'Duplicate speakers']);
+    	$response = $this->storeOrUpdate($request, $post);
+    	// dd($response);
+
+    	if ($response['failed']) {
+    		return back()->withErrors([ $response['entity'] => 'Duplicate '.$response['entity'] ]);
     	}
-    	$speaker = $speaker->first();
-
-    	$location = Location::where('name', $request['location']);
-    	if ($location->count() == 0) {
-    		// abort(404);
-    	} elseif ($location->count() !== 1) {
-    		return back()->withErrors(['location' => 'Duplicate locations']);
-    	}
-    	$location = $location->first();
-
-    	$post->update([
-        	'title' => $request['title'],
-        	'speaker_id' => $speaker->id,
-        	'location_id' => $location->id,
-        	'date' => $request['date'],
-        	'video_src' => $request['video_src'],
-        	'content' => $request['content'],
-        	'user_id' => auth()->id(),
-    	]);
-
-        // dd($post);
-        $separateTags = $request->separateTags($request['tags']);
-    	foreach ($separateTags as $key => $tagName) {
-    		$tag = Tag::where('name', $tagName);
-    		if ($tag->count() == 0) {
-	    	// dd($tagName);
-	    		abort(404);
-	    	} elseif ($tag->count() !== 1) {
-	    		return back()->withErrors(['tag' => 'Duplicate tags']);
-	    	}
-	    	$tag = $tag->first();
-			$post->tags()->attach($tag->id);    		
-    	}
-
 
         // event(new NewPost($post));
 
-        $request->session()->flash('post.title', $post->title);
+        return redirect()->route($response['url']);
 
-        return redirect()->route('admin.post.index');
+    }
 
+    public function publish(Post $post)
+    {
+    	$post->publish();
+    	$post->save();
+    	return back();
     }
 
     protected function getAllTagsSpeakersAndLocations(&$tags, &$speakers, &$locations)
@@ -166,6 +98,72 @@ class AdminPostController extends Controller
         $tags = Tag::all();
         $speakers = Speaker::all();
         $locations = Location::all();
+    }
+
+    protected function storeOrUpdate($request, $post = '')
+    {
+    	$response['failed'] = false;
+    	$response['url'] = 'admin.post.index';
+
+    	// Speaker
+    	$speaker = Speaker::where('name', $request['speaker']);
+    	if ($speaker->count() == 0) {
+    		abort(404);
+    	} elseif ($speaker->count() !== 1) {
+	    	$response['failed'] = true;
+	    	$response['entity'] = 'speaker';
+    	}
+    	$speaker = $speaker->first();
+
+    	// Location
+    	$location = Location::where('name', $request['location']);
+    	if ($location->count() == 0) {
+    		abort(404);
+    	} elseif ($location->count() !== 1) {
+	    	$response['failed'] = true;
+	    	$response['entity'] = 'location';
+    	}
+    	$location = $location->first();
+
+    	// Update Or Create
+    	if ($post !== '') {
+	    	$post->update([
+	        	'title' => $request['title'],
+	        	'speaker_id' => $speaker->id,
+	        	'location_id' => $location->id,
+	        	'date' => $request['date'],
+	        	'video_src' => $request['video_src'],
+	        	'content' => $request['content'],
+	        	'user_id' => auth()->id(),
+	    	]);    		# code...
+    	} else {
+    		$post = Post::create([
+	        	'title' => $request['title'],
+	        	'speaker_id' => $speaker->id,
+	        	'location_id' => $location->id,
+	        	'date' => $request['date'],
+	        	'video_src' => $request['video_src'],
+	        	'content' => $request['content'],
+	        	'user_id' => auth()->id(),
+	        ]);
+    	}
+
+    	// Attache Tags
+        $separateTags = $request->separateTags($request['tags']);
+    	foreach ($separateTags as $key => $tagName) {
+    		$tag = Tag::where('name', $tagName);
+    		if ($tag->count() == 0) {
+	    	// dd($tagName);
+	    		abort(404);
+	    	} elseif ($tag->count() !== 1) {
+		    	$response['failed'] = true;
+		    	$response['entity'] = 'location';
+	    	}
+	    	$tag = $tag->first();
+			$post->tags()->attach($tag->id);    		
+    	}
+
+    	return $response;
     }
 
 }

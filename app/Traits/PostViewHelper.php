@@ -30,4 +30,39 @@ trait PostViewHelper
     {
       return $this->date->format('d, M Y');
     }
+
+    public function isFitToBeNew()
+    {
+      $allowedDaysToBeNew = 3;
+      return $this->date->diffInDays(now()) <= $allowedDaysToBeNew;
+    }
+
+    /**
+     * Returns well crafted title for a post to display in a list of posts
+     * 
+     * @return string
+     */
+    public function title()
+    {
+      $logo = '';
+      if ($this->isFrom('Masjid Al Haram')) {
+        // $logo .= '🕋 ';
+      }
+      $newBadge = '';
+      if ($this->isFitToBeNew()) {
+        $newBadge = ' <span class="badge badge-primary">New</span>';
+      }
+      return $logo.$this->title.$newBadge;
+    }
+
+    /**
+     * Tells if the post is from a certain location 
+     * 
+     * @param  string 
+     * @return boolean
+     */
+    public function isFrom($locationName) : bool
+    {
+      return $this->location->name == $locationName;
+    }
 }

@@ -34,11 +34,11 @@
                   <!-- <li class="nav-item">
                     <a class="nav-link" href="index.html">Tags</a>
                   </li> -->
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" href="">Search</a>
+                  </li> -->
                   <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Search</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="https://www.youtube.com/channel/UC67OCp258L66nqQHS54MxFQ/videos">Channel</a>
+                    <a class="nav-link" target="_blank" href="https://www.youtube.com/channel/UC67OCp258L66nqQHS54MxFQ/videos">Youtube Channel</a>
                   </li>
                 </ul>
               </div>
@@ -54,7 +54,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
-                  <ul class="list-inline text-center">
+                  <!-- <ul class="list-inline text-center">
                     <li class="list-inline-item">
                       <a href="#">
                         <span class="fa-stack fa-lg">
@@ -79,8 +79,9 @@
                         </span>
                       </a>
                     </li>
-                  </ul>
-                  <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
+                  </ul> -->
+                  <p class="copyright text-muted">Reminders For Good - remindersforgood@gmail.com</p>
+                  <!-- <p class="copyright text-muted">remindersforgood@gmail.com</p> -->
                 </div>
               </div>
             </div>
