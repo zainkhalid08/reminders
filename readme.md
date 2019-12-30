@@ -78,6 +78,15 @@ After ensureing settings of env especially db certs
 
 <code>php artisan fresh:install:once</code>
 
+# Admin
+
+templates for 
+
+ayah
+<blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
+hadith
+fact
+
 # Warnings
 1. we can't update location or speaker names, just yet.
 
@@ -101,13 +110,25 @@ Speaker
 Post
 	Create
 		Is created in db
+			posts
+				p |	title, content, date, video_src, user_id, published_at(null),  tags
+			speakers
+				p |	speaker name in speakers table
+				p |	location_id in speakers table
+			locations
+				p |	location name in locations table
+			tags
+				p |	tag name in tags table
 	Update
-		When speaker is changed it is also changed in post
-		When location is changed it is also changed in post
+		p | When speaker is changed it is also changed in post
+		p | When location is changed it is also changed in post
+		p | When date is changed it is also changed in post
+		p | When tags for a post are updated(added, removed) they are is updated in post
+				p | when added
+				p | when removed
 
 
 # Bugs
 
-1. Locations for a post aren't set properly when editting a post.
 
 

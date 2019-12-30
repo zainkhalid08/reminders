@@ -16,7 +16,7 @@ class CreateTagsTable extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->longText('synonyms')->description('This will be used, when a user searches for some content...eg. "praise of allah" though there might not be a tag but a synonym might exist');
+            $table->longText('synonyms')->nullable()->description('This will be used, when a user searches for some content...eg. "praise of allah" though there might not be a tag but a synonym might exist');
             $table->timestamps();
         });
     }

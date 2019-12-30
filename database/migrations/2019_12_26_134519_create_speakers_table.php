@@ -20,6 +20,7 @@ class CreateSpeakersTable extends Migration
             $table->mediumText('bio')->nullable();
             $table->unsignedBigInteger('location_id');
 
+            $table->unique(['name', 'location_id']);
             $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
             $table->timestamps();
         });

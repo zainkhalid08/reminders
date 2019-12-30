@@ -39,6 +39,6 @@ class User extends Authenticatable
 
     public function cannotCreatePost() : bool
     {
-        return $this->email !== 'muhammadzainkhalid08@gmail.com' || $this->name !== 'zain' || $this->id !== 1;
+        return $this->name !== config('admin.name') || $this->email !== config('admin.email') || $this->id !== 1;
     }
 }
