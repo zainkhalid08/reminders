@@ -12,7 +12,7 @@
 */
 
 
-Route::prefix('adminn')->middleware('admin')->name('admin.')->group(function () {
+Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(function () {
 	Route::get('/', 'Auth\LoginController@showLoginForm')->name('login.view');
 	Route::post('login', 'Auth\LoginController@login')->name('login');
 	Route::post('logout', 'Auth\LoginController@logout')->name('logout');

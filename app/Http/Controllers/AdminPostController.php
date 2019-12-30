@@ -104,29 +104,106 @@ class AdminPostController extends Controller
     {
     	$response['failed'] = false;
     	$response['url'] = 'admin.post.index';
-
-    	// Speaker
-    	$speaker = Speaker::where('name', $request['speaker']);
-    	if ($speaker->count() == 0) {
-    		abort(404);
-    	} elseif ($speaker->count() !== 1) {
-	    	$response['failed'] = true;
-	    	$response['entity'] = 'speaker';
-    	}
-    	$speaker = $speaker->first();
+        $isFromUpdate = $post !== '';
 
     	// Location
+        // create
+            // select an existing one
+                // no results:something went wrong... NOT POSSIBLE
+                // more than 1 results:duplicates
+                // 1 result:create a new
+            // make a new location
+                // no results:make a new one.
+                // 1 result:something went wrong... NOT POSSIBLE
+                // more than 1 results:something went wrong... NOT POSSIBLE
+        // update
+            // same as above but instead of creation just update
+            
     	$location = Location::where('name', $request['location']);
-    	if ($location->count() == 0) {
-    		abort(404);
-    	} elseif ($location->count() !== 1) {
-	    	$response['failed'] = true;
-	    	$response['entity'] = 'location';
-    	}
-    	$location = $location->first();
+
+        if ($isFromUpdate) {
+            // case no results
+            if ($location->count() == 1) {
+                $location = $location->first();
+                $location->update([
+                    'name' => $request['location'],
+                ]);  
+
+            // case more than 0 results or less than 0
+            } elseif ($location->count() == 0) {
+                $location = Location::create([
+                    'name' => $request['location'],
+                ]);
+            } else {
+                $response['failed'] = true;
+                $response['entity'] = 'location';
+                return $response;
+            }           
+
+        } else {
+
+            // case no results
+            if ($location->count() == 0) {
+                $location = Location::create([
+                    'name' => $request['location'],
+                ]);
+
+            // case more than 0 results or less than 0
+            } elseif ($location->count() == 1) {
+                $location = $location->first();
+                // dd($location);
+            } else { // duplicate or < 0
+                $response['failed'] = true;
+                $response['entity'] = 'location';
+                return $response;
+            }
+        }
+
+        // dd($location);
+    	// Speaker
+    	$speaker = Speaker::where('name', $request['speaker']);
+    	if ($isFromUpdate) {
+            // case no results
+            if ($speaker->count() == 1) {
+                $speaker = $speaker->first();
+                $speaker->update([
+                    'name' => $request['speaker'],
+                    'location_id' => $location->id,
+                ]);  
+
+            // case more than 0 results or less than 0
+            } elseif ($speaker->count() == 0) {
+                $speaker = Speaker::create([
+                    'name' => $request['speaker'],
+                    'location_id' => $location->id,
+                ]);
+            } else {
+                $response['failed'] = true;
+                $response['entity'] = 'speaker';
+            }           
+
+        } else {
+
+            // dd($location);
+            // case no results
+            if ($speaker->count() == 0) {
+                $speaker = Speaker::create([
+                    'name' => $request['speaker'],
+                    'location_id' => $location->id,
+                ]);
+                // dd($location);
+
+            } elseif ($speaker->count() == 1) {
+                $speaker = $speaker->first();
+            } else { // duplicate or < 0
+                $response['failed'] = true;
+                $response['entity'] = 'speaker';
+                return $response;
+            }
+        }
 
     	// Update Or Create
-    	if ($post !== '') {
+    	if ($isFromUpdate) {
 	    	$post->update([
 	        	'title' => $request['title'],
 	        	'speaker_id' => $speaker->id,

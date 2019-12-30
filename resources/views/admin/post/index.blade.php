@@ -46,7 +46,7 @@
                       </td>
                       <td>
                         <a href="{{ route('admin.post.edit', $post->id) }}">edit</a> |
-                        <a href="{{ route('post.show', $post->id) }}">preview</a> |
+                        <a href="{{ route('post.show', $post->id) }}" target="_blank">preview</a> |
                         @if($post->isUnpublished())
                           @php($route = route('admin.post.update.publish', $post->id))
                           @php($formId = 'publish_form_'.$loop->iteration)

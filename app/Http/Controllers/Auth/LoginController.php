@@ -22,10 +22,11 @@ class LoginController extends Controller
 
     /**
      * Where to redirect users after login.
-     *
+     * redirectTo() method overides
+     * 
      * @var string
      */
-    protected $redirectTo = 'adminn/dashboard';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -46,5 +47,18 @@ class LoginController extends Controller
     {
         return view('admin.login');
     }
+
+    /**
+     * Get the path the user should be redirected after login.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return string
+     */
+    protected function redirectTo()
+    {
+        if (! request()->expectsJson()) {
+            return route('admin.dashboard');
+        }
+    }    
     
 }

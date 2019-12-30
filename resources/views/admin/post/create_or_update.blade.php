@@ -63,7 +63,7 @@
                     </div>
                     <h4>Tags</h4>
                     <div class="text-center">
-                      <input type="text" name="tags" style="width: 100%;" placeholder="tags here..." id="tags-autocomplete-with-tagging" value="{{ isset($post) ? $post->tagsCombined() : '' }}">
+                      <input type="text" name="tags" style="width: 100%;" placeholder="tags here..." id="tags-autocomplete-with-tagging" value="{{ isset($post) ? $post->tagsCombined() : old('tags')  }}">
                       @component('components.error', ['field' => 'tags'])
                       @endcomponent
                     </div>

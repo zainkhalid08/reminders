@@ -7,7 +7,7 @@
         <meta name="author" content="">
 
 
-        <title> TITLE | Reminders For Good</title>
+        <title> Friday Sermons | Reminders For Good</title>
 
         <!-- Bootstrap core CSS -->
         <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -37,9 +37,9 @@
                   <!-- <li class="nav-item">
                     <a class="nav-link" href="">Search</a>
                   </li> -->
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link" target="_blank" href="https://www.youtube.com/channel/UC67OCp258L66nqQHS54MxFQ/videos">Youtube Channel</a>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </div>
@@ -80,7 +80,7 @@
                       </a>
                     </li>
                   </ul> -->
-                  <p class="copyright text-muted">Reminders For Good - remindersforgood@gmail.com</p>
+                  <p class="copyright text-muted">Reminders For Good - {{date('Y')}}</p>
                   <!-- <p class="copyright text-muted">remindersforgood@gmail.com</p> -->
                 </div>
               </div>
