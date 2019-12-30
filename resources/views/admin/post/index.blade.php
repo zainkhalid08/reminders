@@ -26,6 +26,7 @@
                     <tr>
                       <th>Sr</th>
                       <th>Title</th>
+                      <th>Location</th>
                       <th>Operations</th>
                     </tr>
                   </thead>
@@ -41,8 +42,10 @@
                     <tr id="post-row-{{ $loop->iteration }}">
                       <td>{{ $loop->iteration }}</td>
                       <td>
-                        <div id="post-name-{{ $loop->iteration }}"> {{ $post->title }} 
-                        </div> 
+                        <div id="post-name-{{ $loop->iteration }}"> {{ $post->title }} </div>
+                      </td>
+                      <td>
+                        <div id="post-name-{{ $loop->iteration }}"> {{ $post->location->name }} </div>
                       </td>
                       <td>
                         <a href="{{ route('admin.post.edit', $post->id) }}">edit</a> |
