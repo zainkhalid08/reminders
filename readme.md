@@ -72,18 +72,42 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 # Reminders
+<i>last updated on 30th Dec 2019</i>
 
-Before migrating and seeding for the first time
+After ensureing settings of env especially db certs
 
-First
-php artisan migrate --path=database/migrations/2014_10_12_000000_create_users_table.php 
+<code>php artisan fresh:install:once</code>
 
-Second
-php artisan tinker
-App\User::create(['name' => 'kidsconio', 'email' => 'kidscon.io@gmail.com', 'password' => bcrypt('passwordhere123')]);
+# Warnings
+1. we can't update location or speaker names, just yet.
 
-Third
-php artisan migrate --seed
+# Supports
+1. HAVE TO BE TESTED there can be two speakers with same name but different locations 
 
-# Other
+# Tests
+Location
+	Create Or Update Post
+		p | New Location, should be created in db 
+		p | Existing Location, should not be created in db
+
+Speaker
+	Create Post
+		p | New speaker, should be created in db 
+		p | Existing speaker, should not be created in db
+	Update Post
+		p | New speaker, should be created in db 
+		p | Existing speaker, should not be created in db
+
+Post
+	Create
+		Is created in db
+	Update
+		When speaker is changed it is also changed in post
+		When location is changed it is also changed in post
+
+
+# Bugs
+
+1. Locations for a post aren't set properly when editting a post.
+
 
