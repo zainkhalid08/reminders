@@ -28,8 +28,9 @@
         </div>
         <span class="caption text-muted">© Rights of the audio belong to <a href="http://www.haramain.com/app" target="_blank">Haramain Recordings</a></span>
 
-
+        <div id="app">
          {!! $post->content !!}
+        </div>
         
         <p> 
           @forelse($post->tags as $tag)

@@ -127,8 +127,16 @@ Post
 				p | when added
 				p | when removed
 
-
 # Bugs
+
+# Just Writing
+
+1. should have node installed
+2. npm init // creates package.json perhaps
+3. npm install 
+
+# NPM
+npm run production
 
 
 

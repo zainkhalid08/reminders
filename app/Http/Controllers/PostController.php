@@ -42,6 +42,10 @@ class PostController extends Controller
      */
     public function show(Request $request, Post $post)
     {
+        // unpublished and guest or 
+        // unpublished and auth and email_different or
+        // unpublished and auth and email_different and password_diff
+
         if ($post->isUnpublished() && auth()->guest()) {
             abort(404);
         }

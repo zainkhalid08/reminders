@@ -19,6 +19,7 @@
 
         <!-- Custom styles for this template -->
         <link href="{{ asset('css/clean-blog.min.css') }}" rel="stylesheet">
+
     </head>
     <body>
         <!-- Navigation -->
@@ -92,6 +93,9 @@
         <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
         <!-- Custom scripts for this template -->
-        <script src="{{ asset('js/clean-blog.min.js') }}"></script>        
+        <script src="{{ asset('js/clean-blog.min.js') }}"></script> 
+        
+        {{-- Our Js --}}
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
