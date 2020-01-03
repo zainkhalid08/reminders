@@ -1,5 +1,7 @@
 <?php
 
+use App\Surah;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +13,29 @@
 |
 */
 
+Route::get('/play', function(){
+// 	$needle = '</ayah>';
+
+// 	//no tags
+// 	// $content = ''; // returns ""
+// 	//1 tag present
+// 	$content = '<ayah></ayah>'; // returns ""
+// 	//1 tag present with content
+// 	$content = '<ayah>loremd d d d d  d d (quran)</ayah>'; // returns "loremd d d d d  d d (quran)"
+// 	//1 tag present with content and other tags are also present
+// 	$content = '<ayah>loremd d d d d  d d (quran)</ayah><p>dont get this</p>'; // returns "loremd d d d d  d d (quran)"
+// 	//1 tag present with content and other similar tags are also present
+// 	$content = '<ayah>loremd d d d d  d d (quran)</ayah><ayat>dont get this</ayat>'; // returns "loremd d d d d  d d (quran)"
+// 	//1 < tags present
+// 	$content = '<ayah>loremd d d d d  d d (quran)</ayah><ayah>dont get this</ayah>'; // returns "loremd d d d d  d d (quran)" NOTE THIS, ONLY FIRST OCCURANCE IS CAPTURED
+
+    $surahs = Surah::all();
+    $i = 1;
+    foreach ($surahs as $surah) {
+    	echo '["id" => '.$i++.', "name" => "'.$surah->name.'", "english" => "'.$surah->english.'", "ayahs" => "'.$surah->ayahs.'"],'.'<br>';
+    }
+
+});
 
 Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(function () {
 	Route::get('/', 'Auth\LoginController@showLoginForm')->name('login.view');
@@ -30,3 +55,4 @@ Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
 Route::resource('post', 'PostController')->only('index', 'store', 'show');
+

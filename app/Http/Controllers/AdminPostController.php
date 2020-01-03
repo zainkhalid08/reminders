@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use App\Jobs\ProcessPostContent;
 use App\Location;
 use App\Post;
 use App\Speaker;
@@ -231,7 +232,8 @@ class AdminPostController extends Controller
 	        	'video_src' => $request['video_src'],
 	        	'content' => $request['content'],
 	        	'user_id' => auth()->id(),
-	    	]);    		# code...
+	    	]);    	
+            ProcessPostContent::dispatch($post)/*->delay(now()->addMinutes(1))*/;
     	} else {
             // dd('hit');
     		$post = Post::create([
@@ -243,6 +245,7 @@ class AdminPostController extends Controller
 	        	'content' => $request['content'],
 	        	'user_id' => auth()->id(),
 	        ]);
+            ProcessPostContent::dispatch($post)->delay(now()->addMinutes(1));
     	}
 
     	// Attache Tags

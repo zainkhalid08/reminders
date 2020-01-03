@@ -4,10 +4,12 @@ namespace App;
 
 use App\Speaker;
 use App\Tag;
+use App\Traits\PostViewHelper;
+use App\Traits\StringExtractor;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
-use App\Traits\PostViewHelper;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {

@@ -77,6 +77,7 @@ The Laravel framework is open-source software licensed under the [MIT license](h
 After ensureing settings of env especially db certs
 
 <code>php artisan fresh:install:once</code>
+DO NOT SEED PERHAPS IN FRESH:INSTALL:ONCE
 
 # Admin
 
@@ -87,11 +88,22 @@ ayah
 hadith
 fact
 
+ayah will come in <ayah rfr="">
+hadith will come in <hadith rfr="">
+contetn will come in <p> NOTE THIS ONE
+
+
 # Warnings
 1. we can't update location or speaker names, just yet.
+2. don't upload masjid an nabawi sermons just yet as they are in urdu and is difficult to translate...
 
 # Supports
 1. HAVE TO BE TESTED there can be two speakers with same name but different locations 
+
+# NOTE
+1. we'll just mention quran, hadith ref will be given from sermon itself...
+2. constants <ayah>
+
 
 # Tests
 Location
@@ -119,6 +131,9 @@ Post
 				p |	location name in locations table
 			tags
 				p |	tag name in tags table
+			the ayah from post content is extracted correctly and saved in db
+			the hadith from post content is extracted correctly and saved in db
+			the post content processing is done after 1 min of the post creation time.
 	Update
 		p | When speaker is changed it is also changed in post
 		p | When location is changed it is also changed in post
@@ -126,6 +141,32 @@ Post
 		p | When tags for a post are updated(added, removed) they are is updated in post
 				p | when added
 				p | when removed
+Ayah
+	p | when a new ayah is added in the post content that isn't in db then it is created in db.
+	p | when a more than 1 ayahs are added in the post content that aren't in db they are created in db.
+
+	p | when an old ayah is added in the post content that is in db then it isn't created in db.
+	p | when more than 1 old ayahs are added in the post content that are in db then they aren't created in db.
+
+	p | when a new ayah is added THAT IS ABOUT 90% SIMILAR to any of the alreaady present in db then it isn't created in db
+	when more than one new ayah is added THAT ARE ABOUT 90% SIMILAR to any of the alreaady present in db then they aren't created in db
+
+	when there is an html tag especially bold or italics text within ayah then it is removed and then saved in db without affecting original content
+
+Components
+	ayah
+		p | if rfr attribute is not present it still show QURAN without any errors
+		p | if rfr attribute is present but is "" it still show QURAN without any errors
+		p | if rfr attribute is present and has text it still show the text
+		p | if the text shown is capitalized
+		p | if the text shown is surrounded in parenthesis
+
+	hadith
+		p | if rfr attribute is not present it still show HADITH without any errors
+		p | if rfr attribute is present but is "" it still show HADITH without any errors
+		p | if rfr attribute is present and has text it still show the text
+		p | if the text shown is capitalized
+		p | if the text shown is surrounded in parenthesis
 
 # Bugs
 
@@ -138,5 +179,61 @@ Post
 # NPM
 npm run production
 
+# Options
 
+BEFORE DEPLOYMENT
+*system to add reference to ayah eg (quran - baqrah:1)
+*system to add reference to hadith (hadith - muslim)
+plan
+	done. make seeder for surahs
+	make component for ref... 2:4 (means surah 2 and ayah 4)
+	2:5 
+		while setting
+			search for 2:5 and replace with baqrah:5.
+		while getting
+			search for 2:5 and replace with baqrah:5.
+
+# EXTRA
+            // also validate that ref is valid in content's ayah 
+
+		
+*meta description for seo
+*makesure to rename assets as unique as it caused that access forbidden error. The link is accessable anyways so the point is that make sure that those directories arne't accessable.
+*store ayah and hadith in db.(i can show a trending or a reminder ayah/hadith and then show that post...)
+*don't reveal the id.
+
+-
+CUSTOM TEXTAREA
+*get a fixed text or a component for typing Prophet Muhammad Salallahu alihi wasalam
+*get a textarea with custom tags making capabiliity or just make 3 buttons above textarea and add ayah, hadith and prophtet Muhammad S.A.W.W text
+-
+DESIGN MATTERS
+*decide a design for ayah, hadith
+*force a format of all the content shown to user especially the post heading and subheadings. 
+*design color some letters different in reminders for good *dot in the logo or color dot as dot of the i
+*decide the header image
+
+
+*add rel and perhaps logo on welcome...
+*bring all cdns locally
+*finalize the optimization of assets to minify css and js
+*views count for a post.
+
+*roles
+
+NOT YET/IDEAS
+*tags description on admin, to show description on hover
+*have a component dua also perhaps.
+*search feature
+*useful links perhaps
+*feedback from visitors
+*admin,stats of visitors to store in db
+*static pages, privacy policy, about us, terms of service... etc
+
+CANCELED
+*search how to add custom domain on heroku, and just do it.
+
+DONE
+*fix new location,speaker creation. DONE
+*make template for hadith, ayah, fact or so. DONE
 

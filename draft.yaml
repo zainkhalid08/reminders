@@ -31,6 +31,20 @@ models:
     post_id: id:posts
     tag_id: id:tags
 
+  Hadith:
+    content: string
+    post_id: id:posts
+
+  Ayah:
+    content: longtext
+    post_id: id:posts
+
+  Surah: # not tested
+    id: int:3
+    name: varchar:128
+    english: varchar:128
+    ayahs: int:3
+
 controllers:
   Home:
     index:

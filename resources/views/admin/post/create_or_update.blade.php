@@ -69,7 +69,7 @@
                     </div>
                     <h4>Content</h4>
                     <div class="text-center">
-                      <textarea name="content" style="width: 100%;" placeholder="Type here..." >{{ isset($post) ? $post->content : old('content') }}</textarea>
+                      <textarea name="content" style="width: 100%;" rows="15" placeholder="Type here..." >{{ isset($post) ? $post->content : old('content') }}</textarea>
                       @component('components.error', ['field' => 'content'])
                       @endcomponent
                       <button type="button" class="btn btn-primary" style="margin-top: 2%;" onclick="event.preventDefault();
