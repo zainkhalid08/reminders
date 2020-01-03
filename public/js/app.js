@@ -37303,7 +37303,7 @@ var render = function() {
     _c(
       "blockquote",
       { staticClass: "blockquote" },
-      [_vm._v('"'), _vm._t("default"), _vm._v('"')],
+      [_vm._v("“"), _vm._t("default"), _vm._v("”")],
       2
     ),
     _vm._v(" "),
@@ -37345,7 +37345,7 @@ var render = function() {
     _c(
       "blockquote",
       { staticClass: "blockquote" },
-      [_vm._v('"'), _vm._t("default"), _vm._v('"')],
+      [_vm._v("“"), _vm._t("default"), _vm._v("”")],
       2
     ),
     _vm._v(" "),

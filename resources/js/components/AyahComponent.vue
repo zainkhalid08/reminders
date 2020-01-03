@@ -1,6 +1,6 @@
 <template>
     <div class="text-center">
-	    <blockquote class="blockquote">"<slot></slot>"</blockquote>
+	    <blockquote class="blockquote">&#8220;<slot></slot>&#8221;</blockquote>
 		<blockquote class="blockquote-footer text-right"><cite>QURAN {{ reference ? showReference() : '' | capitalize }}</cite></blockquote>
     </div>
 </template>
