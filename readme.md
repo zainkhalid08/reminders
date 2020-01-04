@@ -179,28 +179,20 @@ Components
 # NPM
 npm run production
 
+# EXTRA
+            // also validate that ref is valid in content's ayah 
 # Options
 
 BEFORE DEPLOYMENT
-*system to add reference to ayah eg (quran - baqrah:1)
-*system to add reference to hadith (hadith - muslim)
-plan
-	done. make seeder for surahs
-	make component for ref... 2:4 (means surah 2 and ayah 4)
-	2:5 
-		while setting
-			search for 2:5 and replace with baqrah:5.
-		while getting
-			search for 2:5 and replace with baqrah:5.
-
-# EXTRA
-            // also validate that ref is valid in content's ayah 
-
-		
-*meta description for seo
+*finalize urls
+	*friday-sermons
+	*friday-sermon/the-last-day/masjid-al-haram/1
+	*friday-sermon/1/the-last-day/masjid-al-haram This is good
+*mins read is also to be done.
 *makesure to rename assets as unique as it caused that access forbidden error. The link is accessable anyways so the point is that make sure that those directories arne't accessable.
 *store ayah and hadith in db.(i can show a trending or a reminder ayah/hadith and then show that post...)
 *don't reveal the id.
+*meta description for seo
 
 -
 CUSTOM TEXTAREA
@@ -237,3 +229,13 @@ DONE
 *fix new location,speaker creation. DONE
 *make template for hadith, ayah, fact or so. DONE
 
+*system to add reference to ayah eg (quran - baqrah:1)
+*system to add reference to hadith (hadith - muslim)
+plan
+	done. make seeder for surahs
+	make component for ref... 2:4 (means surah 2 and ayah 4)
+	2:5 
+		while setting
+			search for 2:5 and replace with baqrah:5.
+		while getting
+			search for 2:5 and replace with baqrah:5.

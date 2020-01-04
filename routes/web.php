@@ -1,6 +1,6 @@
 <?php
 
-use App\Surah;
+// use App\Surah;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +13,8 @@ use App\Surah;
 |
 */
 
-Route::get('/play', function(){
+Route::get('/play/{post}/{slug}', function($post, $slug){
+	echo "it came in $post $slug";
 // 	$needle = '</ayah>';
 
 // 	//no tags
@@ -29,11 +30,11 @@ Route::get('/play', function(){
 // 	//1 < tags present
 // 	$content = '<ayah>loremd d d d d  d d (quran)</ayah><ayah>dont get this</ayah>'; // returns "loremd d d d d  d d (quran)" NOTE THIS, ONLY FIRST OCCURANCE IS CAPTURED
 
-    $surahs = Surah::all();
-    $i = 1;
-    foreach ($surahs as $surah) {
-    	echo '["id" => '.$i++.', "name" => "'.$surah->name.'", "english" => "'.$surah->english.'", "ayahs" => "'.$surah->ayahs.'"],'.'<br>';
-    }
+    // $surahs = Surah::all();
+    // $i = 1;
+    // foreach ($surahs as $surah) {
+    // 	echo '["id" => '.$i++.', "name" => "'.$surah->name.'", "english" => "'.$surah->english.'", "ayahs" => "'.$surah->ayahs.'"],'.'<br>';
+    // }
 
 });
 
@@ -43,6 +44,7 @@ Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(
 	Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 	Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 	Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+	Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
 	Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
 	Route::get('post/create', 'AdminPostController@create')->name('post.create');
 	Route::post('post', 'AdminPostController@store')->name('post.store');
