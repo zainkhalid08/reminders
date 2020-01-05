@@ -2,11 +2,8 @@
 @use 'bootstrap'; 
 @use 'fontawesome'; 
 
-// Theme
-@use 'cleanblog'; // this theme
-
 // Fonts
 @use 'fonts';
 
-// Variables
-// @use 'variables';
+// Theme
+@use 'cleanblog'; // this theme
