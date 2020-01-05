@@ -8,13 +8,9 @@ window._ = require('lodash');
 
 try {
     window.Popper = require('popper.js').default;
-    // window.$ = window.jQuery = require('jquery');
-	// require('./jquerymin');
-	// require('./bootstrapbundlemin');
-	// require('./cleanblogmin');
+    window.$ = window.jQuery = require('jquery');
 
-
-    // require('bootstrap');
+    require('bootstrap');
 } catch (e) {}
 
 /**

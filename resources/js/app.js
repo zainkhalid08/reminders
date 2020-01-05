@@ -5,9 +5,6 @@
  */
 
 // require('./bootstrap');
-	require('./jquerymin');
-	require('./bootstrapbundlemin');
-	require('./cleanblogmin');
 
 window.Vue = require('vue');
 
