@@ -30,11 +30,11 @@
           <p>Nothing posted just yet.</p>
         @endforelse
         
-        <!-- Pager -->
-        @if($total > count($posts) )
         <div class="clearfix">
           <a class="btn btn-primary float-right" href="{{ route('post.index') }}">Older Posts &rarr;</a>
         </div>
+        <!-- Pager -->
+        @if($total > count($posts) )
         @endif
       </div>
     </div>

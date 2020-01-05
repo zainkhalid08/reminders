@@ -1,8 +1,12 @@
+// Vendors
+@use 'bootstrap'; 
+@use 'fontawesome'; 
+
+// Theme
+@use 'cleanblog'; // this theme
+
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@use 'fonts';
 
 // Variables
-@import 'variables';
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// @use 'variables';
