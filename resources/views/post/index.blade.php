@@ -4,7 +4,7 @@
 
 @include('partials.header')
 
-<!-- Main Content -->
+{{-- Main Content --}}
 <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
@@ -14,9 +14,9 @@
               <h2 class="post-title">
                 {!! $post->title() !!} @if($post->isFitToBeNew()) <span class="badge badge-primary">New</span> @endif  
               </h2>
-              <!-- <h3 class="post-subtitle">
+              {{-- <h3 class="post-subtitle">
                 Problems look mighty small from 150 miles up
-              </h3> -->
+              </h3> --}}
             </a>
             <p class="post-meta">{{ $post->meta() }}</p>
           </div>
@@ -27,5 +27,4 @@
       </div>
     </div>
 </div> 
-
 @endsection

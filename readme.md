@@ -1,3 +1,7 @@
+BEFORE DEPLOYMENT
+*makesure to rename assets as unique as it caused that access forbidden error. The link is accessable anyways so the point is that make sure that those directories arne't accessable. FIRST WE'LL GO FOR staging.remindersforgood.com and then...
+*when you have the first blog then set description of meta in welcome.blade
+*store ayah and hadith in db.(i can show a trending or a reminder ayah/hadith and then show that post...)
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
@@ -186,10 +190,6 @@ npm run production
             // also validate that ref is valid in content's ayah 
 # Options
 
-BEFORE DEPLOYMENT
-*makesure to rename assets as unique as it caused that access forbidden error. The link is accessable anyways so the point is that make sure that those directories arne't accessable. FIRST WE'LL GO FOR staging.remindersforgood.com and then...
-*store ayah and hadith in db.(i can show a trending or a reminder ayah/hadith and then show that post...)
-*meta description for seo
 
 -
 CUSTOM TEXTAREA
@@ -243,3 +243,5 @@ plan
 	*friday-sermon/1/the-last-day/masjid-al-haram This is good
 *mins read is also to be done.
 *don't reveal the id. WE WILL REVEAL FOR USERS TO SEE ALL POSTS
+*minify css js and vue in production
+*meta description for seo

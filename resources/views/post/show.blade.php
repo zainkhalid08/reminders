@@ -5,7 +5,7 @@
 @endsection
 
 @section('header-and-main-content')
-<!-- Page Header -->
+{{-- Page Header --}}
 <header class="masthead" style="background-image: url('{{ asset('img/home-bg.jpg') }}')">
   <div class="overlay"></div>
   <div class="container">
@@ -21,7 +21,7 @@
   </div>
 </header>
  
-<!-- Post Content -->
+{{-- Post Content --}}
 <article>
   <div class="container">
     <div class="row">
@@ -30,11 +30,9 @@
           <iframe width="560" height="315" src="{{ $post->video_src }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <span class="caption text-muted">© Rights of the audio belong to <a href="http://www.haramain.com/app" target="_blank">Haramain Recordings</a></span>
-
         <div id="app">
          {!! $post->content !!}
         </div>
-        
         <p> 
           @forelse($post->tags as $tag)
             {{-- <span class="badge badge-pill badge-info">{{ $tag->name }}</span> --}}
@@ -42,11 +40,8 @@
            <p>No tags</p>
           @endforelse
         </p>
-
       </div>
     </div>
   </div>
 </article>
-
-
 @endsection
