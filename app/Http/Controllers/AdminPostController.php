@@ -223,6 +223,7 @@ class AdminPostController extends Controller
      //    }
 
     	// Update Or Create
+        // dd($request->all());
     	if ($isFromUpdate) {
 	    	$post->update([
 	        	'title' => $request['title'],
@@ -231,6 +232,8 @@ class AdminPostController extends Controller
 	        	'date' => $request['date'],
 	        	'video_src' => $request['video_src'],
 	        	'content' => $request['content'],
+                'mins_read' => $request['mins_read'],
+                'meta' => $request['meta'],
 	        	'user_id' => auth()->id(),
 	    	]);    	
             ProcessPostContent::dispatch($post)/*->delay(now()->addMinutes(1))*/;
@@ -243,6 +246,8 @@ class AdminPostController extends Controller
 	        	'date' => $request['date'],
 	        	'video_src' => $request['video_src'],
 	        	'content' => $request['content'],
+                'mins_read' => $request['mins_read'],
+                'meta' => $request['meta'],
 	        	'user_id' => auth()->id(),
 	        ]);
             ProcessPostContent::dispatch($post)->delay(now()->addMinutes(1));

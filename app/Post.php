@@ -29,6 +29,7 @@ class Post extends Model
         'video_src',
         'image_src',
         'mins_read',
+        'meta',
         'user_id',
         'published_at',
     ];
@@ -43,6 +44,7 @@ class Post extends Model
         'speaker_id' => 'integer',
         'location_id' => 'integer',
         'user_id' => 'integer',
+        'meta' => 'array',
     ];
 
     /**
@@ -88,5 +90,38 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class, 'post_tags');
     }
+
+    /**
+     * Set the title for the post
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = strtoupper($value);
+    }
+
+    /**
+     * Set the meta for the post
+     *
+     * @param  string  $value
+     * @return void
+     */
+    // public function setMetaAttribute($value)
+    // {
+    //     $this->attributes['meta'] = json_encode($value);
+    // }    
+
+    /**
+     * Get the meta for the post
+     *
+     * @param  string  $value
+     * @return void
+     */
+    // public function getMetaAttribute($value)
+    // {
+    //     return json_decode($value);
+    // }    
 
 }

@@ -56,5 +56,9 @@ Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(
 
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
-Route::resource('post', 'PostController')->only('index', 'store', 'show');
+Route::get('friday-sermons', 'PostController@index')->name('post.index'); 
+
+// title and location are kept optional just so the user can access different posts just by changing the number
+Route::get('friday-sermon/{post}/{title?}/{location?}', 'PostController@show')->name('post.show'); 
+
 

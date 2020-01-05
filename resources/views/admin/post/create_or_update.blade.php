@@ -57,7 +57,7 @@
                     </div>
                     <h4>Video</h4>
                     <div class="text-center">
-                      <input type="text" name="video_src" style="width: 100%;" placeholder="https://www.youtube.com/embed/" value="{{ isset($post) ? $post->video_src : old('video_src') }}">
+                      <input type="text" name="video_src" style="width: 100%;" placeholder="https://www.youtube.com/embed/" value="{{ isset($post) ? $post->video_src : old('video_src', 'https://www.youtube.com/embed/') }}">
                       @component('components.error', ['field' => 'video_src'])
                       @endcomponent
                     </div>
@@ -67,11 +67,40 @@
                       @component('components.error', ['field' => 'tags'])
                       @endcomponent
                     </div>
+                    <div>
+                        
+                        *speaker comments in {{'<p></p>'}} <br>
+                        *ayah in {{'<ayah ref="2:155"></ayah>'}} <br>
+                        *hadith in {{'<hadith ref="muslim"></hadith>'}}
+                      
+                    </div>
                     <h4>Content</h4>
                     <div class="text-center">
                       <textarea name="content" style="width: 100%;" rows="15" placeholder="Type here..." >{{ isset($post) ? $post->content : old('content') }}</textarea>
                       @component('components.error', ['field' => 'content'])
                       @endcomponent
+                    </div>
+                    <h4>Mins Read</h4>
+                    <div class="text-center">
+                      <input type="number" name="mins_read" min="1" style="width: 100%;" placeholder="1" value="{{ isset($post) ? $post->mins_read : old('mins_read') }}">
+                      @component('components.error', ['field' => 'mins_read'])
+                      @endcomponent
+                    </div>
+                    <h4>Meta Description</h4>
+                     {{-- dd($post->meta) --}}
+                    <div class="text-center">
+                      <input type="text" name="meta[description]" style="width: 100%;" placeholder="About this post..." value="{{ isset($post) ? $post->meta['description'] : old('meta[description]') }}">
+                      @component('components.error', ['field' => 'meta[description]'])
+                      @endcomponent
+                    </div>
+                    <h4>Meta Keywords</h4>
+                    <div class="text-center">
+                      <input type="text" name="meta[keywords]" style="width: 100%;" placeholder="tags, for, this, post..." value="{{ isset($post) ? $post->meta['keywords'] : old('meta[keywords]') }}">
+                      @component('components.error', ['field' => 'meta[keywords]'])
+                      @endcomponent
+                    </div>
+
+                    <div class="text-center">
                       <button type="button" class="btn btn-primary" style="margin-top: 2%;" onclick="event.preventDefault();
                                                                                                     document.getElementById('post-creation-or-updation-form').submit();">{{ $createOrUpdate }}</button>
                     </div>
@@ -98,4 +127,5 @@
   {{-- Autocomplete --}}
   <script src="{{ asset('admin/js/autocomplete/jquery.easy-autocomplete.min.js') }}"></script>
   @include('admin.scripts.create')
+
 @endsection

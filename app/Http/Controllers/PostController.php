@@ -21,21 +21,6 @@ class PostController extends Controller
     }
 
     /**
-     * @param \App\Http\Requests\PostStoreRequest $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(PostStoreRequest $request)
-    {
-        $post = Post::create($request->all());
-
-        // event(new NewPost($post));
-
-        $request->session()->flash('post.title', $post->title);
-
-        return redirect()->route('post.index');
-    }
-
-    /**
      * @param \Illuminate\Http\Request $request
      * @param \App\Post $post
      * @return \Illuminate\Http\Response

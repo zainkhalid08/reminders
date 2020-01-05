@@ -2,6 +2,8 @@
 
 namespace App\Traits;
 
+use Illuminate\Support\Str;
+
 // use Illuminate\Support\Carbon;
 
 trait PostViewHelper
@@ -56,6 +58,28 @@ trait PostViewHelper
     }
 
     /**
+     * Returns well crafted subheading having imp info of the post
+     * eg speaker, location, mins read etc
+     * 
+     * @return string
+     */
+    public function meta()
+    {
+      $separator = ' | ';
+
+      $minsRead = $this->mins_read ? $this->mins_read.' mins read approx' : '';
+      
+      $arrangement = [
+        $minsRead,
+        $this->speaker->name,
+        $this->readableDate(),
+        $this->location->name,
+      ];
+
+      return implode($separator, $arrangement);
+    }    
+
+    /**
      * Tells if the post is from a certain location 
      * 
      * @param  string 
@@ -65,4 +89,23 @@ trait PostViewHelper
     {
       return $this->location->name == $locationName;
     }
+
+    /**
+     * Returns the url for post.show in a seoed maner
+     * 
+     * @param  string route name
+     * @return string
+     */
+    public function seoRoute($name) : string
+    {
+      $delimiter = '-';
+      $title = Str::slug($this->title, $delimiter);
+      $location = Str::slug($this->location->name, $delimiter);
+
+      if ($name == 'post.show') {
+        return route('post.show', ['post' => $this->id, 'title' => $title, 'location' => $location]);
+      } 
+
+    }
+
 }

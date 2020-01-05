@@ -74,10 +74,9 @@ The Laravel framework is open-source software licensed under the [MIT license](h
 # Reminders
 <i>last updated on 30th Dec 2019</i>
 
-After ensureing settings of env especially db certs
+! After ensureing settings of env especially db certs etc
 
 <code>php artisan fresh:install:once</code>
-DO NOT SEED PERHAPS IN FRESH:INSTALL:ONCE
 
 # Admin
 
@@ -179,19 +178,17 @@ Components
 # NPM
 npm run production
 
+# CODE
+1. views/partials : where front end partials are kept
+2. the way we want the text to be displayed for visitors, we'll store the text in that way in db.(insead of getting in that way-less loadtime.)
+
 # EXTRA
             // also validate that ref is valid in content's ayah 
 # Options
 
 BEFORE DEPLOYMENT
-*finalize urls
-	*friday-sermons
-	*friday-sermon/the-last-day/masjid-al-haram/1
-	*friday-sermon/1/the-last-day/masjid-al-haram This is good
-*mins read is also to be done.
-*makesure to rename assets as unique as it caused that access forbidden error. The link is accessable anyways so the point is that make sure that those directories arne't accessable.
+*makesure to rename assets as unique as it caused that access forbidden error. The link is accessable anyways so the point is that make sure that those directories arne't accessable. FIRST WE'LL GO FOR staging.remindersforgood.com and then...
 *store ayah and hadith in db.(i can show a trending or a reminder ayah/hadith and then show that post...)
-*don't reveal the id.
 *meta description for seo
 
 -
@@ -239,3 +236,10 @@ plan
 			search for 2:5 and replace with baqrah:5.
 		while getting
 			search for 2:5 and replace with baqrah:5.
+
+*finalize urls
+	*friday-sermons
+	*friday-sermon/the-last-day/masjid-al-haram/1
+	*friday-sermon/1/the-last-day/masjid-al-haram This is good
+*mins read is also to be done.
+*don't reveal the id. WE WILL REVEAL FOR USERS TO SEE ALL POSTS

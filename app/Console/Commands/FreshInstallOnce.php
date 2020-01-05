@@ -87,7 +87,7 @@ class FreshInstallOnce extends Command
         // 3
         if ($result){ // exists
             $result = $this->call('migrate', [
-                '--seed' => true,
+                // '--seed' => true, // uncomment this only if you want to seed(not in production as it has fake data)
             ]);
         } 
 

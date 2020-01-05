@@ -24,4 +24,15 @@ class Tag extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+    /**
+     * Set the tag's name.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = strtolower($value);
+    }
 }

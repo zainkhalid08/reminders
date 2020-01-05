@@ -23,4 +23,16 @@ class Location extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+    /**
+     * Set the location's  name.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = ucwords($value);
+    }
+
 }

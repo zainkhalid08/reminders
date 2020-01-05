@@ -33,6 +33,8 @@ class PostRequest extends FormRequest
             'video_src' => 'required|string|url', // eg https://www.youtube.com/embed/1w5dwdblh58
             'tags' => 'required|string',
             'content' => 'required|string|min:10',
+            'mins_read' => 'required|numeric|min:1',
+            'meta' => 'nullable|array',
         ];
     }
 
