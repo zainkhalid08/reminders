@@ -86,6 +86,11 @@ class Post extends Model
         return $this->published_at = now();
     }
 
+    public function unpublish() 
+    {
+        return $this->published_at = null;
+    }
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'post_tags');

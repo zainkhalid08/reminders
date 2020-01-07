@@ -23,7 +23,7 @@ class ExtractAyah implements ShouldQueue
      *
      * @var string
      */
-    const AYAH_STARTING_DELIMITER_FOREVER = '<ayah>';
+    const AYAH_STARTING_DELIMITER_FOREVER = '"ayah>';
 
     /**
      * The ending delimiter of ayah 
@@ -32,6 +32,22 @@ class ExtractAyah implements ShouldQueue
      * @var string
      */
     const AYAH_ENDING_DELIMITER_FOREVER = '</ayah>';
+
+    /**
+     * The starting delimiter of AYAH reference 
+     * used when creating a post.
+     *
+     * @var string
+     */
+    const AYAH_REF_STARTING_DELIMITER_FOREVER = 'ayah="';
+
+    /**
+     * The ending delimiter of AYAH 
+     * used when creating a post.
+     *
+     * @var string
+     */
+    const AYAH_REF_ENDING_DELIMITER_FOREVER = '"ayah>';
 
     /**
      * 
@@ -54,21 +70,23 @@ class ExtractAyah implements ShouldQueue
         $post = $this->post;
 
         $content = $post->content;
+        // dd($content);
         $ayahTexts = $this->extractSubcontentFromBetween($content, static::AYAH_STARTING_DELIMITER_FOREVER, static::AYAH_ENDING_DELIMITER_FOREVER);
-        info(json_encode($ayahTexts));
-        foreach ($ayahTexts as $text) {
+        // dd($ayahTexts);
+        $ayahRefs = $this->extractSubcontentFromBetween($content, static::AYAH_REF_STARTING_DELIMITER_FOREVER, static::AYAH_REF_ENDING_DELIMITER_FOREVER);
+        // dd($ayahRefs);
+
+        foreach ($ayahTexts as $ayahNumber => $text) {
             // search for similarity in db
                 // if there is :don't do anything
                 // if there isn't : create in db.
+            $isNotPresentPerhaps = true;
             if (Ayah::count()) {
-                $isNotPresentPerhaps = true;
-                $i = 1;
 
                 $ayahs = Ayah::all();
                 foreach ($ayahs as $ayah) {
 
                     // dd($ayah->id);
-                    echo $i++;
                     if ($this->areQuiteSimilar($ayah->content, $text, $percentage)) {
                         $isNotPresentPerhaps = false;
                         break;
@@ -79,37 +97,48 @@ class ExtractAyah implements ShouldQueue
                 
                 if ($isNotPresentPerhaps) {
 
-                    $attributes = [
-                        'content' => $text,
-                        'post_id' => $post->id,
-                    ];
-
-                    $this->createAyah($attributes);
+                    $this->createAyah($text, $post, $ayahRefs[$ayahNumber]);
                 }
-                        // dd($ayah->content, $text, $percentage);
-
+                // dd('h');
 
             } else {
 
-                $attributes = [
-                    'content' => $text,
-                    'post_id' => $post->id,
-                ];
-
-                $this->createAyah($attributes);
+                // dd($ayahRefs);
+                $this->createAyah($text, $post, $ayahRefs[$ayahNumber]);
 
             }
 
         }
     }
 
-    protected function createAyah($attributes)
+    /**
+     * Creates Ayah
+     * 
+     * @param  string $text content
+     * @param  \App\Post $post 
+     * @param  string $reference
+     * 
+     * @return \App\Ayah
+     */
+    protected function createAyah($text, $post, $reference)
     {
-        $htmlTagFreeContent = $this->removeHtmlTags($attributes['content']);
-        return  Ayah::create([
-                    'content' => $htmlTagFreeContent,
-                    'post_id' => $attributes['post_id'],
-                ]);
+
+        $reference = explode(':', $reference);
+        // dd($reference);
+
+        $htmlTagFreeContent = $this->removeHtmlTags($text);
+
+        $exists = Ayah::where('surah', $reference[0])->where('ayah', $reference[1])->exists();
+
+        if (! $exists) {
+            return  Ayah::create([
+                        'content' => $htmlTagFreeContent,
+                        'post_id' => $post->id,
+                        'surah' => $reference[0],
+                        'ayah' => $reference[1],
+                    ]);
+        }
+
     }
 
 }

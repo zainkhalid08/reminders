@@ -45,7 +45,7 @@ a:focus, a:hover {
 
 blockquote {
   font-style: italic;
-  color: #868e96;
+  color: $blockquote;
 }
 
 .section-heading {
@@ -296,7 +296,7 @@ header.masthead .post-heading .meta a {
   font-size: 18px;
   font-style: italic;
   margin-top: 0;
-  color: #868e96;
+  color: $post-meta;
 }
 
 .post-preview > .post-meta > a {

@@ -69,9 +69,14 @@
                     </div>
                     <div>
                         
+                        *ayah in {{'<ayah ayah="2:155"ayah></ayah>'}} <br>
+                        *hadith in {{'<hadith hadith="muslim"hadith></hadith>'}} <br>
                         *speaker comments in {{'<p></p>'}} <br>
-                        *ayah in {{'<ayah ref="2:155"></ayah>'}} <br>
-                        *hadith in {{'<hadith ref="muslim"></hadith>'}}
+                        *to bold {{'<b></b>'}} <br>
+
+                        NOTE: NO spaces between "> of hadith
+                              ref="" use double quotes
+                              starting be as is without any space ref="
                       
                     </div>
                     <h4>Content</h4>

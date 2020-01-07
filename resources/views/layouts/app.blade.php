@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#317EFB"/>
     @yield('head')
     <meta name="author" content="remindersforgood@gmail.com">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -34,7 +35,7 @@
     <footer>
         <div class="container">
           <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
+            <!-- <div class="col-lg-8 col-md-10 mx-auto"> -->
               {{-- Social Logos --}}
               {{-- <ul class="list-inline text-center">
                 <li class="list-inline-item">
@@ -62,8 +63,14 @@
                   </a>
                 </li>
               </ul> --}}
-              <p class="copyright text-muted">Reminders For Good - {{date('Y')}}</p>
-            </div>
+              <!-- <p class="copyright text-muted">Reminders For Good - {{date('Y')}}</p> -->
+              <div class="col-md-6">
+                <p class="copyright text-muted">Reminders For Good - {{date('Y')}}</p>
+              </div>
+              <div class="col-md-6">
+                <p class="copyright text-muted">Reminders For Good - {{date('Y')}}</p>
+              </div>
+            <!-- </div> -->
           </div>
         </div>
     </footer>

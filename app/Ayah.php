@@ -11,5 +11,5 @@ class Ayah extends Model
      *
      * @var array
      */
-    protected $fillable = ['content', 'post_id'];
+    protected $fillable = ['content', 'post_id', 'surah', 'ayah'];
 }

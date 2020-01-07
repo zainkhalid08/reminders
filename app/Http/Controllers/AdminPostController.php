@@ -25,7 +25,7 @@ class AdminPostController extends Controller
      */
     public function index()
     {
-    	$posts = Post::latest()->get();
+    	$posts = Post::latest('updated_at')->get();
     	// dd($posts->count());
         return view('admin.post.index', ['posts' => $posts]);
     }
@@ -133,95 +133,6 @@ class AdminPostController extends Controller
 
         $speaker = Speaker::updateOrCreate($attributes);        
 
-        // echo "test speaker";
-        // dd($speaker);
-            
-    	// Location
-    	// $location = Location::where('name', $request['location']);
-     //    if ($isFromUpdate) {
-     //        // case no results
-     //        if ($location->count() == 1) {
-     //            $location = $location->first();
-     //            $location->update([
-     //                'name' => $request['location'],
-     //            ]);  
-
-     //        // case more than 0 results or less than 0
-     //        } elseif ($location->count() == 0) {
-     //            $location = Location::create([
-     //                'name' => $request['location'],
-     //            ]);
-     //        } else {
-     //            $response['failed'] = true;
-     //            $response['entity'] = 'location';
-     //            return $response;
-     //        }           
-
-     //    } else {
-
-     //        // case no results
-     //        if ($location->count() == 0) {
-     //            $location = Location::create([
-     //                'name' => $request['location'],
-     //            ]);
-
-     //        // case more than 0 results or less than 0
-     //        } elseif ($location->count() == 1) {
-     //            $location = $location->first();
-     //            // dd($location);
-     //        } else { // duplicate or < 0
-     //            $response['failed'] = true;
-     //            $response['entity'] = 'location';
-     //            return $response;
-     //        }
-     //    }
-
-        // dd($location);
-    	// Speaker
-    	// $speaker = Speaker::where('name', $request['speaker']);
-    	// if ($isFromUpdate) {
-     //        // case no results
-     //        if ($speaker->count() == 1) {
-     //            // dd($speaker);
-     //            $speaker = $speaker->first();
-     //            $speaker->update([
-     //                'name' => $request['speaker'],
-     //                'location_id' => $location->id,
-     //            ]);  
-
-     //        // case more than 0 results or less than 0
-     //        } elseif ($speaker->count() == 0) {
-     //            $speaker = Speaker::create([
-     //                'name' => $request['speaker'],
-     //                'location_id' => $location->id,
-     //            ]);
-     //        } else {
-     //            $response['failed'] = true;
-     //            $response['entity'] = 'speaker';
-     //        }           
-
-     //    } else {
-
-     //        // dd($location);
-     //        // case no results
-     //        if ($speaker->count() == 0) {
-     //            $speaker = Speaker::create([
-     //                'name' => $request['speaker'],
-     //                'location_id' => $location->id,
-     //            ]);
-     //            // dd($location);
-
-     //            // dd($speaker);
-     //        } elseif ($speaker->count() == 1) {
-     //            // dd($speaker);
-     //            $speaker = $speaker->first();
-     //        } else { // duplicate or < 0
-     //            $response['failed'] = true;
-     //            $response['entity'] = 'speaker';
-     //            return $response;
-     //        }
-     //    }
-
     	// Update Or Create
         // dd($request->all());
     	if ($isFromUpdate) {
@@ -235,8 +146,9 @@ class AdminPostController extends Controller
                 'mins_read' => $request['mins_read'],
                 'meta' => $request['meta'],
 	        	'user_id' => auth()->id(),
+                'published_at' => $post->unpublish(),
 	    	]);    	
-            ProcessPostContent::dispatch($post)/*->delay(now()->addMinutes(1))*/;
+            ProcessPostContent::dispatch($post)/*->delay(now()->addMinutes(1))*/; // use delay when you have a queue driver setup
     	} else {
             // dd('hit');
     		$post = Post::create([
@@ -250,7 +162,7 @@ class AdminPostController extends Controller
                 'meta' => $request['meta'],
 	        	'user_id' => auth()->id(),
 	        ]);
-            ProcessPostContent::dispatch($post)->delay(now()->addMinutes(1));
+            ProcessPostContent::dispatch($post)/*->delay(now()->addMinutes(1))*/; // use delay when you have a queue driver setup
     	}
 
     	// Attache Tags

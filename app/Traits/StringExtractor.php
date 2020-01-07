@@ -2,6 +2,8 @@
 
 namespace App\Traits;
 
+use App\Surah;
+
 // use Illuminate\Support\Carbon;
 
 trait StringExtractor
@@ -16,13 +18,33 @@ trait StringExtractor
    */
   public function extractSubcontentFromBetween($content, $start, $end)
   {
-    $p1 = explode($start, $content);
-    $result = [];
-    for( $i=1; $i < count($p1); $i++ ){
-        $p2 = explode($end, $p1[$i]);
-        $result[] = $p2[0];
+
+    $contents = array();
+    $startLength = strlen($start);
+    $endLength = strlen($end);
+    $startFrom = $contentStart = $contentEnd = 0;
+    while (false !== ($contentStart = strpos($content, $start, $startFrom))) {
+      $contentStart += $startLength;
+      $contentEnd = strpos($content, $end, $contentStart);
+      if (false === $contentEnd) {
+        break;
+      }
+      $contents[] = substr($content, $contentStart, $contentEnd - $contentStart);
+      $startFrom = $contentEnd + $endLength;
     }
-    return $result;
+
+    return $contents;
+    
+    
+    // try 
+
+    // $p1 = explode($start, $content);
+    // $result = [];
+    // for( $i=1; $i < count($p1); $i++ ){
+    //     $p2 = explode($end, $p1[$i]);
+    //     $result[] = $p2[0];
+    // }
+    // return $result;
   }
 
   /**
@@ -53,5 +75,19 @@ trait StringExtractor
   {
     return strip_tags($content);
   }
+
+  /**
+   * Converts 2:44 to baqrah:44 
+   *  
+   * @param  string $reference eg. 2:44
+   * @return string eg. baqrah:44
+   */
+  public function surahNumberToName($reference) : string
+  {
+    $delimiter = ':';
+    $surahNumber = explode($delimiter, $reference); 
+    $surah = Surah::findOrFail($surahNumber[0]);
+    return $surah->name.$delimiter.$surahNumber[1]; 
+  }  
 
 }

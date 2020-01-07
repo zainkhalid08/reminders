@@ -12,11 +12,11 @@ const mix = require('laravel-mix');
  */
 
 
-mix.scripts([
-	'resources/js/vendors/jquery.js',
-	'resources/js/vendors/bootstrap.js',
-	'resources/js/vendors/cleanblog.js',
-], 'public/js/vendor.js');
+// mix.scripts([
+// 	'resources/js/vendors/jquery.js',
+// 	'resources/js/vendors/bootstrap.js',
+// 	'resources/js/vendors/cleanblog.js',
+// ], 'public/js/vendor.js');
 
 mix.js('resources/js/app.js', 'public/js') // has vue components, might need to extend so kept separate
    .sass('resources/sass/app.scss', 'public/css');

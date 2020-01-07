@@ -16,8 +16,11 @@ class CreateAyahsTable extends Migration
         Schema::create('ayahs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->longText('content');
+            $table->integer('surah');
+            $table->integer('ayah');
             $table->unsignedBigInteger('post_id');
 
+            $table->unique(['surah', 'ayah']);
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->timestamps();
         });

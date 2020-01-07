@@ -11,5 +11,5 @@ class Hadith extends Model
      *
      * @var array
      */
-    protected $fillable = ['content', 'post_id'];
+    protected $fillable = ['content', 'post_id', 'reference'];
 }

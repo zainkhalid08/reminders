@@ -16,6 +16,7 @@ class CreateHadithsTable extends Migration
         Schema::create('hadiths', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->longText('content');
+            $table->string('reference')->nullable();
             $table->unsignedBigInteger('post_id');
 
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
