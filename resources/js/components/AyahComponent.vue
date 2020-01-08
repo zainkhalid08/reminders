@@ -7,7 +7,7 @@
 
 <script>
     export default {
-        props: ['rfr'],
+        props: ['ayah'],
         methods : {
             showReference() {
                 return '('+ this.reference + ')';
@@ -22,7 +22,7 @@
         },
         data() {
             return {
-                reference : this.rfr,
+                reference : this.ayah,
             };
         }
     }

@@ -69,7 +69,7 @@
                     </div>
                     <div>
                         
-                        *ayah in {{'<ayah ayah="2:155"ayah></ayah>'}} <br>
+                        *ayah in {{'<ayah ayah="Al-Baqara:155"ayah></ayah>'}} <br>
                         *hadith in {{'<hadith hadith="muslim"hadith></hadith>'}} <br>
                         *speaker comments in {{'<p></p>'}} <br>
                         *to bold {{'<b></b>'}} <br>
@@ -77,11 +77,16 @@
                         NOTE: NO spaces between "> of hadith
                               ref="" use double quotes
                               starting be as is without any space ref="
+                              the surah name should be from that seeder class
                       
                     </div>
                     <h4>Content</h4>
+                    <button type="button" onclick="appendAyah()">ayah</button>
+                    <button type="button" onclick="appendHadith()">hadith</button>
+                    <button type="button" onclick="appendParagraph()">speaker's content</button>
+                    <button type="button" onclick="appendProphetsName()">Prophet Muhammad (صَلَّىٰ ٱللهُ عَلَيْهِ وَآلِهِ وَسَلَّمَ) </button>
                     <div class="text-center">
-                      <textarea name="content" style="width: 100%;" rows="15" placeholder="Type here..." >{{ isset($post) ? $post->content : old('content') }}</textarea>
+                      <textarea name="content" style="width: 100%;" rows="15" placeholder="Type here...">{{ isset($post) ? $post->content : old('content') }}</textarea>
                       @component('components.error', ['field' => 'content'])
                       @endcomponent
                     </div>
@@ -111,6 +116,12 @@
                     </div>
                   </form> <br>
 
+                  <h4>Surah Names</h4>
+                  @forelse($surahs as $surah)
+                    <span>{{ $surah->name }}, </span>
+                  @empty
+                  @endforelse
+
                   <div class="text-center">
                    <i>Say, "Whether you conceal what is in your breasts or reveal it, Allah knows it. And He knows that which is in the heavens and that which is on the earth. And Allah is over all things competent.</i><br>
                     <small>(Al-Imaran : 29)</small>
@@ -132,5 +143,45 @@
   {{-- Autocomplete --}}
   <script src="{{ asset('admin/js/autocomplete/jquery.easy-autocomplete.min.js') }}"></script>
   @include('admin.scripts.create')
+  <script>
+    function appendAyah(){
+      txt = '<ayah ayah=""ayah></ayah>';
+      endingTagLength = 13;
+      appendContent(txt, endingTagLength);
+    }
+
+    function appendHadith(){
+      txt = '<hadith hadith=""hadith></hadith>';
+      endingTagLength = 17;
+      appendContent(txt, endingTagLength);
+    }
+
+    function appendParagraph(){
+      txt = '<p></p>';
+      endingTagLength = 4;
+      appendContent(txt, endingTagLength);
+    }
+
+    function appendProphetsName(){
+      txt = '<span title="Peace And Blessings Be Upon Him">Prophet Muhammad (peace be upon him)</span>';
+      endingTagLength = 0;
+      appendContent(txt, endingTagLength);
+    }
+
+    /**
+     * Appends Content in textarea
+     * 
+     * @param  {string} content 
+     * @param  {int} lengthOfTheEndingTag using to bring focus in the center of the tags 
+     * @return {void}         
+     */
+    function appendContent(content, length){
+      var textarea = $("textarea");
+      textarea.val(textarea.val() + txt);
+      $(textarea).focus();
+      textarea[0].selectionStart = textarea.val().length - length;
+      textarea[0].selectionEnd = textarea.val().length - length;
+    }
+  </script>
 
 @endsection

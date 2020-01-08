@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Ayah;
 use App\Post;
+use App\Surah;
 use App\Traits\StringExtractor;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -125,17 +126,21 @@ class ExtractAyah implements ShouldQueue
 
         $reference = explode(':', $reference);
         // dd($reference);
+        $surahName = $reference[0];
+        $ayahNumber = $reference[1];
 
         $htmlTagFreeContent = $this->removeHtmlTags($text);
 
-        $exists = Ayah::where('surah', $reference[0])->where('ayah', $reference[1])->exists();
+        $surah = Surah::where('name', $surahName)->first();
+
+        $exists = Ayah::where('surah', $surah->id)->where('ayah', $ayahNumber)->exists();
 
         if (! $exists) {
             return  Ayah::create([
                         'content' => $htmlTagFreeContent,
                         'post_id' => $post->id,
-                        'surah' => $reference[0],
-                        'ayah' => $reference[1],
+                        'surah' => $surah->id,
+                        'ayah' => $ayahNumber,
                     ]);
         }
 

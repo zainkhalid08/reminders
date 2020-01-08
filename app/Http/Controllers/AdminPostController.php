@@ -7,6 +7,7 @@ use App\Jobs\ProcessPostContent;
 use App\Location;
 use App\Post;
 use App\Speaker;
+use App\Surah;
 use App\Tag;
 use Illuminate\Http\Request;
 
@@ -37,11 +38,11 @@ class AdminPostController extends Controller
      */
     public function create()
     {
-        $tags = ''; $speakers = ''; $locations = ''; $createOrUpdate = 'create'; $formAction = route('admin.post.store'); $formMethod = 'POST'; 
+        $tags = ''; $speakers = ''; $locations = ''; $createOrUpdate = 'create'; $formAction = route('admin.post.store'); $formMethod = 'POST'; $surahs = ''; 
 
-        $this->getAllTagsSpeakersAndLocations($tags, $speakers, $locations);
+        $this->getAllTagsSpeakersAndLocations($tags, $speakers, $locations, $surahs);
 
-        return view('admin.post.create_or_update', compact('tags', 'speakers', 'locations', 'createOrUpdate', 'formAction', 'formMethod'));
+        return view('admin.post.create_or_update', compact('tags', 'speakers', 'locations', 'createOrUpdate', 'formAction', 'formMethod', 'surahs'));
     }
 
     /**
@@ -65,11 +66,11 @@ class AdminPostController extends Controller
 
     public function edit(Request $request, Post $post)
     {
-        $tags = ''; $speakers = ''; $locations = ''; $createOrUpdate = 'update'; $formAction = route('admin.post.update', $post->id); $formMethod = 'PUT';
+        $tags = ''; $speakers = ''; $locations = ''; $createOrUpdate = 'update'; $formAction = route('admin.post.update', $post->id); $formMethod = 'PUT'; $surahs = '';
 
-        $this->getAllTagsSpeakersAndLocations($tags, $speakers, $locations);
+        $this->getAllTagsSpeakersAndLocations($tags, $speakers, $locations, $surahs);
 
-        return view('admin.post.create_or_update', compact('tags', 'speakers', 'locations', 'createOrUpdate', 'formAction', 'formMethod', 'post'));
+        return view('admin.post.create_or_update', compact('tags', 'speakers', 'locations', 'createOrUpdate', 'formAction', 'formMethod', 'post', 'surahs'));
     }
 
     public function update(PostRequest $request, Post $post)
@@ -94,11 +95,12 @@ class AdminPostController extends Controller
     	return back();
     }
 
-    protected function getAllTagsSpeakersAndLocations(&$tags, &$speakers, &$locations)
+    protected function getAllTagsSpeakersAndLocations(&$tags, &$speakers, &$locations, &$surahs)
     {
         $tags = Tag::all();
         $speakers = Speaker::all();
         $locations = Location::all();
+        $surahs = Surah::all();
     }
 
     protected function storeOrUpdate($request, $post = '')

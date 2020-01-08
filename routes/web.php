@@ -13,8 +13,9 @@
 |
 */
 
-Route::get('/play/{post}/{slug}', function($post, $slug){
-	echo "it came in $post $slug";
+// Route::get('/play', function(){
+// 	abort(503);
+	// echo "it came in $post $slug";
 // 	$needle = '</ayah>';
 
 // 	//no tags
@@ -36,7 +37,7 @@ Route::get('/play/{post}/{slug}', function($post, $slug){
     // 	echo '["id" => '.$i++.', "name" => "'.$surah->name.'", "english" => "'.$surah->english.'", "ayahs" => "'.$surah->ayahs.'"],'.'<br>';
     // }
 
-});
+// });
 
 Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(function () {
 	Route::get('/', 'Auth\LoginController@showLoginForm')->name('login.view');
@@ -61,4 +62,5 @@ Route::get('friday-sermons', 'PostController@index')->name('post.index');
 // title and location are kept optional just so the user can access different posts just by changing the number
 Route::get('friday-sermon/{post}/{title?}/{location?}', 'PostController@show')->name('post.show'); 
 
-
+Route::get('/feedback', 'FeedbackController@create')->name('feedback');
+Route::post('/feedback', 'FeedbackController@store')->name('feedback.store');

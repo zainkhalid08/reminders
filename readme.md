@@ -97,6 +97,18 @@ Components
 		p | if the text shown is capitalized
 		p | if the text shown is surrounded in parenthesis
 
+Feedback
+	validation
+		name isn't required
+		email isn't required
+		message is required
+		message cannot exceed 700 chars
+		form is being repopulated if validation fails
+
+		when a feedback arrives, following is created in db 
+			name email message
+			mail is sent 
+			if any of the 3 quantity is presnet it is shown
 
 # CODE DOCUMENTATION
 1. views/partials : where front end partials are kept

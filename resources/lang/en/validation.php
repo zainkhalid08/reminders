@@ -129,9 +129,22 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'name' => [
+            'string' => 'Please enter string.',
         ],
+        'email' => [
+            'email' => 'Please enter a valid email. If you are willing to enter one.',
+            'string' => 'Please enter string.',
+        ],
+        'message' => [
+            'required' => 'Please enter a message.',
+            'string' => 'Please enter string.',
+            'max' => 'Please note the message cannot exceed :max characters.',
+        ],
+        'verification' => [
+            'in' => 'The answer is invalid, please try again.'
+        ],
+
     ],
 
     /*
