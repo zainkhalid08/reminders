@@ -46,7 +46,7 @@
                       Login
                     </button>
                     <div class="text-center">
-	                	<a class="small" href="{{ route('admin.password.request') }}">Forgot Password?</a>
+	                	{{-- <a class="small" href="{{ route('admin.password.request') }}">Forgot Password?</a> --}}
 	                </div>
                     <hr>
                   </form>

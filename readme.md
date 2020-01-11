@@ -18,6 +18,8 @@ hadith will come in <hadith rfr=""></hadith>
 # Limitations
 1. we can't update location or speaker names, just yet.
 2. don't upload masjid an nabawi sermons just yet as they are in urdu and is difficult to translate...
+3. no password reset for admin
+4. 
 
 # Supports
 1. HAVE TO BE TESTED there can be two speakers with same name but different locations 
@@ -109,6 +111,8 @@ Feedback
 			name email message
 			mail is sent 
 			if any of the 3 quantity is presnet it is shown
+AUTOMATED
+	* only mail sending and redirect back of feedback is left.
 
 # CODE DOCUMENTATION
 1. views/partials : where front end partials are kept
@@ -185,6 +189,7 @@ Make 1/2 file for both.
 10. Check for user's experience... Usability test.
 11. Check for any extra files in public
 12. check for any minifying the images just as lighthouse says...
+13. make sure not to have common to readable names for input fields as it would be clear that the names of db columns would be alike...just as google has jsname3Njeife8*
 
 *makesure to rename assets as unique as it caused that access forbidden error. The link is accessable anyways so the point is that make sure that those directories arne't accessable. FIRST WE'LL GO FOR staging.remindersforgood.com and then...
 *when you have the first blog then set description of meta in welcome.blade

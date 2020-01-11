@@ -34,7 +34,7 @@
       {{-- Older Posts Button --}}
       @if($total > count($posts) )
       <div class="clearfix">
-        <a class="btn btn-primary float-right" href="{{ route('post.index') }}">Older Posts &rarr;</a>
+        <a class="btn btn-primary float-right" href="{{ route('post.index') }}">Older Sermons &rarr;</a>
       </div>
       @endif
     </div>

@@ -58,6 +58,17 @@ trait PostViewHelper
     }
 
     /**
+     * For <title></title> as A Great Post
+     * 
+     * @return string
+     */
+    public function titleHtmlTag()
+    {
+      return ucwords(strtolower($this->title)).' | Reminders For Good';
+    }
+
+
+    /**
      * Returns well crafted subheading having imp info of the post
      * eg speaker, location, mins read etc
      * 

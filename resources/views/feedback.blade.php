@@ -4,6 +4,10 @@
   {{-- keep title as ucwords --}}
   <title>Blog On Friday Sermons Of Masjid Al Haram | Reminders For Good</title>
   <meta name="description" content="Blogs on friday sermons of masjid al haram updated every 2 weeks or earlier.">
+  
+  {{-- Notifications --}}
+  <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+
 @endsection
 
 @section('header-and-main-content')
@@ -27,11 +31,9 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <p>Fill out the form below to send a message. To contact anonymously just type in the message and send.</p>
-        <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
-        <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
-        <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-        <form id="contactForm" method="post" action="{{ route('feedback.store') }}">
+        <p>To send an anonymous feedback, skip name and email.</p>
+
+        <form method="post" action="{{ route('feedback.store') }}">
           @csrf
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
@@ -43,8 +45,8 @@
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
-              <label>Email Address</label>
-              <input type="email" name="email" class="form-control" placeholder="Email Address (optional)" value="{{ old('email') }}">
+              <label>Email</label>
+              <input type="email" name="email" class="form-control" placeholder="Email (optional)" value="{{ old('email') }}">
               @component('components.feedback_error', ['field' => 'email'])
               @endcomponent
             </div>
@@ -81,4 +83,11 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('bottom_scripts')
+
+{{-- Notifications --}}
+<script src="{{ asset('js/bootstrap-notify.min.js') }}"></script>
+@include('components.flash')
 @endsection

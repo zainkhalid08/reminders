@@ -133,6 +133,13 @@ class ExtractAyah implements ShouldQueue
 
         $surah = Surah::where('name', $surahName)->first();
 
+        if (is_null($surah)) {
+            $msg = 'used surah number instead of a name';
+            info('used surah number instead of a name');
+            die($msg);
+        }
+        // dd($surah);
+
         $exists = Ayah::where('surah', $surah->id)->where('ayah', $ayahNumber)->exists();
 
         if (! $exists) {

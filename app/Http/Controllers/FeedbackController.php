@@ -19,7 +19,6 @@ class FeedbackController extends Controller
         return view('feedback');
     }
 
-
     /**
      * Stored the feedback
      * 
@@ -35,9 +34,9 @@ class FeedbackController extends Controller
 
     	// send mail
     	Mail::to(config('admin.email'))->send(new FeedbackArrived($feedback));
-    	// flash message back
+        
     	// return (new FeedbackArrived($feedback))->render();
-    	return back();
+    	return back()->with('message', ['success', 'Your message has been sent. Thanks for the feedback.']);
     }
 
 }
