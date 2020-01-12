@@ -2,69 +2,85 @@
 
 namespace Tests\Feature;
 
-use App\Feedback;
-use App\Mail\FeedbackArrived;
+use App\Location;
 use App\Post;
+use App\Speaker;
+use App\Tag;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Mail;
-use Tests\Feature\Http\Requests\FeedbackTrait;
 use Tests\TestCase;
 
 class AdminPostControllerTest extends TestCase
 {
-    use 
-        RefreshDatabase, 
-        FeedbackTrait;
+    // use 
+    //     RefreshDatabase; 
 
-    // feedback is created
-    public function test_feedback_is_created_in_db()
+    public function validFields($overrides = [])
     {
-        $data = $this->validFields();
-        $response = $this->sendFeedback($data);
-
-        // $response->assertOk(); // THIS DIDN'T WORK
-
-        $feedback = Feedback::latest()->first();
-
-        $this->assertEquals($feedback->name, $data['name']);
-        $this->assertEquals($feedback->email, $data['email']);
-        $this->assertEquals($feedback->message, $data['message']);
-        // $this->seeInDatabase('feedbacks', $data);
+        return array_merge([
+            'title' => 'Last Day',
+            'speaker' => 'Sheikh Sudais',
+            'location' => 'Masjid Al Haram',
+            'date' => '2020-01-23',
+            'video_src' => 'https://www.youtube.com/embed/KJq08q7qfr4',
+            'content' => '<p>qiyamah, last day, quran, reality</p>',
+            'meta' => [
+                'description' => 'The last day of the world',
+                'keywords' => 'qiyamah, last day, quran, reality',
+            ],
+            'mins_read' => '3',
+            'tags' => 'qiyamah, last day, quran, reality',
+        ], $overrides);
     }
 
-    // mail is sent
-    // redirected back
+    protected function stringComparatorAssertion($first, $second)
+    {
+        return $this->assertEquals(strtolower($first), strtolower($second));
+    }
 
-    // /**
-    //  * A basic feature test example.
-    //  *
-    //  * @return void
-    //  */
-    // public function test_mail_is_sent()
-    // {
-    //     Mail::fake();
+    public function test_post_is_created_in_db()
+    {
+        $user = User::first();
 
-    //     $this->post( '/feedback', $this->validFields());
+        $data = $this->validFields();
 
-    //     // dd('her');
-    //      // Mail::assertNothingSent();
-    //     // Mail::assertSent(FeedbackArrived::class, function($mail) {
-    //     //     dd($mail);
-    //     // });
+        // $this->withoutExceptionHandling();
 
-    //     Mail::assertSent(FeedbackArrived::class);
-    //     // Mail::assertQueued(FeedbackArrived::class);
-    // }
+        $response = $this->actingAs($user)
+                         ->post(route('admin.post.store'), $data);        
 
-    // public function test_after_feedback_is_given_it_redirects_back()
-    // {
-    //     // REDIRECTED BACK
-    //     $this->withExceptionHandling();
-    //     $response = $this->post( '/feedback', $this->validFields());
+        $post = Post::latest()->first();
+        $this->stringComparatorAssertion($post->title, $data['title']);
+        $this->stringComparatorAssertion($post->date, $data['date'].' 00:00:00');
+        $this->stringComparatorAssertion($post->video_src, $data['video_src']);
+        $this->stringComparatorAssertion($post->content, $data['content']);
+        $this->stringComparatorAssertion($post->mins_read, $data['mins_read']);
 
-    //     $response->assertStatus(302);
-                
-    // }
+        $this->assertEquals(json_encode($post->meta), json_encode($data['meta']));
+
+
+        // speakers table
+        $speaker = Speaker::latest()->first();
+        $this->stringComparatorAssertion($speaker->name, $data['speaker']);
+
+        // locations table
+        $location = Location::latest()->first();
+        $this->stringComparatorAssertion($location->name, $data['location']);
+
+        // tags table
+        $tags = explode(',', $data['tags']);
+        foreach ($tags as $tag) {
+            $exists = Tag::where('name', $tag)->exists();
+            $this->assertEquals(true, $exists);
+        }
+
+        // post_tags table
+        $postTags = $post->tags->toArray();
+
+        for ($i = 0; $i < count($postTags); $i++) { 
+            $this->stringComparatorAssertion($postTags[$i]['name'], $tags[$i]);
+        }
+    }
 }

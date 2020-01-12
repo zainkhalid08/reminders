@@ -8,7 +8,8 @@
 
 @section('header-and-main-content')
 
-@include('partials.header')
+@component('partials.header', ['heading' => 'Blog On Friday Sermons', 'subheading' => 'Of Masjid Al Haram 🕋', 'imageSrc' => asset('img/home-bg.webp')])
+@endcomponent
 
 {{-- Main Content --}}
 <div class="container">
@@ -34,7 +35,7 @@
       {{-- Older Posts Button --}}
       @if($total > count($posts) )
       <div class="clearfix">
-        <a class="btn btn-primary float-right" href="{{ route('post.index') }}">Older Sermons &rarr;</a>
+        <a class="btn btn-primary float-right" href="{{ route('post.index') }}">Older Friday Sermons &rarr;</a>
       </div>
       @endif
     </div>

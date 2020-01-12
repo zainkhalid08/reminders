@@ -22,7 +22,7 @@ class AdminMiddleware
 
         // only /maker should be accessable all other should be 404
         // dd(auth()->check());
-        if ($this->doesntHaveCustomHeaders($request) || auth()->guest() && $this->isAForbiddenRoute($request) || auth()->check() && auth()->user()->cannotCreatePost()) {
+        if ( auth()->guest() && $this->isAForbiddenRoute($request) || auth()->check() && auth()->user()->cannotCreatePost() ) {
             abort(404);
         }
 
@@ -52,11 +52,6 @@ class AdminMiddleware
     public function isAForbiddenRoute($request) : bool
     {
         return ! in_array($request->route()->getName(), $this->allowedRoutes());
-    }
-
-    public function doesntHaveCustomHeaders($request)
-    {
-        return $request->header('fere') !== '222';
     }
 
 }

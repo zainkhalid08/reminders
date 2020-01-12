@@ -12,20 +12,8 @@
 
 @section('header-and-main-content')
 
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/contact-bg.jpg')">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="page-heading">
-            <h1>Feedback</h1>
-            <span class="subheading">Have something to say?</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+@component('partials.header', ['heading' => 'Feedback', 'subheading' => 'Have something to say?', 'imageSrc' => asset('img/contact-bg.jpg')])
+@endcomponent
 
   <!-- Main Content -->
   <div class="container">

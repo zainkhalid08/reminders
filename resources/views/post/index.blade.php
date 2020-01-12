@@ -1,8 +1,15 @@
 @extends('layouts.app')
 
+@section('head')
+  {{-- keep title as ucwords --}}
+  <title>Older Friday Sermons Of Masjid Al Haram | Reminders For Good</title>
+  <meta name="description" content="Blogs on friday sermons of masjid al haram updated every 2 weeks or earlier.">
+@endsection
+
 @section('header-and-main-content')
 
-@include('partials.header')
+@component('partials.header', ['heading' => 'Older Friday Sermons', 'subheading' => 'Of Masjid Al Haram 🕋', 'imageSrc' => asset('img/home-bg-o.jpg')])
+@endcomponent
 
 {{-- Main Content --}}
 <div class="container">
