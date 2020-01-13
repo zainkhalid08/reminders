@@ -13,9 +13,13 @@ class WelcomeController extends Controller
      */
     public function welcome(Request $request)
     {
+        $meta = [
+            'description' =>   'Older friday sermons of masjid al haram.',
+        ];
+
     	$publishedPosts = Post::published();
     	$posts = $publishedPosts->latest()->limit(config('post.welcome'))->get();
     	$total = $publishedPosts->count();
-	    return view('welcome', compact('posts', 'total'));
+	    return view('welcome', compact('posts', 'total', 'meta'));
     }
 }

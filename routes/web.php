@@ -34,6 +34,7 @@ Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(
 	Route::put('post/{post}/publish', 'AdminPostController@publish')->name('post.update.publish');
 });
 
+// Route::get('/', 'WelcomeController@welcome')->name('welcome')->middleware('cache.headers:private;max_age=36000'); // [1]
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
 Route::get('friday-sermons', 'PostController@index')->name('post.index'); 
@@ -43,3 +44,6 @@ Route::get('friday-sermon/{post}/{title?}/{location?}', 'PostController@show')->
 
 Route::get('/feedback', 'FeedbackController@create')->name('feedback');
 Route::post('/feedback', 'FeedbackController@store')->name('feedback.store');
+
+// REFERENCES: 
+// [1] : caching resource for 2678400s 1 month(31 days) https://developers.google.com/web/tools/lighthouse/audits/cache-policy?utm_source=lighthouse&utm_medium=devtools

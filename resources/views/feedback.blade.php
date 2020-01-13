@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('head')
-  {{-- keep title as ucwords --}}
-  <title>Blog On Friday Sermons Of Masjid Al Haram | Reminders For Good</title>
-  <meta name="description" content="Blogs on friday sermons of masjid al haram updated every 2 weeks or earlier.">
+
+{{-- keep title as ucwords --}}
+@component('components.seo', ['title' => 'Blog On Friday Sermons Of Masjid Al Haram', 'meta' => $meta])
+@endcomponent
+
 @endsection
 
 @section('header-and-main-content')

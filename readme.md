@@ -1,9 +1,21 @@
 ## Reminders
 <i>last updated on 30th Dec 2019</i>
 
+# Going to staging
+1. .env
+APP_ENV=staging
+APP_DEBUG=false
+
+# Going to production
+1. .env
+APP_ENV=production
+APP_DEBUG=false
+
 # Installation
 ! After ensureing settings of env especially db certs etc
 <code>php artisan fresh:install:once</code>
+
+
 
 ## SYSTEM FEATURES
 
@@ -115,9 +127,11 @@ Front End Tests
 2. 
 
 # CODE DOCUMENTATION
+ app envornments are local, staging (staging not STAGING)
 1. views/partials : where front end partials are kept
 2. the way we want the text to be displayed for visitors, we'll store the text in that way in db.(insead of getting in that way-less loadtime.)
 3. we are just using QUEUE_CONNECTION=sync for now as long as there is only one user who creates the post... (it might take some time in creation/updation but is worth perhaps)
+4. all title aria-label etc will be in lower case
 
 # TODOS
 
@@ -140,6 +154,7 @@ NOT YET/IDEAS
 *add rel and perhaps logo on welcome...
 *write tests for post update and what other things that are left...
 * the feedback image is a bit upper than others as the text written is only feedback
+*google audit (really a long work and an art)
 
 
 # CHECKLIST BEFORE DEPLOYMENT
@@ -147,21 +162,8 @@ NOT YET/IDEAS
 6. Final test for main features...
 *front end testing of post show is left... along with its responsivness
 17. makesure to rename assets as unique as it caused that access forbidden error. The link is accessable anyways so the point is that make sure that those directories arne't accessable. FIRST WE'LL GO FOR staging.remindersforgood.com and then...
-18. have to go to staging? then noindex meta...
 19. prepare one seeder for post... to have atleast one post...
-remove the new badge from post page, keep it just on home page or all
-google audit
-
-
-diff images OR same images allover -> Diff Pics ...
-remove new from post title...
-modify input field names...
-refactor backend...
-responsivness 'menu'...
-minify images...
-urls to be removed...
-remove extra files from public...
-minify css...
+Make fonts locallll  (test by disabling the internet) 
 
 # DONE
 *decide the header image

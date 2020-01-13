@@ -64,7 +64,7 @@ trait PostViewHelper
      */
     public function titleHtmlTag()
     {
-      return ucwords(strtolower($this->title)).' | Reminders For Good';
+      return ucwords(strtolower($this->title));
     }
 
 

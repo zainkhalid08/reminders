@@ -16,9 +16,13 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
+        $meta = [
+            'description' =>   'Older friday sermons of masjid al haram.',
+        ];
+
         $posts = Post::published()->latest()->get();
 
-        return view('post.index', compact('posts'));
+        return view('post.index', compact('posts', 'meta'));
     }
 
     /**

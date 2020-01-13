@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('head')
-@include('components.seo')
+
+@component('components.seo', ['title' => $post->titleHtmlTag(), 'meta' => $post->meta])
+@endcomponent
+
 @endsection
 
 @section('header-and-main-content')

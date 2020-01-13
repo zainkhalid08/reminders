@@ -16,7 +16,10 @@ class FeedbackController extends Controller
      */
     public function create()
     {
-        return view('feedback');
+        $meta = [
+            'description' =>   'Blogs on friday sermons of masjid al haram updated every 2 weeks or earlier.',
+        ];
+        return view('feedback', ['meta' => $meta]);
     }
 
     /**
