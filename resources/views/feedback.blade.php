@@ -8,7 +8,7 @@
 
 @section('header-and-main-content')
 
-@component('components.header', ['heading' => 'Feedback', 'subheading' => 'Have something to say?', 'imageSrc' => asset('img/contact-bg.webp')])
+@component('components.header', ['heading' => 'Feedback', 'subheading' => 'Have something to say?', 'imageSrc' => asset('img/feedback.webp')])
 @endcomponent
 
   <!-- Main Content -->
@@ -22,7 +22,7 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Name</label>
-              <input type="text" name="name" class="form-control" placeholder="Name (optional)"  value="{{ old('name') }}">
+              <input type="text" name="n3kIad3" class="form-control" placeholder="Name (optional)"  value="{{ old('name') }}">
               @component('components.feedback_error', ['field' => 'name'])
               @endcomponent
             </div>
@@ -30,7 +30,7 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Email</label>
-              <input type="email" name="email" class="form-control" placeholder="Email (optional)" value="{{ old('email') }}">
+              <input type="email" name="eaWDsk2" class="form-control" placeholder="Email (optional)" value="{{ old('email') }}">
               @component('components.feedback_error', ['field' => 'email'])
               @endcomponent
             </div>
@@ -45,7 +45,7 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Message</label>
-              <textarea rows="5" name="message" class="form-control" placeholder="Message (required)" required>{{ old('message') }}</textarea>
+              <textarea rows="5" name="mw2s8sJ" class="form-control" placeholder="Message (required)" required>{{ old('message') }}</textarea>
               @component('components.feedback_error', ['field' => 'message'])
               @endcomponent
             </div>
@@ -53,7 +53,7 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Five minus three equals?</label>
-              <input type="text" name="verification" class="form-control" placeholder="Five minus three equals? (required)" value="{{ old('verification') }}" required>
+              <input type="text" name="Vw82iwl" class="form-control" placeholder="Five minus three equals? (required)" value="{{ old('verification') }}" required>
               @component('components.feedback_error', ['field' => 'verification'])
               @endcomponent
             </div>

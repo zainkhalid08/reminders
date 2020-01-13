@@ -2,10 +2,10 @@
 
 @section('head')
   {{-- Autocomplete With Tagging --}}
-  <link href="{{ asset('admin/css/autocomplete/amsify.suggestags.css') }}" rel="stylesheet">
+  <link href="{{ asset('admnistratorassetsonly/css/autocomplete/amsify.suggestags.css') }}" rel="stylesheet">
 
   {{-- Autocomplete --}}
-  <link href="{{ asset('admin/css/autocomplete/easy-autocomplete.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('admnistratorassetsonly/css/autocomplete/easy-autocomplete.min.css') }}" rel="stylesheet">
 
 @endsection
 
@@ -138,10 +138,10 @@
 
 @section('page-script')
   {{-- Autocomplete With Tagging --}}
-  <script src="{{ asset('admin/js/autocomplete/jquery.amsify.suggestags.js') }}"></script>
+  <script src="{{ asset('admnistratorassetsonly/js/autocomplete/jquery.amsify.suggestags.js') }}"></script>
 
   {{-- Autocomplete --}}
-  <script src="{{ asset('admin/js/autocomplete/jquery.easy-autocomplete.min.js') }}"></script>
+  <script src="{{ asset('admnistratorassetsonly/js/autocomplete/jquery.easy-autocomplete.min.js') }}"></script>
   @include('admin.scripts.create')
   <script>
     function appendAyah(){

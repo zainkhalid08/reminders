@@ -1,18 +1,19 @@
 @if(Session::has('message'))
     <script type="text/javascript">
         jQuery(document).ready(function(){
-            bootstrapNotify('{{session('message')[0]}}','{{session('message')[1]}}');
+            bootstrapNotify('{{session('message')[0]}}', '{{session('message')[1]}}', '{{isset(session('message')[2]) ? session('message')[2] : 13000}}');
         });
-	    function bootstrapNotify(type, message) {
+	    function bootstrapNotify(type, message, delay = 13000) {
 
 		    switch (type) {
 		          case 'success':
 		              icon = "la-check-circle";
 		              title = "Success";
 		              break;
-		          case 'danger':
+		          case 'fail':
 		              icon = "la-times-circle";
 		              title = "Fail";
+		              type = "danger";
 		              break;
 		          case 'warning':
 		              icon = "la-exclamation-circle";
@@ -36,7 +37,7 @@
 			          align: "right" // horizontally
 			        },
 			        mouse_over: "pause", // don't fade on mouse hover
-			        delay: 13000, // 13s
+			        delay: delay, // 13s
 		    	}
 		    );
 	    }

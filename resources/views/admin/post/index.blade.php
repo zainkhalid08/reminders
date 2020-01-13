@@ -1,7 +1,7 @@
 @extends('admin.layouts.header_footer')
 
 @section('head')
-  <link href="{{ asset('admin/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('admnistratorassetsonly/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 @endsection
 
 @section('dashboard-content')
@@ -78,8 +78,8 @@
 @endsection
 
 @section('page-script')
-  <script src="{{ asset('admin/vendor/datatables/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('admin/fvendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-  <script src="{{ asset('admin/js/demo/datatables-demo.js') }}"></script>
+  <script src="{{ asset('admnistratorassetsonly/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('admnistratorassetsonly/fvendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset('admnistratorassetsonly/js/demo/datatables-demo.js') }}"></script>
 
 @endsection

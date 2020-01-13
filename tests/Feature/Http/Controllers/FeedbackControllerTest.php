@@ -28,9 +28,9 @@ class FeedbackControllerTest extends TestCase
 
         $feedback = Feedback::latest()->first();
 
-        $this->assertEquals($feedback->name, $data['name']);
-        $this->assertEquals($feedback->email, $data['email']);
-        $this->assertEquals($feedback->message, $data['message']);
+        $this->assertEquals($feedback->name, $data['n3kIad3']);
+        $this->assertEquals($feedback->email, $data['eaWDsk2']);
+        $this->assertEquals($feedback->message, $data['mw2s8sJ']);
         // $this->seeInDatabase('feedbacks', $data);
     }
 

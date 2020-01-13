@@ -26,7 +26,7 @@ class FeedbackRequest extends FormRequest
     protected function prepareForValidation()
     {
         $data = $this->all();
-        $data['verification'] = strtolower($data['verification']);
+        $data['Vw82iwl'] = strtolower($data['Vw82iwl']); // verification (checking for spam)
         $this->replace($data);
     }
 
@@ -39,10 +39,10 @@ class FeedbackRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'nullable|string',
-            'email' => 'nullable|string|email',
-            'message' => 'required|string|max:700',
-            'verification' => 'required|in:2,two',
+            'n3kIad3' => 'nullable|string',
+            'eaWDsk2' => 'nullable|string|email',
+            'mw2s8sJ' => 'required|string|max:700',
+            'Vw82iwl' => 'required|in:2,two',
         ];
     }
 }

@@ -8,7 +8,7 @@
 
 @section('header-and-main-content')
 
-@component('components.header', ['heading' => 'Older Friday Sermons', 'subheading' => 'Of Masjid Al Haram 🕋', 'imageSrc' => asset('img/home-bg-o.webp')])
+@component('components.header', ['heading' => 'Older Friday Sermons', 'subheading' => 'Of Masjid Al Haram 🕋', 'imageSrc' => asset('img/afs.webp')])
 @endcomponent
 
 {{-- Main Content --}}
