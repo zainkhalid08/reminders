@@ -110,6 +110,10 @@ AUTOMATED TESTS
 	* only mail sending and redirect back of feedback is left.
 	* adminpostcontroller tests are left
 
+Front End Tests
+1. p | apx. have title approximate at all 3 places where you see apx.
+2. 
+
 # CODE DOCUMENTATION
 1. views/partials : where front end partials are kept
 2. the way we want the text to be displayed for visitors, we'll store the text in that way in db.(insead of getting in that way-less loadtime.)
@@ -142,8 +146,6 @@ NOT YET/IDEAS
 
 6. Final test for main features...
 *front end testing of post show is left... along with its responsivness
-*apx 5 mins read not approx as length gets really long.
-10. Check for user's experience... Usability test.
 11. Check for any extra files in public
 12. check for any minifying the images just as lighthouse says...
 13. make sure not to have common to readable names for input fields as it would be clear that the names of db columns would be alike...just as google has jsname3Njeife8*

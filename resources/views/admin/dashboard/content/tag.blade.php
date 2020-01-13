@@ -2,7 +2,7 @@
 
 @section('head')
   
-  <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('admin/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
   {{-- Flash Messages --}}
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 
@@ -76,8 +76,8 @@
 @endsection
 
 @section('page-script')
-  <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset('admin/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('admin/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
   <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
   {{-- Sweet Alert --}}
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

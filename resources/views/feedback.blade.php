@@ -4,10 +4,6 @@
   {{-- keep title as ucwords --}}
   <title>Blog On Friday Sermons Of Masjid Al Haram | Reminders For Good</title>
   <meta name="description" content="Blogs on friday sermons of masjid al haram updated every 2 weeks or earlier.">
-  
-  {{-- Notifications --}}
-  <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
-
 @endsection
 
 @section('header-and-main-content')
@@ -74,8 +70,5 @@
 @endsection
 
 @section('bottom_scripts')
-
-{{-- Notifications --}}
-<script src="{{ asset('js/bootstrap-notify.min.js') }}"></script>
 @include('components.flash')
 @endsection

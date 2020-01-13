@@ -26,14 +26,14 @@ class FeedbackController extends Controller
      */
     public function store(FeedbackRequest $request)
     {
-    	$feedback = Feedback::create([
-    		'name' => $request['name'],
-    		'email' => $request['email'],
-    		'message' => $request['message'],
-    	]);
+    	// $feedback = Feedback::create([
+    	// 	'name' => $request['name'],
+    	// 	'email' => $request['email'],
+    	// 	'message' => $request['message'],
+    	// ]);
 
     	// send mail
-    	Mail::to(config('admin.email'))->send(new FeedbackArrived($feedback));
+    	// Mail::to(config('admin.email'))->send(new FeedbackArrived($feedback));
         
     	// return (new FeedbackArrived($feedback))->render();
     	return back()->with('message', ['success', 'Your message has been sent. Thanks for the feedback.']);
