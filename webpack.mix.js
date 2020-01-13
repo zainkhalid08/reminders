@@ -18,5 +18,8 @@ const mix = require('laravel-mix');
 // 	'resources/js/vendors/cleanblog.js',
 // ], 'public/js/vendor.js');
 
-mix.js('resources/js/app.js', 'public/js') // has vue components, might need to extend so kept separate
-   .sass('resources/sass/app.scss', 'public/css');
+// To only compile app.js
+// mix.js('resources/js/app.js', 'public/js') // has vue components, might need to extend so kept separate
+
+// To only compile styles
+mix.sass('resources/sass/app.scss', 'public/css')

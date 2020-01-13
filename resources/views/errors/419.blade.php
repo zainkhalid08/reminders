@@ -18,8 +18,9 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-              <h1>419</h1>
+              {{-- <h1>419</h1> --}}
               <h1>Page Expired Due To Inactivity</h1>
+              <span class="subheading">Please refresh the page and try again.</span>
             </div>
           </div>
         </div>

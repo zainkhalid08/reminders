@@ -36,7 +36,7 @@ trait PostViewHelper
     public function isFitToBeNew()
     {
       $allowedDaysToBeNew = 3;
-      return $this->date->diffInDays(now()) <= $allowedDaysToBeNew;
+      return $this->created_at->diffInDays(now()) <= $allowedDaysToBeNew;
     }
 
     /**
@@ -47,9 +47,9 @@ trait PostViewHelper
     public function title()
     {
       $logo = '';
-      if ($this->isFrom('Masjid Al Haram')) {
-        // $logo .= '🕋 ';
-      }
+      // if ($this->isFrom('Masjid Al Haram')) {
+      //   // $logo .= '🕋 ';
+      // }
       $newBadge = '';
       if ($this->isFitToBeNew()) {
         $newBadge = ' <span class="badge badge-primary">New</span>';
@@ -78,7 +78,7 @@ trait PostViewHelper
     {
       $separator = ' | ';
 
-      $minsRead = $this->mins_read ? $this->mins_read.' mins read approx' : '';
+      $minsRead = $this->mins_read ? $this->mins_read.' mins read <span title="approximation">apx.</span>' : '';
       
       $arrangement = [
         $minsRead,

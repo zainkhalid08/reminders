@@ -10,10 +10,8 @@
       </div>
       <div class="modal-body system-says">
         <ul>
-          <li>To God.</li>
-          <li>To Parents.</li>
           <li>To <a href="http://www.haramain.com/app" target="_blank">Haramain Recordings</a>, the audio, is created by them.</li>
-          <li>To Jeshoots, the home page photo, is created by them.</li>
+          <li>To Jeshoots, the home and older friday sermons page photos, are created by them.</li>
           <li>To Quino Al, the feedback page photo, is created by them.</li>
           <li>To <a href="https://startbootstrap.com" target="_blank">Start Bootstrap</a>, the starter theme, is created by them. </li>
         </ul>

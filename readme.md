@@ -119,6 +119,7 @@ AUTOMATED TESTS
 
 NOT YET/IDEAS
 *pagination on olderfriday sermons
+*show all tables in admin panel
 *roles
 *views count for a post.
 *tags description on admin, to show description on hover
@@ -126,6 +127,7 @@ NOT YET/IDEAS
 *search feature
 *useful links perhaps
 *feedback from visitors
+*to crop the images a little further to decrease size bits...
 *admin,stats of visitors to store in db
 *static pages, privacy policy, about us, terms of service... etc
 * to delay the job after post is created to extract ayah and hadith
@@ -138,16 +140,9 @@ NOT YET/IDEAS
 
 # CHECKLIST BEFORE DEPLOYMENT
 
-1. Js and CSS files minified.
-Make 1/2 file for both.
-2. Vue isn't in production
-3. Don't want to tell that it is built on laravel so have custom views for 404, 403, 500, page expired,
-4. Any room for future extension/refactoring in front end.
-5. Any room for future extension/refactoring in back end.
 6. Final test for main features...
-7. See for any URLs that are to be removed.
-8. Check for any unauthorized access to admin panel or protected stuff is it implemented.
-9. Check for responsiveness...
+*front end testing of post show is left... along with its responsivness
+*apx 5 mins read not approx as length gets really long.
 10. Check for user's experience... Usability test.
 11. Check for any extra files in public
 12. check for any minifying the images just as lighthouse says...
@@ -158,7 +153,8 @@ Make 1/2 file for both.
 17. makesure to rename assets as unique as it caused that access forbidden error. The link is accessable anyways so the point is that make sure that those directories arne't accessable. FIRST WE'LL GO FOR staging.remindersforgood.com and then...
 18. have to go to staging? then noindex meta...
 19. prepare one seeder for post... to have atleast one post...
-20. .webp format of all images... 
+remove the new badge from post page, keep it just on home page or all
+google audit
 
 
 diff images OR same images allover -> Diff Pics ...

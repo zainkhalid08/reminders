@@ -7,11 +7,6 @@
     @yield('head')
     <meta name="author" content="remindersforgood@gmail.com">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style type="text/css">
-      .system-says {
-        font-size: small;
-      }
-    </style>
   </head>
   <body>
     @include('partials.navbar')

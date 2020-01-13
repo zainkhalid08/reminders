@@ -12,7 +12,7 @@
 
 @section('header-and-main-content')
 
-@component('partials.header', ['heading' => 'Feedback', 'subheading' => 'Have something to say?', 'imageSrc' => asset('img/contact-bg.jpg')])
+@component('components.header', ['heading' => 'Feedback', 'subheading' => 'Have something to say?', 'imageSrc' => asset('img/contact-bg.webp')])
 @endcomponent
 
   <!-- Main Content -->

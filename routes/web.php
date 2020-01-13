@@ -1,10 +1,5 @@
 <?php
 
-use App\User;
-use Illuminate\Support\Facades\Auth;
-
-// use App\Surah;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,40 +11,8 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/play', function(){
-	// dd(var_dump(request()->header('fere')));
-
-	$user = User::latest()->first();
-	Auth::logout($user);
-	Auth::login($user);
-
-	if (auth()->check()) {
-		die('logged in');
-	}
-// 	abort(503);
-	// echo "it came in $post $slug";
-// 	$needle = '</ayah>';
-
-// 	//no tags
-// 	// $content = ''; // returns ""
-// 	//1 tag present
-// 	$content = '<ayah></ayah>'; // returns ""
-// 	//1 tag present with content
-// 	$content = '<ayah>loremd d d d d  d d (quran)</ayah>'; // returns "loremd d d d d  d d (quran)"
-// 	//1 tag present with content and other tags are also present
-// 	$content = '<ayah>loremd d d d d  d d (quran)</ayah><p>dont get this</p>'; // returns "loremd d d d d  d d (quran)"
-// 	//1 tag present with content and other similar tags are also present
-// 	$content = '<ayah>loremd d d d d  d d (quran)</ayah><ayat>dont get this</ayat>'; // returns "loremd d d d d  d d (quran)"
-// 	//1 < tags present
-// 	$content = '<ayah>loremd d d d d  d d (quran)</ayah><ayah>dont get this</ayah>'; // returns "loremd d d d d  d d (quran)" NOTE THIS, ONLY FIRST OCCURANCE IS CAPTURED
-
-    // $surahs = Surah::all();
-    // $i = 1;
-    // foreach ($surahs as $surah) {
-    // 	echo '["id" => '.$i++.', "name" => "'.$surah->name.'", "english" => "'.$surah->english.'", "ayahs" => "'.$surah->ayahs.'"],'.'<br>';
-    // }
-
-});
+// Route::get('/play', function(){
+// });
 
 Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(function () {
 	Route::get('/', 'Auth\LoginController@showLoginForm')->name('login.view');
@@ -63,7 +26,9 @@ Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(
 
 	Route::get('post/create', 'AdminPostController@create')->name('post.create');
 	Route::post('post', 'AdminPostController@store')->name('post.store');
+
 	Route::get('posts', 'AdminPostController@index')->name('post.index');
+	
 	Route::get('post/{post}/edit', 'AdminPostController@edit')->name('post.edit');
 	Route::put('post/{post}', 'AdminPostController@update')->name('post.update');
 	Route::put('post/{post}/publish', 'AdminPostController@publish')->name('post.update.publish');

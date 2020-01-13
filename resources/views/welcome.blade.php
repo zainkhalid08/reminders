@@ -8,29 +8,14 @@
 
 @section('header-and-main-content')
 
-@component('partials.header', ['heading' => 'Blog On Friday Sermons', 'subheading' => 'Of Masjid Al Haram 🕋', 'imageSrc' => asset('img/home-bg.webp')])
+@component('components.header', ['heading' => 'Blog On Friday Sermons', 'subheading' => 'Of Masjid Al Haram 🕋', 'imageSrc' => asset('img/home-bg.webp')])
 @endcomponent
 
 {{-- Main Content --}}
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-      @forelse($posts as $post)
-        <div class="post-preview">
-          <a href="{{ $post->seoRoute('post.show') }}">
-            <h2 class="post-title">
-              {!! $post->title() !!}  
-            </h2>
-            {{-- <h3 class="post-subtitle">
-                                      Problems look mighty small from 150 miles up
-                                    </h3> --}}
-          </a>
-          <p class="post-meta">{{ $post->meta() }}</p>
-        </div>
-        <hr>
-      @empty
-        <p>Nothing posted just yet.</p>
-      @endforelse
+      @include('components.post_card')
       
       {{-- Older Posts Button --}}
       @if($total > count($posts) )
