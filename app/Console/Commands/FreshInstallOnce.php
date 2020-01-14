@@ -2,11 +2,14 @@
 
 namespace App\Console\Commands;
 
+use App\Traits\InteractsWithEnv;
 use App\User;
 use Illuminate\Console\Command;
 
 class FreshInstallOnce extends Command
 {
+    use InteractsWithEnv;
+
     /**
      * The name and signature of the console command.
      *
@@ -19,7 +22,7 @@ class FreshInstallOnce extends Command
      *
      * @var string
      */
-    protected $description = 'When env file is read it makes the fresh application';
+    protected $description = 'When env file is ready it makes the fresh application can use with --env= also';
 
     /**
      * Create a new command instance.
@@ -98,42 +101,4 @@ class FreshInstallOnce extends Command
 
     }
 
-    public function setEnv($values)
-    {
-        $envFile = app()->environmentFilePath();
-        $str = file_get_contents($envFile);
-
-        if (count($values) > 0) {
-            foreach ($values as $envKey => $envValue) {
-
-                $str .= "\n"; // In case the searched variable is in the last line without \n
-                $keyPosition = strpos($str, "{$envKey}=");
-                $endOfLinePosition = strpos($str, "\n", $keyPosition);
-                $oldLine = substr($str, $keyPosition, $endOfLinePosition - $keyPosition);
-
-                // If key does not exist, add it
-                if (!$keyPosition || !$endOfLinePosition || !$oldLine) {
-                    // for adding quotes if value has spaces in between
-                    if (preg_match('/\s/',$envValue)) {
-                        $str .= "{$envKey}='{$envValue}'\n";
-                    } else {
-                        $str .= "{$envKey}={$envValue}\n";
-                    }
-                } else {
-                    // for adding quotes if value has spaces in between
-                    if (preg_match('/\s/',$envValue)) {
-                        $str = str_replace($oldLine, "{$envKey}='{$envValue}'", $str);
-                    } else {
-                        $str = str_replace($oldLine, "{$envKey}={$envValue}", $str);
-                    }
-
-                }
-
-            }
-        }
-
-        $str = substr($str, 0, -1);
-        if (!file_put_contents($envFile, $str)) return false;
-        return true;        
-    }   
 }

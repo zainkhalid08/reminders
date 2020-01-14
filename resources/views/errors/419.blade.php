@@ -12,7 +12,7 @@
     @include('partials.navbar')
 
     {{-- Page Header --}}
-    <header class="masthead" style="background-image: url('{{ asset('img/home-bg.webp')  }}')">
+    <header class="masthead" style="background-image: url('{{ asset('img/home.webp')  }}')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -20,7 +20,7 @@
             <div class="site-heading">
               {{-- <h1>419</h1> --}}
               <h1>Page Expired Due To Inactivity</h1>
-              <span class="subheading">Please refresh the page and try again.</span>
+              <span class="subheading">Please go back, refresh and try again.</span>
             </div>
           </div>
         </div>

@@ -44,7 +44,7 @@ class FeedbackController extends Controller
 
             report($e);
             logger()->debug('mail wasn\'t sent in feedback');
-            return back()->with('message', ['fail', 'Something didn\'t go according to plan. Kindly leave your feedback at '.config('admin.email').', apologies for the inconvinence.', 420000]); // 7mins
+            return back()->with('message', ['fail', 'Something didn\'t go according to plan. Kindly leave your feedback at remindersforgood@gmail.com, apologies for the inconvinence.', 420000]); // 7mins
 
         }
         

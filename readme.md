@@ -1,5 +1,5 @@
 ## Reminders
-<i>last updated on 30th Dec 2019</i>
+<i>last updated on 30th Dec 2019</i> remindersforgood@gmail.com
 
 # Going to staging
 1. .env
@@ -121,6 +121,21 @@ MANUAL TESTS
 AUTOMATED TESTS
 	* only mail sending and redirect back of feedback is left.
 	* adminpostcontroller tests are left
+	* To run feedback tests . It tests
+		1. vendor/bin/phpunit tests/Feature/Http/Requests/FeedbackRequestTest.php
+			* message required
+			* verification required
+			* verification's wrong answers will show correct validation error message
+			* verification's correct answer is 2, two, TWO, tWo, ' 2 '	
+			* if present then email should be valid
+		2. vendor/bin/phpunit tests/Feature/Http/Controllers/FeedbackControllerTest.php
+			* feedback is created in db
+			* mail is sent
+			* redirected back
+			* is redirected back with proper message for visitor to see.
+		3.  WORST CASE if mail sending fails or feedback creation fails then REDIRECTED BACK WITH PROPER MESSAGE... !TO BE TESTED MANUALLY NO AUTOMATION TEST FOR THIS
+
+
 
 Front End Tests
 1. p | apx. have title approximate at all 3 places where you see apx.
@@ -159,11 +174,11 @@ NOT YET/IDEAS
 
 # CHECKLIST BEFORE DEPLOYMENT
 
-6. Final test for main features...
 *front end testing of post show is left... along with its responsivness
-17. makesure to rename assets as unique as it caused that access forbidden error. The link is accessable anyways so the point is that make sure that those directories arne't accessable. FIRST WE'LL GO FOR staging.remindersforgood.com and then...
+17. make sure that public directories arne't accessable. FIRST WE'LL GO FOR staging.remindersforgood.com and then...
 19. prepare one seeder for post... to have atleast one post...
-Make fonts locallll  (test by disabling the internet) 
+Make fonts locallll  (test by disabling the internet) (optional)
+20. Final test for main features... 
 
 # DONE
 *decide the header image

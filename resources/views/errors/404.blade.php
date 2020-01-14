@@ -12,7 +12,7 @@
     @include('partials.navbar')
 
     {{-- Page Header --}}
-    <header class="masthead" style="background-image: url('{{ asset('img/home-bg.webp')  }}')">
+    <header class="masthead" style="background-image: url('{{ asset('img/home.webp')  }}')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">

@@ -3,6 +3,7 @@
 namespace Tests\Feature\Http\Requests;
 
 use App\Mail\FeedbackArrived;
+use App\Post;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -51,6 +52,28 @@ class AdminMiddlewareTest extends TestCase
 
             $response->assertStatus(200);
         }
+    }
+
+    public function test_real_admin_can_see_an_unpublished_post()
+    {
+        $user = User::first();
+        $post = factory(Post::class)->create(['published_at' => null]);
+
+        $response = $this->actingAs($user)
+                             ->get(route('post.show', $post->id));
+
+        $response->assertStatus(200);
+    }
+
+    public function test_a_guest_user_trying_to_access_an_unpublished_post_should_see_404()
+    {
+        $user = factory(User::class)->create();
+        $post = factory(Post::class)->create(['published_at' => null]);
+
+        $response = $this->actingAs($user)
+                             ->get(route('post.show', $post->id));
+
+        $response->assertStatus(404);
     }
 
     public function test_real_admin_when_logged_in_tries_to_access_login_page_then_redirect()

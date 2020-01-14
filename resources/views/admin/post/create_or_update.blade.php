@@ -85,6 +85,8 @@
                     <button type="button" onclick="appendHadith()">hadith</button>
                     <button type="button" onclick="appendParagraph()">speaker's content</button>
                     <button type="button" onclick="appendProphetsName()">Prophet Muhammad (صَلَّىٰ ٱللهُ عَلَيْهِ وَآلِهِ وَسَلَّمَ) </button>
+                    <button type="button" onclick="appendAllahName()">Allah</button>
+                    <button type="button" onclick="appendHellip()">...</button>
                     <div class="text-center">
                       <textarea name="content" style="width: 100%;" rows="15" placeholder="Type here...">{{ isset($post) ? $post->content : old('content') }}</textarea>
                       @component('components.error', ['field' => 'content'])
@@ -123,8 +125,7 @@
                   @endforelse
 
                   <div class="text-center">
-                   <i>Say, "Whether you conceal what is in your breasts or reveal it, Allah knows it. And He knows that which is in the heavens and that which is on the earth. And Allah is over all things competent.</i><br>
-                    <small>(Al-Imaran : 29)</small>
+                   <i>1. the references mentioned in the sermon will be told of hadith</i><br>
                   </div> 
                 </div>
             </div>
@@ -164,6 +165,18 @@
 
     function appendProphetsName(){
       txt = '<span title="Peace And Blessings Be Upon Him">Prophet Muhammad (peace be upon him)</span>';
+      endingTagLength = 0;
+      appendContent(txt, endingTagLength);
+    }    
+
+    function appendHellip(){
+      txt = '&hellip;';
+      endingTagLength = 0;
+      appendContent(txt, endingTagLength);
+    }
+
+    function appendAllahName(){
+      txt = 'Allah';
       endingTagLength = 0;
       appendContent(txt, endingTagLength);
     }

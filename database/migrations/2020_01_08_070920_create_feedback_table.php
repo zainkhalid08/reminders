@@ -17,6 +17,8 @@ class CreateFeedbackTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->nullable();
             $table->string('email')->nullable();
+
+            $table->timestamp('reviewed_at')->nullable()->description('Action taken on this feedback or so... just like as if is done.');
             $table->mediumText('message');
             $table->timestamps();
         });

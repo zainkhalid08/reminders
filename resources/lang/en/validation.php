@@ -129,19 +129,19 @@ return [
     */
 
     'custom' => [
-        'name' => [
+        'n3kIad3' => [
             'string' => 'Please enter string.',
         ],
-        'email' => [
+        'eaWDsk2' => [
             'email' => 'Please enter a valid email. If you are willing to enter one.',
             'string' => 'Please enter string.',
         ],
-        'message' => [
+        'mw2s8sJ' => [
             'required' => 'Please enter a message.',
             'string' => 'Please enter string.',
             'max' => 'Please note the message cannot exceed :max characters.',
         ],
-        'verification' => [
+        'Vw82iwl' => [
             'in' => 'The answer is invalid, please try again.'
         ],
 
