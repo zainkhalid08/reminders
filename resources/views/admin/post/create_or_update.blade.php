@@ -71,6 +71,7 @@
                         
                         *ayah in {{'<ayah ayah="Al-Baqara:155"ayah></ayah>'}} <br>
                         *hadith in {{'<hadith hadith="muslim"hadith></hadith>'}} <br>
+                        *tyme in {{'<tyme min="4" sec="55"></tyme>'}} <br>
                         *speaker comments in {{'<p></p>'}} <br>
                         *to bold {{'<b></b>'}} <br>
 
@@ -83,6 +84,7 @@
                     <h4>Content</h4>
                     <button type="button" onclick="appendAyah()">ayah</button>
                     <button type="button" onclick="appendHadith()">hadith</button>
+                    <button type="button" onclick="appendTyme()">tyme</button>
                     <button type="button" onclick="appendParagraph()">speaker's content</button>
                     <button type="button" onclick="appendProphetsName()">Prophet Muhammad (صَلَّىٰ ٱللهُ عَلَيْهِ وَآلِهِ وَسَلَّمَ) </button>
                     <button type="button" onclick="appendAllahName()">Allah</button>
@@ -161,44 +163,50 @@
   <script>
     function appendAyah(){
       txt = '<ayah ayah=""ayah></ayah>';
-      endingTagLength = 13;
-      appendContent(txt, endingTagLength);
+      lengthFromEndingTag = 13;
+      appendContent(txt, lengthFromEndingTag);
     }
 
     function appendHadith(){
       txt = '<hadith hadith=""hadith></hadith>';
-      endingTagLength = 17;
-      appendContent(txt, endingTagLength);
+      lengthFromEndingTag = 17;
+      appendContent(txt, lengthFromEndingTag);
+    }
+
+    function appendTyme(){
+      txt = '<tyme min="" sec=""></tyme> ';
+      lengthFromEndingTag = 16;
+      appendContent(txt, lengthFromEndingTag);
     }
 
     function appendParagraph(){
       txt = '<p></p>';
-      endingTagLength = 4;
-      appendContent(txt, endingTagLength);
+      lengthFromEndingTag = 4;
+      appendContent(txt, lengthFromEndingTag);
     }
 
     function appendProphetsName(){
       txt = '<span title="Peace And Blessings Be Upon Him">Prophet Muhammad (peace be upon him)</span>';
-      endingTagLength = 0;
-      appendContent(txt, endingTagLength);
+      lengthFromEndingTag = 0;
+      appendContent(txt, lengthFromEndingTag);
     }    
 
     function appendHellip(){
       txt = '&hellip;';
-      endingTagLength = 0;
-      appendContent(txt, endingTagLength);
+      lengthFromEndingTag = 0;
+      appendContent(txt, lengthFromEndingTag);
     }
 
     function appendAllahName(){
       txt = 'Allah';
-      endingTagLength = 0;
-      appendContent(txt, endingTagLength);
+      lengthFromEndingTag = 0;
+      appendContent(txt, lengthFromEndingTag);
     }
 
     function appendQuran(){
       txt = 'Quran';
-      endingTagLength = 0;
-      appendContent(txt, endingTagLength);
+      lengthFromEndingTag = 0;
+      appendContent(txt, lengthFromEndingTag);
     }
 
     /**

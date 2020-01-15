@@ -1,5 +1,7 @@
+<!-- This is used in post to tell at what time this piece of content is mentioned in the sermon eg. @1:44 -->
+<!-- usage as <tyme min="2" sec="4"></tyme> or <tyme min=2 sec=4></tyme> -->
 <template>
-    <span title="this piece of content starts at {{ this.min }} {{ suffixMin() }} {{ this.sec }} {{ suffixSec() }} of the video shared on this page.">{{ showTime() }}</span>
+    <small :title="makeTitle()">{{ showTime() }}</small>
 </template>
 
 <script>
@@ -7,27 +9,16 @@
         props: ['min', 'sec'],
         methods : {
             showTime() {
-                return '@'+ this.min + ':'+ this.sec +'.';
+                return '@'+ this.minute + ':'+ this.second +'.';
             },
-            suffixMin() {
-                if (this.min > 1) {
-                    return 'mins';
-                } else {
-                    return 'min';
-                }
+            makeTitle() {
+                return 'this piece of content starts at '+ this.minute + ' minute(s) ' + this.second + ' second(s) ' +'of the video shared on page.';
             },
-            suffixSec() {
-                if (this.sec > 1) {
-                    return 'seconds';
-                } else {
-                    return 'second';
-                }
-            }
         },
         data() {
             return {
-                min : this.min,
-                sec : this.sec,
+                minute : this.min,
+                second : this.sec,
             };
         }
     }
