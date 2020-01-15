@@ -4,15 +4,6 @@
 
 @component('components.seo', ['title' => $post->titleHtmlTag(), 'meta' => $post->meta])
 @endcomponent
-<style type="text/css">
-  .info {
-  background-color: #e7f3fe;
-  border-left: 6px solid #2196F3;
-  margin-bottom: 15px;
-  padding: 4px 12px;
-}
-
-</style>
 
 @endsection
 
