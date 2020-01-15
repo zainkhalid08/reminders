@@ -124,12 +124,17 @@
                     <span>{{ $surah->name }}, </span>
                   @empty
                   @endforelse
+                  
                   <h4>Hadith Book Names</h4>
                   <span>Bukhari</span>
+
                   <h4>Post Content Checklist</h4>
+                  <span>room for removal</span>
                   <span>gramatical spelling</span>
-                  <span>punctuation</span>
                   <span>name spelling</span>
+                  <span>punctuation</span>
+                  <span>what to bold for good reading exp</span>
+                  <span>add @time</span>
 
 
 

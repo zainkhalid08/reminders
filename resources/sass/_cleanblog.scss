@@ -422,7 +422,13 @@ footer .copyright {
   font-size: small !important; 
 }
 
+/*NEW badge*/
 .badge-primary {
   color: #fff;
   background-color: #ffb039 !important;
+}
+
+/*within a post*/
+hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
 }

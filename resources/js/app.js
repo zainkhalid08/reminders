@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('ayah', require('./components/AyahComponent.vue').default);
 Vue.component('hadith', require('./components/HadithComponent.vue').default);
+Vue.component('tyme', require('./components/TymeComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

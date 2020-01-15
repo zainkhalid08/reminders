@@ -4,6 +4,15 @@
 
 @component('components.seo', ['title' => $post->titleHtmlTag(), 'meta' => $post->meta])
 @endcomponent
+<style type="text/css">
+  .info {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+  margin-bottom: 15px;
+  padding: 4px 12px;
+}
+
+</style>
 
 @endsection
 
@@ -31,19 +40,22 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="embed-responsive embed-responsive-16by9">
-          <iframe width="560" height="315" src="{{ $post->video_src }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="{{ $post->video_src }}" frameborder="0" modestbranding="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <span class="caption text-muted">© Rights of the audio belong to <a href="http://www.haramain.com/app" target="_blank">Haramain Recordings</a></span>
         <div id="app">
          {!! $post->content !!}
         </div>
-        <p> 
+        <div class="info">
+          <p class="system-says"><strong>Note:</strong> For full version of the sermon please listen the video, shared on this page.</p>
+        </div>
+        {{-- <p> --}} 
           @forelse($post->tags as $tag)
             {{-- <span class="badge badge-pill badge-info">{{ $tag->name }}</span> --}}
           @empty
            <p>No tags</p>
           @endforelse
-        </p>
+        {{-- </p> --}} 
       </div>
     </div>
   </div>

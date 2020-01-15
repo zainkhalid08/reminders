@@ -156,6 +156,7 @@ NOT YET/IDEAS
 *about post
 	*adding a meaning of difficult words as a title eg. <span title="diminish the worth or value of (a quality or achievement). From Oxford">detracts</span>
 	*to highlight the text blue... where imp for posts
+	*play the video of on time click from that time on youtube vieo
 *roles
 *views count for a post.
 *tags description on admin, to show description on hover
