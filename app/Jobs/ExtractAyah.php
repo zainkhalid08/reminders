@@ -126,29 +126,32 @@ class ExtractAyah implements ShouldQueue
 
         $reference = explode(':', $reference);
         // dd($reference);
-        $surahName = $reference[0];
-        $ayahNumber = $reference[1];
 
-        $htmlTagFreeContent = $this->removeHtmlTags($text);
+        if ( count($reference) === 2 ) {
+            $surahName = $reference[0];
+            $ayahNumber = $reference[1];
 
-        $surah = Surah::where('name', $surahName)->first();
+            $htmlTagFreeContent = $this->removeHtmlTags($text);
 
-        if (is_null($surah)) {
-            $msg = 'used surah number instead of a name';
-            info('used surah number instead of a name');
-            die($msg);
-        }
-        // dd($surah);
+            $surah = Surah::where('name', $surahName)->first();
 
-        $exists = Ayah::where('surah', $surah->id)->where('ayah', $ayahNumber)->exists();
+            if (is_null($surah)) {
+                $msg = 'used surah number instead of a name';
+                info('used surah number instead of a name');
+                die($msg);
+            }
+            // dd($surah);
 
-        if (! $exists) {
-            return  Ayah::create([
-                        'content' => $htmlTagFreeContent,
-                        'post_id' => $post->id,
-                        'surah' => $surah->id,
-                        'ayah' => $ayahNumber,
-                    ]);
+            $exists = Ayah::where('surah', $surah->id)->where('ayah', $ayahNumber)->exists();
+
+            if (! $exists) {
+                return  Ayah::create([
+                            'content' => $htmlTagFreeContent,
+                            'post_id' => $post->id,
+                            'surah' => $surah->id,
+                            'ayah' => $ayahNumber,
+                        ]);
+            }
         }
 
     }

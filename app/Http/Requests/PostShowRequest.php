@@ -16,7 +16,6 @@ class PostShowRequest extends FormRequest
         $post = $this->route('post'); // App\Post
 
         if (  ( auth()->guest() && $post->isUnpublished() ) || ( auth()->check() && auth()->user()->cannotCreatePost() )  ) {
-        // if ( $post->isUnpublished() || (auth()->check() && auth()->user()->cannotCreatePost())) {
             abort(404);
         }        
 

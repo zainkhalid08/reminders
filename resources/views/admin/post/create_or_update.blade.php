@@ -87,6 +87,7 @@
                     <button type="button" onclick="appendProphetsName()">Prophet Muhammad (صَلَّىٰ ٱللهُ عَلَيْهِ وَآلِهِ وَسَلَّمَ) </button>
                     <button type="button" onclick="appendAllahName()">Allah</button>
                     <button type="button" onclick="appendHellip()">...</button>
+                    <button type="button" onclick="appendQuran()">Quran</button>
                     <div class="text-center">
                       <textarea name="content" style="width: 100%;" rows="15" placeholder="Type here...">{{ isset($post) ? $post->content : old('content') }}</textarea>
                       @component('components.error', ['field' => 'content'])
@@ -123,9 +124,17 @@
                     <span>{{ $surah->name }}, </span>
                   @empty
                   @endforelse
+                  <h4>Hadith Book Names</h4>
+                  <span>Bukhari</span>
+                  <h4>Post Content Checklist</h4>
+                  <span>gramatical spelling</span>
+                  <span>punctuation</span>
+                  <span>name spelling</span>
+
+
 
                   <div class="text-center">
-                   <i>1. the references mentioned in the sermon will be told of hadith</i><br>
+                   <i>1. the references mentioned in the sermon will be told, only for the case of hadith</i><br>
                   </div> 
                 </div>
             </div>
@@ -177,6 +186,12 @@
 
     function appendAllahName(){
       txt = 'Allah';
+      endingTagLength = 0;
+      appendContent(txt, endingTagLength);
+    }
+
+    function appendQuran(){
+      txt = 'Quran';
       endingTagLength = 0;
       appendContent(txt, endingTagLength);
     }
