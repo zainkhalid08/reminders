@@ -40,14 +40,14 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="embed-responsive embed-responsive-16by9">
-          <iframe width="560" height="315" src="{{ $post->video_src }}" frameborder="0" modestbranding="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="{{ $post->video_src }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <span class="caption text-muted">© Rights of the audio belong to <a href="http://www.haramain.com/app" target="_blank">Haramain Recordings</a></span>
         <div id="app">
          {!! $post->content !!}
         </div>
         <div class="info">
-          <p class="system-says"><strong>Note:</strong> For full version of the sermon please listen the video, shared on this page.</p>
+          <p class="system-says"><strong>Note:</strong> For full version of the sermon, please have a look at the video, shared on this page.</p>
         </div>
         {{-- <p> --}} 
           @forelse($post->tags as $tag)

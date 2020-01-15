@@ -91,7 +91,7 @@
                     <button type="button" onclick="appendHellip()">...</button>
                     <button type="button" onclick="appendQuran()">Quran</button>
                     <div class="text-center">
-                      <textarea name="content" style="width: 100%;" rows="15" placeholder="Type here...">{{ isset($post) ? $post->content : old('content') }}</textarea>
+                      <textarea id="txtarea" name="content" style="width: 100%;" rows="15" placeholder="Type here...">{{ isset($post) ? $post->content : old('content') }}</textarea>
                       @component('components.error', ['field' => 'content'])
                       @endcomponent
                     </div>
@@ -176,7 +176,9 @@
     function appendTyme(){
       txt = '<tyme min="" sec=""></tyme> ';
       lengthFromEndingTag = 16;
-      appendContent(txt, lengthFromEndingTag);
+      // appendContent(txt, lengthFromEndingTag);
+      insertAtCaret('txtarea', txt);
+
     }
 
     function appendParagraph(){
@@ -222,6 +224,45 @@
       $(textarea).focus();
       textarea[0].selectionStart = textarea.val().length - length;
       textarea[0].selectionEnd = textarea.val().length - length;
+    }
+
+    function insertAtCaret(areaId, text) {
+      var txtarea = document.getElementById(areaId);
+      if (!txtarea) {
+        return;
+      }
+
+      var scrollPos = txtarea.scrollTop;
+      var strPos = 0;
+      var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ?
+        "ff" : (document.selection ? "ie" : false));
+      if (br == "ie") {
+        txtarea.focus();
+        var range = document.selection.createRange();
+        range.moveStart('character', -txtarea.value.length);
+        strPos = range.text.length;
+      } else if (br == "ff") {
+        strPos = txtarea.selectionStart;
+      }
+
+      var front = (txtarea.value).substring(0, strPos);
+      var back = (txtarea.value).substring(strPos, txtarea.value.length);
+      txtarea.value = front + text + back;
+      strPos = strPos + text.length;
+      if (br == "ie") {
+        txtarea.focus();
+        var ieRange = document.selection.createRange();
+        ieRange.moveStart('character', -txtarea.value.length);
+        ieRange.moveStart('character', strPos);
+        ieRange.moveEnd('character', 0);
+        ieRange.select();
+      } else if (br == "ff") {
+        txtarea.selectionStart = strPos;
+        txtarea.selectionEnd = strPos;
+        txtarea.focus();
+      }
+
+      txtarea.scrollTop = scrollPos;
     }
   </script>
 
