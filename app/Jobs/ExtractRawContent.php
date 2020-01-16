@@ -2,24 +2,24 @@
 
 namespace App\Jobs;
 
-use App\Jobs\ExtractAyah;
-use App\Jobs\ExtractHadith;
-use App\Jobs\ExtractRawContent;
 use App\Post;
+use App\Traits\StringExtractor;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class ProcessPostContent implements ShouldQueue
+/**
+ * MAINTAINING HTML TAG FREE CONENT FOR GOOD SEARCH
+ */
+class ExtractRawContent implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, StringExtractor;
 
     protected $post;
 
     /**
-     * 
      * Create a new job instance.
      *
      * @return void
@@ -36,8 +36,9 @@ class ProcessPostContent implements ShouldQueue
      */
     public function handle()
     {
-        ExtractAyah::dispatch($this->post);
-        ExtractHadith::dispatch($this->post);
-        ExtractRawContent::dispatch($this->post);
+        $post = $this->post;
+        $rawContent = $this->removeHtmlTags($post->content);
+        $post->raw_content = $rawContent;
+        $post->save();
     }
 }

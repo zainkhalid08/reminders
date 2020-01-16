@@ -3,7 +3,7 @@
 @section('head')
 
 {{-- keep title as ucwords --}}
-@component('components.seo', ['title' => 'Older Friday Sermons Of Masjid Al Haram', 'meta' => $meta])
+@component('components.seo', ['title' => $seo['title'], 'meta' => $seo['meta']])
 @endcomponent
 
 @endsection

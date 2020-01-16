@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Feedback;
 use App\Http\Requests\FeedbackRequest;
 use App\Mail\FeedbackArrived;
+use App\Traits\SeoHelper;
 use Illuminate\Support\Facades\Mail;
 
 class FeedbackController extends Controller
 {
+    use SeoHelper;
+
     /**
      * Shows the admin's dashboard
      * 
@@ -16,10 +19,15 @@ class FeedbackController extends Controller
      */
     public function create()
     {
-        $meta = [
-            'description' =>   'Blogs on friday sermons of masjid al haram updated every 2 weeks or earlier.',
+        $seo = [
+            'title' => 'Blog On Friday Sermons Of Masjid Al Haram | Reminders For Good',
+            'meta' => [
+                'description' => 'Blogs on friday sermons of masjid al haram updated every 2 weeks or earlier.'
+            ],
         ];
-        return view('feedback', ['meta' => $meta]);
+        $seo = $this->mergeWithTemplate($seo);
+
+        return view('feedback', ['seo' => $seo]);
     }
 
     /**

@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->longText('content');
+            $table->longText('raw_content')->nullable();
             $table->unsignedBigInteger('speaker_id')->nullable();
             $table->unsignedBigInteger('location_id')->nullable();
             $table->date('date');
