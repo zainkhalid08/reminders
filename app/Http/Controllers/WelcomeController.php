@@ -17,9 +17,8 @@ class WelcomeController extends Controller
             'description' =>   'Older friday sermons of masjid al haram.',
         ];
 
-    	$publishedPosts = Post::published();
-    	$posts = $publishedPosts->latest()->limit(config('post.welcome'))->get();
-    	$total = $publishedPosts->count();
+        $posts = Post::latestPublishedFirst()->limit(config('post.welcome'))->get();
+    	$total = $posts->count();
 	    return view('welcome', compact('posts', 'total', 'meta'));
     }
 }

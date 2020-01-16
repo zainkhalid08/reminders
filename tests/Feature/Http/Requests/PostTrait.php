@@ -20,10 +20,23 @@ trait PostTrait
         return route('admin.post.store');
     }
     
+    // HELPERS
+    public function getIndexRoute() : string
+    {
+       return route('post.index');
+    }   
+
+    public function getShowRoute($id) : string
+    {
+       return route('post.show', $id);
+    }   
+
     protected function sendFeedback($attributes = [])
     {
         $this->withExceptionHandling();
         return $this->post( $this->getFeedbackUrl(), $this->validFields($attributes));
 
-    }    
+    } 
+
+       
 }

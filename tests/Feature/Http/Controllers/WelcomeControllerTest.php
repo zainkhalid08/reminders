@@ -6,11 +6,14 @@ use App\Post;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Mail;
+use Tests\Feature\Http\Requests\PostTrait;
 use Tests\TestCase;
 
 class WelcomeControllerTest extends TestCase
 {
-    use RefreshDatabase;
+    use 
+    // RefreshDatabase;
+    PostTrait;
 
     /**
      * The older posts text on the button.
@@ -41,19 +44,32 @@ class WelcomeControllerTest extends TestCase
         $response->assertDontSeeText($post->title);
     }
 
-    function test_only_latest_posts_are_shown()
+    function test_latest_published_posts_are_shown_first()
     {
-        $posts = factory(Post::class, 10)->create(['published_at' => now()]);
-        $response = $this->get(route('welcome'));
-        $response->assertStatus(200);
+        // NOTE: This test depends on the fact that we
+        // increment the minutes... if we want to 
+        // test for more then make sure it is
+        // > 9 eg. 0, 5, 9, 10, 11, 15...
 
-        // Latest
-        $posts = Post::latest()->limit($this->getLimit())->get();
+        $minutes = [
+            0, 5, 9
+        ];
 
-        foreach ($posts as $post) {
-            $response->assertSeeText($post->title);
+        foreach ($minutes as $minute) {
+            $posts[] = factory(Post::class)->create(['published_at' => now()->addMinutes($minute)]);
         }
 
+        $posts = array_reverse($posts);
+
+        foreach ($posts as $post) {
+            $orderedPostTitles[] = $post->title;
+        }
+
+        $response = $this->get($this->getIndexRoute());
+
+        $response->assertStatus(200);
+
+        $response->assertSeeTextInOrder($orderedPostTitles);
     }
 
     function test_only_LIMIT_posts_are_shown()

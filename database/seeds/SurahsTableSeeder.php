@@ -129,6 +129,10 @@ class SurahsTableSeeder extends Seeder
 			["name" => "An-Nas", "english" => "The mankind", "ayahs" => "6"],
         ];
 
+        if (Surah::count()) {
+        	return;
+        }
+
         $id = 1;
         foreach ($surahs as $surah) {
         	Surah::create([

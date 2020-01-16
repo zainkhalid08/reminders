@@ -134,9 +134,9 @@ AUTOMATED TESTS
 			* redirected back
 			* is redirected back with proper message for visitor to see.
 		3.  WORST CASE if mail sending fails or feedback creation fails then REDIRECTED BACK WITH PROPER MESSAGE... !TO BE TESTED MANUALLY NO AUTOMATION TEST FOR THIS
-	* To security tests
-		1. 
-
+	* To security realted tests
+		1. vendor/bin/phpunit tests/Feature/Http/Middleware/AdminMiddlewareTest.php
+		2. vendor/bin/phpunit tests/Feature/Http/Requests/PostShowRequestTest.php
 
 
 Front End Tests
@@ -153,6 +153,7 @@ Front End Tests
 # TODOS
 
 NOT YET/IDEAS
+*if the video isn't loaded from youtube...is there a way to tell... or prevent that ugly message....
 *pagination on olderfriday sermons
 *show all tables in admin panel
 *about post
@@ -181,10 +182,12 @@ NOT YET/IDEAS
 # CHECKLIST BEFORE DEPLOYMENT
 
 *front end testing of post show is left... along with its responsivness
-17. make sure that public directories arne't accessable. FIRST WE'LL GO FOR staging.remindersforgood.com and then...
 19. prepare one seeder for post... to have atleast one post...
 Make fonts locallll  (test by disabling the internet) (optional)
 20. Final test for main features... 
+
+# STAGING/LIVE CHECKLIST
+17. make sure that public directories arne't accessable. FIRST WE'LL GO FOR staging.remindersforgood.com and then...
 
 # DONE
 *decide the header image
@@ -217,3 +220,4 @@ CUSTOM TEXTAREA
 *get a textarea with custom tags making capabiliity or just make 3 buttons above textarea and add ayah, hadith and prophtet Muhammad S.A.W.W text
 *store ayah and hadith in db.(i can show a trending or a reminder ayah/hadith and then show that post...)
 *just in case mails doesn't gets sent... exception is handled in a better way.
+*make a component for time to write the time in the blog content

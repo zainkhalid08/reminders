@@ -44,7 +44,7 @@
           @forelse($post->tags as $tag)
             {{-- <span class="badge badge-pill badge-info">{{ $tag->name }}</span> --}}
           @empty
-           <p>No tags</p>
+           {{-- <p>No tags</p> --}}
           @endforelse
         {{-- </p> --}} 
       </div>

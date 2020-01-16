@@ -91,6 +91,11 @@ class Post extends Model
         return $this->published_at = null;
     }
 
+    public function scopeLatestPublishedFirst($query)
+    {
+        return $query->latest('published_at');
+    }
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'post_tags');

@@ -38,6 +38,28 @@ class AdminMiddlewareTest extends TestCase
 
     }
 
+    public function test_if_anyone_tries_to_access_admin_section_by_guessing_then_404() 
+    {
+        $guesses = [
+            '/admin', '/administrator', '/creator'
+        ];
+
+        foreach ($guesses as $guess) {
+            $response = $this->get($guess);
+            $response->assertStatus(404);
+        }
+
+    }
+
+    public function test_if_anyone_tries_to_access_admin_section_by_real_admin_slug_then_see_admin_login_page() 
+    {
+        $adminSlug = '/'.config('admin.slug');
+
+            $response = $this->get($adminSlug);
+            $response->assertStatus(200);
+
+    }
+
     // actual admin can access admin pages
     public function test_real_admin_can_access_admin_pages() 
     {
@@ -54,28 +76,6 @@ class AdminMiddlewareTest extends TestCase
         }
     }
 
-    public function test_real_admin_can_see_an_unpublished_post()
-    {
-        $user = User::first();
-        $post = factory(Post::class)->create(['published_at' => null]);
-
-        $response = $this->actingAs($user)
-                             ->get(route('post.show', $post->id));
-
-        $response->assertStatus(200);
-    }
-
-    public function test_a_guest_user_trying_to_access_an_unpublished_post_should_see_404()
-    {
-        $user = factory(User::class)->create();
-        $post = factory(Post::class)->create(['published_at' => null]);
-
-        $response = $this->actingAs($user)
-                             ->get(route('post.show', $post->id));
-
-        $response->assertStatus(404);
-    }
-
     public function test_real_admin_when_logged_in_tries_to_access_login_page_then_redirect()
     {
 
@@ -85,7 +85,27 @@ class AdminMiddlewareTest extends TestCase
                          ->get(route('admin.login.view'));        
         $response->assertStatus(302); // redirect
 
-    }    
+    }
+
+    // Assets
+    public function test_if_anyone_tries_to_access_public_assets_or_log_viewer_or_anything_suspicious_then_404() 
+    {
+        $guesses = [
+            '/js', '/css', '/vendor',
+            '/admin', '/img', '/svg',
+            '/assets', '/scss', '/less',
+            '/fonts', '/javascript', '/pages',
+            '/log', '/logs', '/log-viewer',
+            '/query?*', '/query?get=2', '/query?get[]=here',
+            '/img/home.webp', '/query?get=2', '/query?get[]=here',
+        ];
+
+        foreach ($guesses as $guess) {
+            $response = $this->get($guess);
+            $response->assertStatus(404);
+        }
+
+    }
 
     // HELPERS
     protected function getAdminRoutes() : array

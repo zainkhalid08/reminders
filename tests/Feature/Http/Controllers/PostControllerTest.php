@@ -7,22 +7,14 @@ use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Mail;
+use Tests\Feature\Http\Requests\PostTrait;
 use Tests\TestCase;
 
 class PostControllerTest extends TestCase
 {
-    use RefreshDatabase;
-
-    // HELPERS
-    public function getIndexRoute() : string
-    {
-       return route('post.index');
-    }   
-
-    public function getShowRoute($id) : string
-    {
-       return route('post.show', $id);
-    }   
+    use 
+    // RefreshDatabase;
+    PostTrait;
 
     // INDEX
 
@@ -42,20 +34,45 @@ class PostControllerTest extends TestCase
         $response->assertDontSeeText($post->title);
     }
 
-    function test_only_latest_posts_are_shown()
+    function test_latest_published_posts_are_shown_first()
     {
-        $posts = factory(Post::class, 10)->create(['published_at' => now()]);
-        $response = $this->get($this->getIndexRoute());
-        $response->assertStatus(200);
+        // NOTE: This test depends on the fact that we
+        // increment the minutes... if we want to 
+        // test for more then make sure it is
+        // > 9 eg. 0, 5, 9, 10, 11, 15...
 
-        // Latest
-        $posts = Post::latest()->get();
+        $minutes = [
+            0, 5, 9
+        ];
+
+        foreach ($minutes as $minute) {
+            $posts[] = factory(Post::class)->create(['published_at' => now()->addMinutes($minute)]);
+        }
+
+        $posts = array_reverse($posts);
 
         foreach ($posts as $post) {
             $orderedPostTitles[] = $post->title;
         }
-        $response->assertSeeTextInOrder($orderedPostTitles);
 
+        $response = $this->get($this->getIndexRoute());
+
+        $response->assertStatus(200);
+
+        $response->assertSeeTextInOrder($orderedPostTitles);
+    }
+
+    public function test_meta_tags_for_description_is_present()
+    {
+        $response = $this->get($this->getIndexRoute());
+
+        $metas = [
+            'description' =>   'Older friday sermons of masjid al haram.',
+        ];
+
+        foreach ($metas as $key => $value) {
+            $response->assertSee('<meta name="'.$key.'" content="'.$value.'">');
+        }
     }
 
     // SHOW

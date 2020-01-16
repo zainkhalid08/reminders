@@ -20,7 +20,8 @@ class PostController extends Controller
             'description' =>   'Older friday sermons of masjid al haram.',
         ];
 
-        $posts = Post::published()->latest()->get();
+        $posts = Post::latestPublishedFirst()->get();
+        // dd($posts);
 
         return view('post.index', compact('posts', 'meta'));
     }
