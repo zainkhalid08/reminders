@@ -13,20 +13,16 @@ class SpeakersTableSeeder extends Seeder
      */
     public function run()
     {
+        if (Speaker::count()) {
+            return;
+        }
+
         $location = Location::firstOrFail();
 
     	$speakers = [
             [
-        		'name' => 'Sheikh Salaah Budaair',
+        		'name' => 'Sheikh Saud Shuraim',
                 'location_id' => $location->id,
-            ],
-            [
-        		'name' => 'Sheikh Faisal Ghazzawi',
-                'location_id' => $location->id,
-            ],
-            [
-        		'name' => 'Sheikh Ali Hudhayfy',
-                'location_id' => $location->id + 1
             ],
     	];
 

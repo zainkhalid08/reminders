@@ -1,6 +1,7 @@
 <?php
 
 use App\Post;
+use App\PostTag;
 use App\Tag;
 use Illuminate\Database\Seeder;
 
@@ -13,10 +14,14 @@ class PostTagsTableSeeder extends Seeder
      */
     public function run()
     {
-    	$post = Post::all();
+    	$posts = Post::all();
     	$tags = Tag::all();
 
-    	foreach ($post as $post) {
+        if (PostTag::count()) {
+            return;
+        }
+
+    	foreach ($posts as $post) {
     		foreach ($tags as $tag) {
 				$post->tags()->attach($tag->id);    		
     		}

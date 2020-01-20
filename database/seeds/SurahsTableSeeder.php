@@ -12,6 +12,10 @@ class SurahsTableSeeder extends Seeder
      */
     public function run()
     {
+        if (Surah::count()) {
+        	return;
+        }
+    	
         $surahs = [
         	["name" => "Al-Fatiha", "english" => "The Opening", "ayahs" => "7"],
 			["name" => "Al-Baqara", "english" => "The Cow", "ayahs" => "286"],
@@ -128,10 +132,6 @@ class SurahsTableSeeder extends Seeder
 			["name" => "Al-Falaq", "english" => "The day break", "ayahs" => "5"],
 			["name" => "An-Nas", "english" => "The mankind", "ayahs" => "6"],
         ];
-
-        if (Surah::count()) {
-        	return;
-        }
 
         $id = 1;
         foreach ($surahs as $surah) {

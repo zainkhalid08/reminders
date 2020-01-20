@@ -1,6 +1,14 @@
 <?php
 
-// use Illuminate\Support\Str;
+
+    /*
+    |--------------------------------------------------------------------------
+    | NOTE: Routes Names Are Used
+    |--------------------------------------------------------------------------
+    |
+    | * if a route names has . in it then replace it with -
+    |
+    */
 
 return [
 
@@ -16,5 +24,16 @@ return [
 
     'welcome' => 5,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Default Posts Limit On All Posts
+    |--------------------------------------------------------------------------
+    |
+    | This option controls the default number of posts
+    | to be shown on all posts page
+    |
+    */
+
+    'post-index' => 15,
 
 ];

@@ -27,7 +27,7 @@ class CreatePostsTable extends Migration
             $table->string('video_src');
             $table->string('image_src')->nullable();
             $table->tinyInteger('mins_read')->nullable();
-            $table->mediumText('meta')->nullable();
+            $table->mediumText('meta')->nullable()->description('casts to array i.e json by laravel see App\Post $casts property eg. ["description" => "some sort of description", "keywords" => "some, sort, of, keywords"]');
             $table->unsignedBigInteger('user_id');
             $table->timestamp('published_at')->nullable();
 

@@ -1,0 +1,1616 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"con",
+				"content"
+			],
+			[
+				"appendDq",
+				"appendDQuotesEnd"
+			],
+			[
+				"raw",
+				"rawContent"
+			],
+			[
+				"view",
+				"viewName"
+			],
+			[
+				"arrayM",
+				"array_merge"
+			],
+			[
+				"mn",
+				"minute"
+			],
+			[
+				"text",
+				"textarea"
+			],
+			[
+				"suff",
+				"suffixSec"
+			],
+			[
+				"resul",
+				"result"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"base_",
+				"base_path"
+			],
+			[
+				"tim",
+				"timeTaken"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"rememb",
+				"rememberInRedis"
+			],
+			[
+				"ser",
+				"serialize"
+			],
+			[
+				"value",
+				"valueToGet"
+			],
+			[
+				"val",
+				"valueToSet"
+			],
+			[
+				"get",
+				"getallheaders"
+			],
+			[
+				"redis",
+				"redisKey"
+			],
+			[
+				"b",
+				"backup"
+			],
+			[
+				"back",
+				"backup_files"
+			],
+			[
+				"json_",
+				"json_encode"
+			],
+			[
+				"fa",
+				"facuraRecibida"
+			],
+			[
+				"rfc",
+				"rfc_receptor"
+			],
+			[
+				"rfc_",
+				"rfc_emisor"
+			],
+			[
+				"client",
+				"clientname"
+			],
+			[
+				"clie",
+				"client_message"
+			],
+			[
+				"timeTra",
+				"timeTracker"
+			],
+			[
+				"req",
+				"req1\trequire_once …"
+			],
+			[
+				"cal",
+				"calculateDuration"
+			],
+			[
+				"ans",
+				"answer"
+			],
+			[
+				"time",
+				"timeTrackers"
+			],
+			[
+				"te",
+				"textarea\tTag"
+			],
+			[
+				"to",
+				"toHrs"
+			],
+			[
+				"from",
+				"fromHrs"
+			],
+			[
+				"col",
+				"col-md-6"
+			],
+			[
+				"min",
+				"minutes"
+			],
+			[
+				"ca",
+				"categoryDeleteForm"
+			],
+			[
+				"form",
+				"categoryUpdateForm"
+			],
+			[
+				"suba",
+				"subcategoryModal"
+			],
+			[
+				"Tim",
+				"TimeCategory"
+			],
+			[
+				"cate",
+				"categoryUpdateForm"
+			],
+			[
+				"res",
+				"resource"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"su",
+				"sumDaily"
+			],
+			[
+				"duration",
+				"durationInMins"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"sub",
+				"subcategoryForm"
+			],
+			[
+				"col-md",
+				"col-md-4"
+			],
+			[
+				"def",
+				"defaultCategories"
+			],
+			[
+				"Time",
+				"TimeCategory"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/opt/lampp/htdocs/personal/reminders/routes/web.php",
+			"settings":
+			{
+				"buffer_size": 2390,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/zain/Videos/Youtube/Blogs/ENVY.html",
+			"settings":
+			{
+				"buffer_size": 7722,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "make its seeder or make the first post ready to be copy pasted...\n\nraw_content... for search easiness...\n\n\npost front end issues\nconsistent callout as a system message\npadding top on some osts of the announment that callout\n\nsystem of spelling(keywords) normalization.\n\nalso give button to unpublish a post (no as the post will automatically be un published when we edit something in it ) DO TEST THIS THOUDH\ndecide for a raw_content column\ncapitalization of any word after >\nwhen database drops WORST CASE then 500 on welcom...\n\nNormalized keywords (is used to normalize just the spellings)\n\nsalaf\nNames\nIblis\nAbu Jahl\n\nYusuf (selected from our db)\nsurah\nQuran\nProphet\nYaqoob\ntaqwa\neman\n\n\nFeatures of LTS release. 1.0\n\nWelcomePage \n\t5 posts with its meta\n\tshow older posts button\n\tthanks\n\tfeedback\n\tattribution\nFeedbackPage\n\tcan send feedback to the admin\n\t\tmail goes on feedback\n\tcan send an anonymous feedback without email or name.\nAllSermons\n*\tcan view about 15(tbd) sermons on page with pagination\nPostViewPage\n\tcan veiw the video...\n\t<p>\n\t<ayah>\n\t<hadith>\n\t<tyme>\n\t<b>\n*\thas a note: saying that for full version....\nBackEnd Extra stuff..,\n\t\n* front end post view problem STAYING FOCUSED ON WHAT IS IMPORTANT AND NOT BEING DIVERTED the image is now too long...\n* front end the post heading is a link ... even outside over-flow:hidden... perhaps might solve\n* when the structure of raw content is decided make sure it is also applied in the first seed.\n\nEVNVY TAGS\n\tOPTINO 1\n\t\tenvy, surah yusuf\n\tOPTINO 2\n\t\trelation with creation, envy, surah yusuf\n\tOPTINO 3\n\t\tnot todo, envy, surah yusuf\n\n\ntaging structure\n\nOPTION 1\n\nrelation with creator\n\tRenewing Faith_m\n\tSins that Nullify One’s Righteous Deeds_H\n\tNatural_inclination_m\n\tThe_last_day_H\n\tSurah Asr - Oath Of Time_m\n\tStaying Focused on What is Important, and Not Being Diverted\n\twinter\n\tAllah_gave_men_means_to_acquire_knowledge_m\n\tProper Optimism-H\n\tAqeedah\n\tNew Year\n\tFasting The Day Of Aashooraa\n\tNone will enter heaven ONLY due to our deeds\nrelation with creation\n\tprotecting_public_property_m\n\tMaintaining Sound Morals, Values, and Conduct\n\ttrust-muslim-brothers-m\n\tDivorce_causes_and_treatments_mak\n\tInitiating A Form Of Goodness Will Remain Forever-M\n\twholesome wealth-h\n\tBlackmail\n\tAchieving Stability\n\tPreservation Of Safety\nruling\n\tRuling Of Wiping Over Socks_M\n\n--------\n\nrelation with own self\n\tnatural inclination\n\tStaying Focused on What is Important, and Not Being Diverted_h\n\tAllah_gave_men_means_to_acquire_knowledge_m\nfactual\n\tthe last day\n\twinter\nruling\n\noccational\n\tnew year\n\tFasting The Day Of Aashooraa\n",
+			"settings":
+			{
+				"buffer_size": 2583,
+				"line_ending": "Unix",
+				"name": "make its seeder or make the first post ready to be"
+			}
+		},
+		{
+			"file": "/opt/lampp/htdocs/personal/reminders/database/seeds/PostsTableSeeder.php",
+			"settings":
+			{
+				"buffer_size": 11862,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "2019_12_26_134520_create_posts_table.php",
+			"settings":
+			{
+				"buffer_size": 1866,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/lampp/htdocs/personal/reminders/database/seeds/DatabaseSeeder.php",
+			"settings":
+			{
+				"buffer_size": 577,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/lampp/htdocs/personal/reminders/database/seeds/TagsTableSeeder.php",
+			"settings":
+			{
+				"buffer_size": 694,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/lampp/htdocs/personal/reminders/resources/views/admin/post/create_or_update.blade.php",
+			"settings":
+			{
+				"buffer_size": 12413,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/lampp/htdocs/personal/reminders/app/Jobs/ExtractRawContent.php",
+			"settings":
+			{
+				"buffer_size": 1051,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n\nuse App\\Speaker;\nuse App\\Location;\nuse App\\Post;\nuse App\\User;\nuse Illuminate\\Database\\Seeder;\n\nclass PostsTableSeeder extends Seeder\n{\n    /**\n     * Run the database seeds.\n     *\n     * @return void\n     */\n    public function run()\n    {\n\n    \t$speaker = Speaker::firstOrFail();\n    \t$location = Location::firstOrFail();\n    \t$user = User::firstOrFail();\n\n    \t$posts = [\n    \t\t[\n    \t\t\t'title' => 'The Last Day',\n    \t\t\t'content' => '<p>Rhis is a sample parals dsf ksd jlsdfj </p> \n    \t\t\t<i> Here is a i tag italics </i> <b> bold oe is here  dfddddddddddf ddddd d d d dsdfdas fd sfa sdf asd f asf dsfas f  </b> <q> tesing a ablock quote sinsdf msdlf sdj ls lf jds  </q>',\n    \t\t\t'speaker_id' => $speaker->id,\n    \t\t\t'location_id' => $location->id,\n    \t\t\t'date' => date('Y-m-d h:i:s'),\n    \t\t\t'video_src' => 'https://www.youtube.com/embed/7h3YI9UJ21I',\n    \t\t\t'image_src' => 'https://www.gstatic.com/webp/gallery3/1.png',\n    \t\t\t'mins_read' => 3,\n    \t\t\t'user_id' => $user->id,\n    \t\t\t'published_at' => date('Y-m-d h:i:s'),\n    \t\t], \n    \t\t[\n    \t\t\t'title' => 'The Natural Inclination',\n    \t\t\t'content' => '<p>The natural inclination Rhis is a sample parals dsf ksd jlsdfj </p> \n    \t\t\t<i> Here is a i tag italics </i> <b> bold oe is here  dfddddddddddf ddddd d d d dsdfdas fd sfa sdf asd f asf dsfas f  </b> <q> tesing a ablock quote sinsdf msdlf sdj ls lf jds  </q>',\n    \t\t\t'speaker_id' => $speaker->id + 2,\n    \t\t\t'location_id' => $location->id + 1,\n    \t\t\t'date' => date('Y-m-d h:i:s'),\n    \t\t\t'video_src' => 'https://www.youtube.com/embed/1w5dwdblh58',\n    \t\t\t'image_src' => 'https://www.gstatic.com/webp/gallery3/1.png',\n    \t\t\t'mins_read' => 3,\n    \t\t\t'user_id' => $user->id,\n    \t\t\t'published_at' => date('Y-m-d h:i:s'),\n    \t\t], \n    \t\t[\n    \t\t\t'title' => 'Staying Focused on What is Important and Not Being Diverted',\n    \t\t\t'content' => '<p>The natural inclination Rhis is a sample parals dsf ksd jlsdfj </p> \n    \t\t\t<i> Here is a i tag italics </i> <b> bold oe is here  dfddddddddddf ddddd d d d dsdfdas fd sfa sdf asd f asf dsfas f  </b> <q> tesing a ablock quote sinsdf msdlf sdj ls lf jds  </q>',\n    \t\t\t'speaker_id' => $speaker->id + 1,\n    \t\t\t'location_id' => $location->id,\n    \t\t\t'date' => date('Y-m-d h:i:s'),\n    \t\t\t'video_src' => 'https://www.youtube.com/embed/QxqmSgn3sbw',\n    \t\t\t'image_src' => 'https://www.gstatic.com/webp/gallery3/1.png',\n    \t\t\t'mins_read' => 3,\n    \t\t\t'user_id' => $user->id,\n    \t\t\t'published_at' => date('Y-m-d h:i:s'),\n    \t\t],\n    \t];\n\n    \tforeach ($posts as $post) {\n\n\t        Post::create([\n\t        \t'title' => $post['title'],\n\t\t        'content' => $post['content'],\n\t\t        'speaker_id' => $post['speaker_id'],\n\t\t        'location_id' => $post['location_id'],\n\t\t        'date' => $post['date'],\n\t\t        'video_src' => $post['video_src'],\n\t\t        'image_src' => $post['image_src'],\n\t\t        'mins_read' => $post['mins_read'],\n\t\t        'user_id' => $post['user_id'],\n\t\t        'published_at' => $post['published_at'],\n\t        ]);\n    \t\t\n    \t}\n\n\n    }\n}\n",
+			"settings":
+			{
+				"buffer_size": 3032,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/lampp/htdocs/personal/reminders/readme.md",
+			"settings":
+			{
+				"buffer_size": 10108,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"reind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"boo",
+				"Bookmarks: Clear All"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"package",
+				"Package Control: Enable Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 185.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/opt/lampp/htdocs/personal/reminders",
+		"/opt/lampp/htdocs/personal/reminders/app",
+		"/opt/lampp/htdocs/personal/reminders/tests",
+		"/opt/lampp/htdocs/personal/reminders/tests/Feature",
+		"/opt/lampp/htdocs/personal/reminders/tests/Feature/Http",
+		"/opt/lampp/htdocs/personal/reminders/tests/Feature/Http/Requests"
+	],
+	"file_history":
+	[
+		"/opt/lampp/htdocs/personal/reminders/app/Post.php",
+		"/opt/lampp/htdocs/personal/reminders/resources/views/components/seo.blade.php",
+		"/opt/lampp/htdocs/personal/reminders/app/Console/Commands/FreshInstallOnce.php",
+		"/opt/lampp/htdocs/personal/reminders/database/seeds/DatabaseSeeder.php",
+		"/opt/lampp/htdocs/personal/reminders/database/seeds/PostTagsTableSeeder.php",
+		"/opt/lampp/htdocs/personal/reminders/database/seeds/SurahsTableSeeder.php",
+		"/opt/lampp/htdocs/personal/reminders/database/seeds/SpeakersTableSeeder.php",
+		"/opt/lampp/htdocs/personal/reminders/database/seeds/TagsTableSeeder.php",
+		"/opt/lampp/htdocs/personal/reminders/database/seeds/LocationsTableSeeder.php",
+		"/home/zain/Documents/Work/SERVICES/1_Jorge/data/vids/8a_notes.txt",
+		"/home/zain/Documents/Work/SERVICES/1_Jorge/6th_problem_with_receiving_invoices/plan.txt",
+		"/home/zain/Documents/Work/SERVICES/1_Jorge/6th_problem_with_receiving_invoices/Investigation/report.txt",
+		"/opt/lampp/htdocs/clients/dotila_extra/routes.txt",
+		"/home/zain/Documents/Work/SERVICES/1_Jorge/6th_problem_with_receiving_invoices/data/8b_notes.txt",
+		"/home/zain/Documents/Work/SERVICES/1_Jorge/6th_problem_with_receiving_invoices/data/8a_notes.txt",
+		"/home/zain/Documents/Work/SERVICES/1_Jorge/data/vids/8b_notes.txt",
+		"/home/zain/Videos/Youtube/tags.txt",
+		"/opt/lampp/htdocs/personal/reminders/app/Jobs/ProcessPostContent.php",
+		"/opt/lampp/htdocs/personal/reminders/app/Jobs/ExtractRawContent.php",
+		"/opt/lampp/htdocs/personal/reminders/readme.md",
+		"/opt/lampp/htdocs/personal/reminders/tests/Feature/Http/Controllers/PostControllerTest.php",
+		"/opt/lampp/htdocs/personal/reminders/tests/Feature/Http/Controllers/PostControllerShowMethodTest.php",
+		"/opt/lampp/htdocs/personal/reminders/tests/Feature/Http/Controllers/PostControllerIndexMethodTest.php",
+		"/opt/lampp/htdocs/personal/reminders/tests/Feature/Http/Controllers/PostControllerTests/PostControllerTest.php",
+		"/opt/lampp/htdocs/personal/reminders/tests/Feature/Http/Requests/PostShowRequestTest.php",
+		"/opt/lampp/htdocs/personal/reminders/tests/Feature/Http/Controllers/WelcomeControllerTest.php",
+		"/opt/lampp/htdocs/personal/reminders/app/Http/Controllers/PostController.php",
+		"/opt/lampp/htdocs/personal/reminders/config/seo.php",
+		"/opt/lampp/htdocs/personal/reminders/config/admin.php",
+		"/opt/lampp/htdocs/personal/reminders/config/post.php",
+		"/opt/lampp/htdocs/personal/reminders/resources/views/welcome.blade.php",
+		"/opt/lampp/htdocs/personal/reminders/app/Traits/SeoHelper.php",
+		"/opt/lampp/htdocs/personal/reminders/app/Http/Controllers/WelcomeController.php",
+		"/opt/lampp/htdocs/personal/reminders/vendor/nesbot/carbon/src/Carbon/Traits/Comparison.php",
+		"/home/zain/Documents/Reference/Languages/laravel/laravel.txt",
+		"/opt/lampp/htdocs/personal/reminders/resources/js/components/AyahComponent.vue",
+		"/home/zain/Videos/Youtube/Blogs/ENVY.html",
+		"/opt/lampp/htdocs/personal/reminders/resources/views/post/index.blade.php",
+		"/opt/lampp/htdocs/personal/reminders/resources/views/components/post_card.blade.php",
+		"/opt/lampp/htdocs/personal/reminders/resources/views/feedback.blade.php",
+		"/opt/lampp/htdocs/personal/reminders/app/Http/Controllers/FeedbackController.php",
+		"/opt/lampp/htdocs/personal/reminders/config/app.php",
+		"/opt/lampp/htdocs/personal/reminders/app/Http/View/Composers/SeoComposer.php",
+		"/opt/lampp/htdocs/personal/reminders/app/Providers/ViewServiceProvider.php",
+		"/opt/lampp/htdocs/personal/reminders/vendor/laravel/framework/src/Illuminate/View/ViewServiceProvider.php",
+		"/opt/lampp/htdocs/personal/reminders/app/Jobs/ExtractHadith.php",
+		"/opt/lampp/htdocs/personal/reminders/app/Traits/StringExtractor.php",
+		"/opt/lampp/htdocs/personal/reminders/database/migrations/2019_12_26_134520_create_posts_table.php",
+		"/opt/lampp/htdocs/personal/reminders/vendor/symfony/http-kernel/Kernel.php",
+		"/opt/lampp/htdocs/personal/reminders/vendor/symfony/http-kernel/DependencyInjection/LazyLoadingFragmentHandler.php",
+		"/opt/lampp/htdocs/personal/reminders/vendor/symfony/routing/Loader/Configurator/CollectionConfigurator.php",
+		"/opt/lampp/htdocs/personal/reminders/app/Console/Kernel.php",
+		"/opt/lampp/htdocs/personal/reminders/app/Http/Composers/SeoComposer.php",
+		"/home/zain/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/zain/.config/sublime-text-3/Packages/AdvancedNewFile/README.md",
+		"/home/zain/.config/sublime-text-3/Packages/AdvancedNewFile/Default (Linux).sublime-keymap",
+		"/home/zain/.config/sublime-text-3/Packages/User/AdvancedNewFile.sublime-settings",
+		"/opt/lampp/htdocs/personal/reminders/resources/views/post/show.blade.php",
+		"/opt/lampp/htdocs/personal/reminders/tests/Feature/Http/Requests/PostTrait.php",
+		"/opt/lampp/htdocs/personal/reminders/tests/Feature/Http/Requests/PostRequestTest.php",
+		"/opt/lampp/htdocs/personal/reminders/database/seeds/PostsTableSeeder.php",
+		"/opt/lampp/htdocs/personal/reminders/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
+		"/opt/lampp/htdocs/personal/reminders/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php",
+		"/opt/lampp/htdocs/personal/reminders/tests/Feature/Http/Middleware/AdminMiddlewareTest.php",
+		"/opt/lampp/htdocs/personal/reminders/webpack.mix.js",
+		"/opt/lampp/htdocs/personal/reminders/resources/sass/app.scss",
+		"/opt/lampp/htdocs/personal/reminders/resources/sass/_cleanblog.scss",
+		"/opt/lampp/htdocs/personal/reminders/resources/sass/_variables.scss",
+		"/opt/lampp/htdocs/personal/reminders/resources/views/admin/post/create_or_update.blade.php",
+		"/home/zain/Downloads/captions.sbv",
+		"/opt/lampp/htdocs/personal/reminders/resources/js/app.js",
+		"/opt/lampp/htdocs/personal/reminders/resources/js/components/TymeComponent.vue",
+		"/home/zain/Documents/Reference/Software/Git/git_commands.txt",
+		"/home/zain/Documents/Reference/OS/linux_commands.txt",
+		"/home/zain/Documents/Work/SERVICES/1_Jorge/stats/server_logins.txt",
+		"/opt/lampp/htdocs/personal/reminders/app/Jobs/ExtractAyah.php",
+		"/home/zain/Downloads/Nicolette Shea Romi Rain Ava Addams - Christmas Orgy/bootstrap-notify.js",
+		"/opt/lampp/htdocs/clients/dotila/resources/views/emails/facturas/partials/listado.blade.php",
+		"/opt/lampp/htdocs/clients/dotila/.env",
+		"/home/zain/Documents/Lab/htmls/fiverr/textarea.html",
+		"/home/zain/Documents/Work/SERVICES/1_Jorge/data/vids/6_notes_13th_Dec_19.txt",
+		"/opt/lampp/htdocs/clients/dotila/public/assets/global/css/components-md.css",
+		"/opt/lampp/htdocs/clients/dotila/app/Http/Controllers/FacturarQrSinCuentaController.php",
+		"/opt/lampp/htdocs/clients/dotila/resources/views/facturarticket/index.blade.php",
+		"/home/zain/Documents/Work/SERVICES/1_Jorge/5th_button_on_dotila_tf/Options For Client/icons.txt",
+		"/opt/lampp/htdocs/clients/dotila/resources/views/usuarios/factura/nueva_tting.blade.php",
+		"/opt/lampp/htdocs/clients/dotila/resources/assets/js/components/Cfdi.Form.vue",
+		"/home/zain/Documents/Work/Services/1_Jorge/completed/3rd_Delivery_global_invoice_in_reports/rescue.txt",
+		"/home/zain/Documents/Work/Services/1_Jorge/4th_optimze_facturas_emitidas/rescue.txt",
+		"/home/zain/Documents/Work/Services/1_Jorge/completed/3rd_Delivery_global_invoice_in_reports/notes.txt",
+		"/opt/lampp/htdocs/clients/dotila/public/js/usuarios/factura/nueva_tting.js",
+		"/opt/lampp/htdocs/clients/dotila/app/Repositories/BaseRepository.php",
+		"/opt/lampp/htdocs/clients/dotila/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php",
+		"/opt/lampp/htdocs/clients/dotila/app/Http/routes/routes_usuarios.php",
+		"/opt/lampp/htdocs/clients/dotila/app/Http/routes/routes_app.php",
+		"/opt/lampp/htdocs/clients/dotila/app/Http/Controllers/Usuarios/FacturasEmitidasController.php",
+		"/opt/lampp/htdocs/clients/dotila/app/Http/Controllers/Usuarios/FacturasController.php",
+		"/opt/lampp/htdocs/clients/dotila/app/Http/Controllers/DotilatfControllers.php",
+		"/opt/lampp/htdocs/clients/dotila/resources/views/usuarios/dotila_tf/partials/listado_saodtting.blade.php",
+		"/opt/lampp/htdocs/clients/dotila/public/assets/dotila/codigos_qr_saodtting.js",
+		"/opt/lampp/htdocs/clients/dotila/public/assets/dotila/codigos_qr.js",
+		"/opt/lampp/htdocs/clients/dotila/app/Libraries/helpers.php",
+		"/opt/lampp/htdocs/clients/dotila/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
+		"/opt/lampp/htdocs/clients/dotila/vendor/laravel/framework/src/Illuminate/Support/Facades/Redis.php",
+		"/opt/lampp/htdocs/clients/dotila/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php",
+		"/opt/lampp/htdocs/clients/dotila/vendor/laravel/framework/src/Illuminate/Cache/Repository.php",
+		"/opt/lampp/htdocs/clients/dotila/vendor/laravel/framework/src/Illuminate/Cache/RedisStore.php",
+		"/opt/lampp/htdocs/clients/dotila/vendor/laravel/framework/src/Illuminate/Support/helpers.php",
+		"/opt/lampp/htdocs/clients/dotila/vendor/vendor_bkp/laravel/framework/src/Illuminate/Support/helpers.php",
+		"/opt/lampp/htdocs/clients/dotila/vendor/yajra/laravel-datatables-oracle/src/yajra/Datatables/Datatables.php",
+		"/opt/lampp/htdocs/clients/dotila/vendor/laravel/framework/src/Illuminate/Support/Facades/Cache.php",
+		"/opt/lampp/htdocs/clients/dotila/vendor/itsgoingd/clockwork/Clockwork/Support/Lumen/helpers.php",
+		"/opt/lampp/htdocs/clients/dotila/app/Entities/FacturaEmitida.php",
+		"/opt/lampp/htdocs/personal/reminders/wordpress/wp-config.php",
+		"/opt/lampp/htdocs/clients/dotila/resources/assets/js/components/Cfdi/ProcesarXlsx.vue",
+		"/opt/lampp/htdocs/clients/dotila/app/Entities/DatoFiscal.php",
+		"/opt/lampp/htdocs/clients/dotila/app/Repositories/FacturaEmitidaRepository.php",
+		"/opt/lampp/htdocs/clients/dotila/app/Repositories/UserRepository.php",
+		"/opt/lampp/htdocs/clients/dotila/resources/views/usuarios/factura/nueva.blade.php",
+		"/opt/lampp/htdocs/clients/dotila/app/Http/Controllers/Usuarios/FacturaNuevaController.php",
+		"/home/zain/Documents/Work/Services/Plan/business_plan.txt",
+		"/opt/lampp/htdocs/clients/meister-master/routes/web.php",
+		"/opt/lampp/htdocs/clients/meister-master/public/index.php",
+		"/opt/lampp/htdocs/clients/meister-master/app/Http/Controllers/DashboardController.php",
+		"/opt/lampp/htdocs/clients/royal-bikes/wp-config.php",
+		"/opt/lampp/htdocs/clients/dotila_extra/lab/sql/reportes.txt",
+		"/opt/lampp/htdocs/clients/dotila/app/Repositories/DatoFiscalRepository.php",
+		"/opt/lampp/htdocs/clients/dotila/resources/views/usuarios/factura/subir_xml_emitida.blade.php"
+	],
+	"find":
+	{
+		"height": 22.0
+	},
+	"find_in_files":
+	{
+		"height": 113.0,
+		"where_history":
+		[
+			"/opt/lampp/htdocs/personal/reminders/tests/Feature",
+			"/opt/lampp/htdocs/personal/reminders/resources/sass",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"post",
+			"Post",
+			"post",
+			"emails-factura",
+			"appendApostrophe",
+			"'",
+			"s",
+			"'",
+			"user",
+			"PAGINATION",
+			"PostControllerIndexMethodTest",
+			"PostControllerShowMethodTest",
+			"viewis",
+			"\n        ",
+			"post",
+			"Post",
+			"post",
+			"Post",
+			"post",
+			"post.index",
+			"welcome",
+			"automat",
+			"code",
+			"welcome",
+			"test_ATTRIBUTION_LINK_IS_PRESENT_with_correct_redirect",
+			"Mail",
+			"meta",
+			"ExtractRawContent",
+			"mergeWithTamplate",
+			"weHaveSeoFor",
+			"getSeoDataFor",
+			"getSeoData",
+			"$data =",
+			"view",
+			"=>",
+			"static",
+			"published",
+			"latestPublishedFirst",
+			"adminGetRouteNames",
+			"$system-says-secondary",
+			"../webfonts/fa-bra",
+			"ffb039",
+			"hr",
+			"insertAtCaret",
+			"#textarea",
+			"#text",
+			"text",
+			"blameworthy",
+			" blameworthy",
+			" blameworthy envy",
+			" foregoing blameworthy envy",
+			"contemplate",
+			"endingTagLength",
+			"hadith",
+			"Hadith",
+			"hadith",
+			"span",
+			"second",
+			"this.sec",
+			"this.min",
+			" }}",
+			"{{ ",
+			"sec",
+			"min",
+			"Prophet",
+			"prophet",
+			"surah",
+			"Prophet",
+			"Propeht",
+			"quran",
+			"Surah",
+			"YOUSUF",
+			"Yousuf",
+			"All sound minded ",
+			" the lofty level",
+			"\n<",
+			"fact",
+			"in fact",
+			"infact",
+			"stash",
+			"hr",
+			"contemplate the",
+			"If we contemplate the",
+			"the low leve",
+			"detracts",
+			"Envy",
+			"brother",
+			"&hellips;",
+			"reference",
+			"individual",
+			"an envious individual",
+			"sympathy for the victim"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Surah"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/opt/lampp/htdocs/personal/reminders/routes/web.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2390,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2390,
+								2390
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 70.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/zain/Videos/Youtube/Blogs/ENVY.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7722,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7722,
+								7722
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2583,
+						"regions":
+						{
+							"bookmarks":
+							{
+								"flags": 144,
+								"icon": "bookmark",
+								"regions":
+								[
+									[
+										1482,
+										1482
+									]
+								],
+								"scope": "bookmarks"
+							}
+						},
+						"selection":
+						[
+							[
+								1457,
+								1457
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"auto_name": "make its seeder or make the first post ready to be",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 533.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/opt/lampp/htdocs/personal/reminders/database/seeds/PostsTableSeeder.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11862,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11725,
+								11725
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3004.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "2019_12_26_134520_create_posts_table.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1866,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1087,
+								1087
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "php"
+							},
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/opt/lampp/htdocs/personal/reminders/database/seeds/DatabaseSeeder.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 577,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								367,
+								367
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/opt/lampp/htdocs/personal/reminders/database/seeds/TagsTableSeeder.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 694,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								309,
+								309
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/opt/lampp/htdocs/personal/reminders/resources/views/admin/post/create_or_update.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12413,
+						"regions":
+						{
+							"bookmarks":
+							{
+								"flags": 144,
+								"icon": "bookmark",
+								"regions":
+								[
+									[
+										5193,
+										5209
+									],
+									[
+										10217,
+										10217
+									],
+									[
+										10500,
+										10500
+									]
+								],
+								"scope": "bookmarks"
+							}
+						},
+						"selection":
+						[
+							[
+								5397,
+								5397
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 249.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/opt/lampp/htdocs/personal/reminders/app/Jobs/ExtractRawContent.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1051,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								956,
+								956
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3032,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3032,
+								3032
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 511.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/opt/lampp/htdocs/personal/reminders/readme.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10108,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6429,
+								6429
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1386.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 43.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "reminders_testing.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"seo.bl",
+				"resources/views/components/seo.blade.php"
+			],
+			[
+				"a/p",
+				"app/Post.php"
+			],
+			[
+				"create_post",
+				"database/migrations/2019_12_26_134520_create_posts_table.php"
+			],
+			[
+				"fresh",
+				"app/Console/Commands/FreshInstallOnce.php"
+			],
+			[
+				"database",
+				"database/seeds/DatabaseSeeder.php"
+			],
+			[
+				"a/p/c",
+				"resources/views/admin/post/create_or_update.blade.php"
+			],
+			[
+				"extrac",
+				"app/Jobs/ExtractRawContent.php"
+			],
+			[
+				"data",
+				"database/seeds/DatabaseSeeder.php"
+			],
+			[
+				"readm",
+				"readme.md"
+			],
+			[
+				"process",
+				"app/Jobs/ProcessPostContent.php"
+			],
+			[
+				"postcont",
+				"tests/Feature/Http/Controllers/PostControllerTest.php"
+			],
+			[
+				"dseeder",
+				"database/seeds/DatabaseSeeder.php"
+			],
+			[
+				"welcom",
+				"tests/Feature/Http/Controllers/WelcomeControllerTest.php"
+			],
+			[
+				"c/seo",
+				"config/seo.php"
+			],
+			[
+				"c/post",
+				"config/post.php"
+			],
+			[
+				"c/ad",
+				"config/admin.php"
+			],
+			[
+				"posctes",
+				"tests/Feature/Http/Controllers/PostControllerTest.php"
+			],
+			[
+				"postcon",
+				"app/Http/Controllers/PostController.php"
+			],
+			[
+				"read",
+				"readme.md"
+			],
+			[
+				"c/admin",
+				"config/admin.php"
+			],
+			[
+				"welcomcon",
+				"app/Http/Controllers/WelcomeController.php"
+			],
+			[
+				"web.",
+				"routes/web.php"
+			],
+			[
+				"compari",
+				"vendor/nesbot/carbon/src/Carbon/Traits/Comparison.php"
+			],
+			[
+				"welcomct",
+				"tests/Feature/Http/Controllers/WelcomeControllerTest.php"
+			],
+			[
+				"READ",
+				"readme.md"
+			],
+			[
+				"ayah",
+				"resources/js/components/AyahComponent.vue"
+			],
+			[
+				"extractRa",
+				"app/Jobs/ExtractRawContent.php"
+			],
+			[
+				"post_c",
+				"resources/views/components/post_card.blade.php"
+			],
+			[
+				"p/index.bl",
+				"resources/views/post/index.blade.php"
+			],
+			[
+				"pcont",
+				"app/Http/Controllers/PostController.php"
+			],
+			[
+				"welcom.bl",
+				"resources/views/welcome.blade.php"
+			],
+			[
+				"web.php",
+				"routes/web.php"
+			],
+			[
+				"dseed",
+				"database/seeds/DatabaseSeeder.php"
+			],
+			[
+				"welco",
+				"app/Http/Controllers/WelcomeController.php"
+			],
+			[
+				"feedbackcon",
+				"app/Http/Controllers/FeedbackController.php"
+			],
+			[
+				"feedback",
+				"resources/views/feedback.blade.php"
+			],
+			[
+				"c/ap",
+				"config/app.php"
+			],
+			[
+				"feedback.bl",
+				"resources/views/feedback.blade.php"
+			],
+			[
+				"index.bl",
+				"resources/views/post/index.blade.php"
+			],
+			[
+				"viewser",
+				"app/Providers/ViewServiceProvider.php"
+			],
+			[
+				"vsp",
+				"vendor/laravel/framework/src/Illuminate/View/ViewServiceProvider.php"
+			],
+			[
+				"compario",
+				"vendor/nesbot/carbon/src/Carbon/Traits/Comparison.php"
+			],
+			[
+				"ExtractRawContent",
+				"app/Jobs/ExtractRawContent.php"
+			],
+			[
+				"processpo",
+				"app/Jobs/ProcessPostContent.php"
+			],
+			[
+				"traits/",
+				"vendor/nesbot/carbon/src/Carbon/Traits/Comparison.php"
+			],
+			[
+				"welcomec",
+				"app/Http/Controllers/WelcomeController.php"
+			],
+			[
+				"kernel",
+				"vendor/symfony/http-kernel/Kernel.php"
+			],
+			[
+				"lazyloader",
+				"vendor/symfony/http-kernel/DependencyInjection/LazyLoadingFragmentHandler.php"
+			],
+			[
+				"collectino",
+				"vendor/symfony/routing/Loader/Configurator/CollectionConfigurator.php"
+			],
+			[
+				"kerne",
+				"app/Console/Kernel.php"
+			],
+			[
+				"c/app",
+				"config/app.php"
+			],
+			[
+				"appsep",
+				"app/Providers/AppServiceProvider.php"
+			],
+			[
+				"seoc",
+				"app/Http/Composers/SeoComposer.php"
+			],
+			[
+				"seo.b",
+				"resources/views/components/seo.blade.php"
+			],
+			[
+				"postret",
+				"tests/Feature/Http/Requests/PostRequestTest.php"
+			],
+			[
+				"",
+				"tests/Feature/Http/Controllers/WelcomeControllerTest.php"
+			],
+			[
+				"pct",
+				"tests/Feature/Http/Controllers/PostControllerTest.php"
+			],
+			[
+				"a/pos",
+				"app/Post.php"
+			],
+			[
+				"surah",
+				"database/seeds/SurahsTableSeeder.php"
+			],
+			[
+				"databases",
+				"database/seeds/DatabaseSeeder.php"
+			],
+			[
+				"c/adm",
+				"config/admin.php"
+			],
+			[
+				"p/s",
+				"resources/views/post/show.blade.php"
+			],
+			[
+				"posc",
+				"app/Http/Controllers/PostController.php"
+			],
+			[
+				"app.s",
+				"resources/sass/app.scss"
+			],
+			[
+				"show.bl",
+				"resources/views/post/show.blade.php"
+			],
+			[
+				"web",
+				"webpack.mix.js"
+			],
+			[
+				"tyme",
+				"resources/js/components/TymeComponent.vue"
+			],
+			[
+				"webp",
+				"webpack.mix.js"
+			],
+			[
+				"aya",
+				"resources/js/components/AyahComponent.vue"
+			],
+			[
+				"app.js",
+				"resources/js/app.js"
+			],
+			[
+				"clean.scss",
+				"resources/sass/_cleanblog.scss"
+			],
+			[
+				"create_up",
+				"resources/views/admin/post/create_or_update.blade.php"
+			],
+			[
+				"p/sh",
+				"resources/views/post/show.blade.php"
+			],
+			[
+				"p/show",
+				"resources/views/post/show.blade.php"
+			],
+			[
+				"extra",
+				"app/Jobs/ExtractAyah.php"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
+				"FacturarQrSinCuentaController",
+				"app/Http/Controllers/FacturarQrSinCuentaController.php"
+			],
+			[
+				"nueva_tting.js",
+				"public/js/usuarios/factura/nueva_tting.js"
+			],
+			[
+				"nueva_t",
+				"resources/views/usuarios/factura/nueva_tting.blade.php"
+			],
+			[
+				"tting",
+				"public/js/usuarios/factura/nueva_tting.js"
+			],
+			[
+				"qr_s",
+				"public/assets/dotila/codigos_qr_saodtting.js"
+			],
+			[
+				"facturarticket",
+				"resources/views/facturarticket/index.blade.php"
+			],
+			[
+				"index_saodtting",
+				"resources/views/usuarios/dotila_tf/index_saodtting.blade.php"
+			],
+			[
+				"DotilatfControllers",
+				"app/Http/Controllers/DotilatfControllers.php"
+			],
+			[
+				"facturascon",
+				"app/Http/Controllers/Usuarios/FacturasController.php"
+			],
+			[
+				"facturasem",
+				"app/Http/Controllers/Usuarios/FacturasEmitidasController.php"
+			],
+			[
+				"codigos",
+				"public/assets/dotila/codigos_qr.js"
+			],
+			[
+				"listado_sao",
+				"resources/views/usuarios/dotila_tf/partials/listado_saodtting.blade.php"
+			],
+			[
+				"helpers",
+				"app/Libraries/helpers.php"
+			],
+			[
+				"lib/helpers.php",
+				"app/Libraries/helpers.php"
+			],
+			[
+				"cacherepo",
+				"vendor/laravel/framework/src/Illuminate/Cache/Repository.php"
+			],
+			[
+				"i/s/helper",
+				"vendor/laravel/framework/src/Illuminate/Support/helpers.php"
+			],
+			[
+				"i/helpers",
+				"vendor/vendor_bkp/laravel/framework/src/Illuminate/Support/helpers.php"
+			],
+			[
+				"\\Illuminate\\Cache\\Repository",
+				"vendor/laravel/framework/src/Illuminate/Cache/Repository.php"
+			],
+			[
+				"i/f/ca",
+				"vendor/laravel/framework/src/Illuminate/Support/Facades/Cache.php"
+			],
+			[
+				"helpers.ph",
+				"vendor/laravel/framework/src/Illuminate/Foundation/helpers.php"
+			],
+			[
+				"i/c/he",
+				"vendor/itsgoingd/clockwork/Clockwork/Support/Lumen/helpers.php"
+			],
+			[
+				"uminate\\Database\\Query\\Builde",
+				"vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php"
+			],
+			[
+				"il/builder",
+				"vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php"
+			],
+			[
+				"i/s/f/redis",
+				"vendor/laravel/framework/src/Illuminate/Support/Facades/Redis.php"
+			],
+			[
+				"FacturasController",
+				"app/Http/Controllers/Usuarios/FacturasController.php"
+			],
+			[
+				"facturasEmit",
+				"app/Http/Controllers/Usuarios/FacturasEmitidasController.php"
+			],
+			[
+				"cfdi",
+				"resources/assets/js/components/Cfdi.Form.vue"
+			],
+			[
+				"nuev",
+				"resources/views/usuarios/factura/nueva.blade.php"
+			],
+			[
+				"nue",
+				"resources/views/usuarios/factura/nueva.blade.php"
+			],
+			[
+				"facn",
+				"app/Http/Controllers/Usuarios/FacturaNuevaController.php"
+			],
+			[
+				"u/fac",
+				"app/Http/Controllers/Usuarios/FacturasController.php"
+			],
+			[
+				"nueva.bl",
+				"resources/views/usuarios/factura/nueva.blade.php"
+			],
+			[
+				"cfdi.",
+				"resources/assets/js/components/Cfdi.Form.vue"
+			],
+			[
+				"lluminate\\Redis\\Database",
+				"vendor/laravel/framework/src/Illuminate/Redis/Database.php"
+			],
+			[
+				"compose",
+				"composer.json"
+			],
+			[
+				"compser.loc",
+				"composer.lock"
+			],
+			[
+				"\\Illuminate\\Redis\\Database",
+				"vendor/laravel/framework/src/Illuminate/Redis/Database.php"
+			],
+			[
+				"composer.l",
+				"composer.lock"
+			],
+			[
+				"composer.j",
+				"composer.json"
+			],
+			[
+				"Illuminate\\Events\\Dispatcher",
+				"vendor/laravel/framework/src/Illuminate/Events/Dispatcher.php"
+			],
+			[
+				"inate\\Database\\Connecti",
+				"vendor/laravel/framework/src/Illuminate/Database/Connection.php"
+			],
+			[
+				"db.",
+				"vendor/laravel/framework/src/Illuminate/Support/Facades/DB.php"
+			],
+			[
+				"Illuminate\\Database\\Connection",
+				"vendor/laravel/framework/src/Illuminate/Database/Connection.php"
+			],
+			[
+				"RegisterFacades",
+				"vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterFacades.php"
+			],
+			[
+				"i/f/ker",
+				"vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php"
+			],
+			[
+				"Illuminate\\Database\\DatabaseManager",
+				"vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php"
+			],
+			[
+				"i/db",
+				"vendor/laravel/framework/src/Illuminate/Support/Facades/DB.php"
+			],
+			[
+				"i/s/f/db",
+				"vendor/laravel/framework/src/Illuminate/Support/Facades/DB.php"
+			],
+			[
+				"rep/facon",
+				"app/Http/Controllers/Reportes/FacturasController.php"
+			],
+			[
+				"u/fact",
+				"app/Http/Controllers/Usuarios/FacturasController.php"
+			],
+			[
+				"cache",
+				"config/cache.php"
+			],
+			[
+				"il/s/cac",
+				"vendor/laravel/framework/src/Illuminate/Support/Facades/Cache.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 731.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 354.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -17,16 +17,14 @@ class WelcomeController extends Controller
     public function welcome(Request $request)
     {
         $seo = [
-            'title' => 'Blog On Friday Sermons Of Masjid Al Haram | Reminders For Good',
-            'meta' => [
-                'description' => 'Blogs on friday sermons of masjid al haram updated every 2 weeks or earlier.'
-            ],
+            'title' => config('seo.welcome.title'),
+            'meta' => config('seo.welcome.meta'),
         ];
         $seo = $this->mergeWithTemplate($seo);
 
         // dd($this->template());
         $posts = Post::latestPublishedFirst()->limit(config('post.welcome'))->get();
-    	$total = $posts->count();
+    	$total = Post::count();
 	    return view('welcome', compact('posts', 'total', 'seo'));
     }
 }

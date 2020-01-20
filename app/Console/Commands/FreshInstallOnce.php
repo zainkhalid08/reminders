@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Traits\InteractsWithEnv;
 use App\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Schema;
 
 class FreshInstallOnce extends Command
 {
@@ -41,6 +42,7 @@ class FreshInstallOnce extends Command
      */
     public function handle()
     {
+        // Admin credentials are present in .env
         if ( empty(config('admin.name')) || empty(config('admin.email')) || empty(config('admin.password'))  ) {
             $name = '';
             while ( empty($name) ) {
@@ -64,6 +66,11 @@ class FreshInstallOnce extends Command
             $message = 'Alhamdulillah work done!';
         }
 
+        // If this is run already
+        if (Schema::hasTable('users')) {
+            $this->info('ran already... Still want to make a fresh start try dropping the tables and try again.');
+            return;
+        }
 
         // 1
         $result = $this->call('migrate', [

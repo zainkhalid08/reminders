@@ -18,6 +18,10 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         @include('components.post_card')
+         {{-- have to center these links --}}
+	    <div>
+		    {{ $posts->render() }}
+	    </div>
       </div>
     </div>
 </div> 

@@ -90,6 +90,9 @@
                     <button type="button" onclick="appendAllahName()">Allah</button>
                     <button type="button" onclick="appendHellip()">...</button>
                     <button type="button" onclick="appendQuran()">Quran</button>
+                    <button type="button" onclick="appendApostrophe()">&#8217;</button>
+                    <button type="button" onclick="appendDQuotesStart()">&#8220;</button>
+                    <button type="button" onclick="appendDQuotesEnd()">&#8221;</button>
                     <div class="text-center">
                       <textarea id="txtarea" name="content" style="width: 100%;" rows="15" placeholder="Type here...">{{ isset($post) ? $post->content : old('content') }}</textarea>
                       @component('components.error', ['field' => 'content'])
@@ -207,6 +210,24 @@
 
     function appendQuran(){
       txt = 'Quran';
+      lengthFromEndingTag = 0;
+      appendContent(txt, lengthFromEndingTag);
+    }
+
+    function appendApostrophe(){
+      txt = '&#8217;';
+      lengthFromEndingTag = 0;
+      appendContent(txt, lengthFromEndingTag);
+    }
+
+    function appendDQuotesStart(){
+      txt = '&#8220;';
+      lengthFromEndingTag = 0;
+      appendContent(txt, lengthFromEndingTag);
+    }
+
+    function appendDQuotesEnd(){
+      txt = '&#8221;';
       lengthFromEndingTag = 0;
       appendContent(txt, lengthFromEndingTag);
     }

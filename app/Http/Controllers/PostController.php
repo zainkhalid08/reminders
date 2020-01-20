@@ -19,16 +19,15 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $seo = [
-            'title' => 'Blog On Friday Sermons Of Masjid Al Haram | Reminders For Good',
-            'meta' => [
-                'description' => 'Older friday sermons of masjid al haram.'
-            ],
-        ];
 
+        $seo = [
+            'title' => config('seo.post-index.title'),
+            'meta' => config('seo.post-index.meta'),
+        ];
         $seo = $this->mergeWithTemplate($seo);
 
-        $posts = Post::latestPublishedFirst()->get();
+        // $posts = Post::latestPublishedFirst()->get();
+        $posts = Post::latestPublishedFirst()->paginate(config('post.post-index'));
         // dd($posts);
 
         return view('post.index', compact('posts', 'seo'));

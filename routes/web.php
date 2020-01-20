@@ -1,5 +1,7 @@
 <?php
 
+use App\Post;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +13,10 @@
 |
 */
 
-// Route::get('/play', function(){
-// });
+Route::get('/play', function(){
+	$post = Post::first();
+	echo dd($post->raw_content);
+});
 
 Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(function () {
 	Route::get('/', 'Auth\LoginController@showLoginForm')->name('login.view');

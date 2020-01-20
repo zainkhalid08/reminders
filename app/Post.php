@@ -94,7 +94,7 @@ class Post extends Model
 
     public function scopeLatestPublishedFirst($query)
     {
-        return $query->latest('published_at');
+        return $query->published()->latest('published_at');
     }
 
     public function tags()

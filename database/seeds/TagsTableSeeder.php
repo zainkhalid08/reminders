@@ -13,10 +13,16 @@ class TagsTableSeeder extends Seeder
     public function run()
     {
     	$tags = [
-    		'quran' => 'quran e paak, holy book, book of allah',
-    		'relation with allah' => 'haqooq allah, allah ka haaq, ibadaat',
-    		'relation with people' => 'haqooq al ibaad, bandoo k haqooq, loggon say salook',
+    		'envy' => 'hasad, jealousy, spite, discontent',
+            'surah yusuf' => '12, yousaf, yousuf',
+
+    		// 'relation with allah' => 'haqooq allah, allah ka haaq, ibadaat',
+    		// 'relation with people' => 'haqooq al ibaad, bandoo k haqooq, loggon say salook',
     	];
+
+        if (Tag::count()) {
+            return;
+        }
 
     	foreach ($tags as $tag => $synonyms) {
 	    	Tag::create([

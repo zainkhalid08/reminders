@@ -12,9 +12,12 @@ class LocationsTableSeeder extends Seeder
      */
     public function run()
     {
+        if (Location::count()) {
+            return;
+        }
+        
     	$locations = [
     		'Masjid Al Haram',
-    		'Masjid An Nabawi'
     	];
 
     	foreach ($locations as $location) {

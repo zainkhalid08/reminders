@@ -121,20 +121,23 @@ MANUAL TESTS
 AUTOMATED TESTS
 	* only mail sending and redirect back of feedback is left.
 	* adminpostcontroller tests are left
-	* To run feedback tests . It tests
+	* WELCOME PAGE TESTS vendor/bin/phpunit tests/Feature/Http/Controllers/WelcomeControllerTest.php
+	* FEEDBACK PAGE TESTS To run feedback tests . It tests
 		1. vendor/bin/phpunit tests/Feature/Http/Requests/FeedbackRequestTest.php
-			* message required
-			* verification required
-			* verification's wrong answers will show correct validation error message
-			* verification's correct answer is 2, two, TWO, tWo, ' 2 '	
-			* if present then email should be valid
 		2. vendor/bin/phpunit tests/Feature/Http/Controllers/FeedbackControllerTest.php
-			* feedback is created in db
-			* mail is sent
-			* redirected back
-			* is redirected back with proper message for visitor to see.
 		3.  WORST CASE if mail sending fails or feedback creation fails then REDIRECTED BACK WITH PROPER MESSAGE... !TO BE TESTED MANUALLY NO AUTOMATION TEST FOR THIS
-	* To security realted tests
+	* ALL POSTS PAGE TESTS
+		1. vendor/bin/phpunit --filter test_all_seo_tags_for_all_posts_page_are_present tests/Feature/Http/Controllers/PostControllerTest.php
+		2. vendor/bin/phpunit --filter test_ONLY_PUBLISHED_posts_are_shown tests/Feature/Http/Controllers/PostControllerTest.php
+		3. vendor/bin/phpunit --filter test_UNPUBLISHED_posts_are_NOT_shown tests/Feature/Http/Controllers/PostControllerTest.php
+		4. vendor/bin/phpunit --filter test_if_posts_are_more_than_pagination_limit_then_pagination_links_are_available tests/Feature/Http/Controllers/PostControllerTest.php
+		5. vendor/bin/phpunit --filter test_latest_published_posts_are_shown_first tests/Feature/Http/Controllers/PostControllerTest.php
+		6. vendor/bin/phpunit --filter test_more_than_PAGINATION_CONFIGUTED_LIMIT_number_of_posts_are_not_shown tests/Feature/Http/Controllers/PostControllerTest.php
+	* SINGLE POST PAGE TEST
+		1. vendor/bin/phpunit tests/Feature/Http/Requests/PostShowRequestTest.php
+		2. vendor/bin/phpunit --filter test_if_post_is_published_then_should_see_post tests/Feature/Http/Controllers/PostControllerTest.php
+		3. vendor/bin/phpunit --filter test_all_post_related_content_is_visible tests/Feature/Http/Controllers/PostControllerTest.php
+	* SECURITY REALTED TESTS
 		1. vendor/bin/phpunit tests/Feature/Http/Middleware/AdminMiddlewareTest.php
 		2. vendor/bin/phpunit tests/Feature/Http/Requests/PostShowRequestTest.php
 
@@ -149,6 +152,7 @@ Front End Tests
 2. the way we want the text to be displayed for visitors, we'll store the text in that way in db.(insead of getting in that way-less loadtime.)
 3. we are just using QUEUE_CONNECTION=sync for now as long as there is only one user who creates the post... (it might take some time in creation/updation but is worth perhaps)
 4. all title aria-label etc will be in lower case
+5. to set all seo related stuff title, description of static pages goto config/seo.php
 
 # TODOS
 
