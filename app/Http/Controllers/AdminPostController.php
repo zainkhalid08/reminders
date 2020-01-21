@@ -13,32 +13,26 @@ use Illuminate\Http\Request;
 
 class AdminPostController extends Controller
 {
-
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
-
     /**
-     * Shows the admin's dashboard
+     * Shows ALL posts(published and unpublished)
      * 
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
     	$posts = Post::latest('updated_at')->get();
-    	// dd($posts->count());
         return view('admin.post.index', ['posts' => $posts]);
     }
 
     /**
-     * Shows the admin's dashboard
+     * Shows the post creation page
      * 
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        $tags = ''; $speakers = ''; $locations = ''; $createOrUpdate = 'create'; $formAction = route('admin.post.store'); $formMethod = 'POST'; $surahs = ''; 
+        $tags = ''; $speakers = ''; $locations = ''; 
+        $createOrUpdate = 'create'; $formAction = route('admin.post.store'); $formMethod = 'POST'; $surahs = ''; 
 
         $this->getAllTagsSpeakersAndLocations($tags, $speakers, $locations, $surahs);
 

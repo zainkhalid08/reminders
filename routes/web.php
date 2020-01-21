@@ -13,10 +13,10 @@ use App\Post;
 |
 */
 
-Route::get('/play', function(){
-	$post = Post::first();
-	echo dd($post->raw_content);
-});
+// Route::get('/play', function(){
+// 	$post = Post::first();
+// 	echo dd($post->raw_content);
+// });
 
 Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(function () {
 	Route::get('/', 'Auth\LoginController@showLoginForm')->name('login.view');
