@@ -121,7 +121,7 @@ class ExtractAyah implements ShouldQueue
      * 
      * @return \App\Ayah
      */
-    protected function createAyah($text, $post, $reference)
+    protected function createAyah($text, $post, $reference = '')
     {
 
         $reference = explode(':', $reference);

@@ -1,5 +1,7 @@
-## Reminders
+## REMINDERS
 <i>last updated on 30th Dec 2019</i> remindersforgood@gmail.com
+
+## DEPLOYMENTS
 
 # Going to staging
 1. .env
@@ -15,9 +17,14 @@ APP_DEBUG=false
 ! After ensureing settings of env especially db certs etc
 <code>php artisan fresh:install:once</code>
 
+## SYSTEM FEATURES v1 lts
 
+* admin can create post,edit post...
+* it'll be shown in the front end after the admin publishes it.
 
-## SYSTEM FEATURES
+# Ayah Extractor
+1. Referencce is not present will still save the content
+2. If reference is present then it'll save the reference. 
 
 # Limitations
 1. we can't update location or speaker names, just yet.
@@ -27,6 +34,7 @@ APP_DEBUG=false
 
 # Supports
 1. HAVE TO BE TESTED there can be two speakers with same name but different locations 
+
 
 ## Tests
 
@@ -83,6 +91,8 @@ MANUAL TESTS
 
 			p | when ayah hadith ayah hadith are as content then they all are created
 			p | if two ayah references are same then new one isn't created in ayahs table
+
+			if an ayah doesn't have a reference then its ref isn't saved in db. And every thing works normally.
 
 		POST CREATED
 		*all tests for when post is updated
@@ -153,6 +163,17 @@ Front End Tests
 3. we are just using QUEUE_CONNECTION=sync for now as long as there is only one user who creates the post... (it might take some time in creation/updation but is worth perhaps)
 4. all title aria-label etc will be in lower case
 5. to set all seo related stuff title, description of static pages goto config/seo.php
+6. for any new page you make, for seo use
+	    use SeoHelper;
+
+        $seo = [
+            'title' => config('seo.welcome.title'),
+            'meta' => config('seo.welcome.meta'),
+        ];
+        $seo = $this->mergeWithTemplate($seo); 
+        and send it to the view
+        for eg. see WelcomeController@welcome
+7. use Model::create([]) to create the model not ->save(). As we do use model events to send mails... etc so just to get them triggered just as we want. 
 
 # TODOS
 
@@ -185,10 +206,17 @@ NOT YET/IDEAS
 
 # CHECKLIST BEFORE DEPLOYMENT
 
-*front end testing of post show is left... along with its responsivness
-19. prepare one seeder for post... to have atleast one post...
 Make fonts locallll  (test by disabling the internet) (optional)
+1. refactor backend
+2. refactor fronend
+3. finalize ayah extractor, 
+4. hadith extractor
+5. decide for search...
+6. start/end in between hr... decide.P
 20. Final test for main features... 
+extra
+21. make feedback notifications just like callcout...to make system announments concistant.
+22. finalize the titles and descriptions for 3 pages
 
 # STAGING/LIVE CHECKLIST
 17. make sure that public directories arne't accessable. FIRST WE'LL GO FOR staging.remindersforgood.com and then...

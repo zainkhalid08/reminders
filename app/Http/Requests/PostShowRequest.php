@@ -9,11 +9,15 @@ class PostShowRequest extends FormRequest
     /**
      * Determine if the user is authorized to make this request.
      *
+     * Show 404 If
+     * 1. visitor is guest and post is unpublished
+     * 2. visitor is loggedin and is not admin
+     *
      * @return bool
      */
     public function authorize()
     {
-        $post = $this->route('post'); // App\Post
+        $post = $this->route('post'); // \App\Post
 
         if (  ( auth()->guest() && $post->isUnpublished() ) || ( auth()->check() && auth()->user()->cannotCreatePost() )  ) {
             abort(404);

@@ -1,11 +1,12 @@
 @component('mail::message')
 # Feedback Arrived
 
-{{ $feedback->name ?? 'no name' }}
-{{ $feedback->email ?? 'no email' }}
-{{ $feedback->message ?? 'no message' }}
+<p>Name: {{ $feedback->name ?? 'not given' }}</p>
+<p>Email: {{ $feedback->email ?? 'not given' }}</p>
+<p>Message: {{ $feedback->message ?? 'not given' }}</p>
 
-<i>Remember this was a feedback form NOT A CONTACT. Reply sin't a must</i>
-Thanks,<br>
+<small>Remember this was a feedback form NOT A CONTACT. Reply sin't a must</small><br>
+
+Thanks,
 {{ config('app.name') }}
 @endcomponent

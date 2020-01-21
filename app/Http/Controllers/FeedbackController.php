@@ -13,17 +13,15 @@ class FeedbackController extends Controller
     use SeoHelper;
 
     /**
-     * Shows the admin's dashboard
+     * Shows the feedback page
      * 
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
         $seo = [
-            'title' => 'Blog On Friday Sermons Of Masjid Al Haram | Reminders For Good',
-            'meta' => [
-                'description' => 'Blogs on friday sermons of masjid al haram updated every 2 weeks or earlier.'
-            ],
+            'title' => config('seo.feedback.title'),
+            'meta' => config('seo.feedback.meta'), 
         ];
         $seo = $this->mergeWithTemplate($seo);
 
@@ -31,7 +29,7 @@ class FeedbackController extends Controller
     }
 
     /**
-     * Stored the feedback
+     * Stores the feedback
      * 
      * @return \Illuminate\Http\Response
      */
@@ -45,19 +43,17 @@ class FeedbackController extends Controller
         		'message' => $request['mw2s8sJ'],
         	]);
 
-        	// send mail
         	Mail::to(config('admin.email'))->send(new FeedbackArrived($feedback));
 
-        } catch (\Exception $e) {
+        } catch (\Exception $exception) {
 
-            report($e);
-            logger()->debug('mail wasn\'t sent in feedback');
+            logger()->debug('mail wasn\'t sent to admin on feedback arrival.');
+            report($exception);
             return back()->with('message', ['fail', 'Something didn\'t go according to plan. Kindly leave your feedback at remindersforgood@gmail.com, apologies for the inconvinence.', 420000]); // 7mins
 
         }
         
-    	// return (new FeedbackArrived($feedback))->render();
-    	return back()->with('message', ['success', 'Your message has been sent. Thanks for the feedback.']);
+    	return back()->with('message', ['success', 'Thanks for the feedback.']);
     }
 
 }

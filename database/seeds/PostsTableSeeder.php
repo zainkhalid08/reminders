@@ -23,7 +23,7 @@ class PostsTableSeeder extends Seeder
     	$location = Location::firstOrFail();
     	$user = User::firstOrFail();
 
-            $content = '<p><small title="this piece of content starts at this time of the video shared on this page. eg. @01:35 means 1min 35s">@01:55</small> All sound minded individuals would
+            $content = '<p><tyme min="01" sec="35"></tyme> All sound minded individuals would
             agree that just as there are certain
             diseases that affect a person&#8217;s body
             there are also diseases that affect a
@@ -67,7 +67,7 @@ class PostsTableSeeder extends Seeder
             devours off person&#8217;s own righteous deeds
             just as fire devours wood.
             </p>
-            <p>Envy, is what made Iblis become too arrogant to obey Allah&#8217;s command,
+            <p><tyme min="06" sec="36"></tyme> Envy, is what made Iblis become too arrogant to obey Allah&#8217;s command,
              made a brother kill his own sibling and made a group of
             brothers throw their own sibling down a
             well. It was also what obstructed Abu
@@ -86,15 +86,15 @@ class PostsTableSeeder extends Seeder
             We would note that an envious
             person is not only spiteful about what
             happens to others in their state of
-            wakefulness rather he is even spiteful
+            wakefulness, rather he is even spiteful
             towards them if they see something
             pleasing in their dreams while asleep.
             Such a person&#8217;s envy has no bounds. How
             could it be otherwise in light of the
             fact that the Prophet Yaqoob had told his
-            son Yusuf my dear young son do not
+            son &#8220;Yusuf my dear young son do not
             inform your brothers about your dream
-            lest, they scheme against you&hellip;
+            lest, they scheme against you&hellip;&#8221;
             </p>
             <p>An envious individual enters
             the battlegrounds of envy, not realizing
@@ -121,12 +121,12 @@ class PostsTableSeeder extends Seeder
             Furthermore they felt that
             attaining their goal was what would make
             them righteous individuals. In the end
-            they had said to each other you have to
+            they had said to each other &#8220;You have to
             kill Yusuf or banish him to some far-off
             and desolate place;
             by doing so you will attain your father&#8217;s
             undivided love and attention. Then after
-            that you can repent to Allah.
+            that you can repent to Allah.&#8221;
             </p>
             <p>
              If we contemplate that
@@ -145,7 +145,7 @@ class PostsTableSeeder extends Seeder
             trust us with <b>Yusuf</b>.&#8221; In contrast when
             referring to their other brother whom
             they did not envy they did not refrain
-            from describing him as their brother for
+            from describing him as their brother, for
             instance they said &#8220;Our dear father we
             will not receive any further measure of
             grain unless we take our <b>BROTHER;</b> thus
@@ -154,13 +154,13 @@ class PostsTableSeeder extends Seeder
             </p>
             <p>
             The aforementioned envy can kill without any weapon burn without any fuel and drown
-            without any water I beseech Allah to
-            protect all of us in the name of Allah
-            the most merciful to bestow of mercy say
+            without any water. I beseech Allah to
+            protect all of us, in the name of Allah
+            the most merciful, to bestow of mercy say
             I seek refuge with Allah &hellip;
             </p>
             <hr >
-            <p>Servants of Allah, you must observe taqwa of Allah and
+            <p><tyme min="12" sec="09"></tyme> Servants of Allah, you must observe taqwa of Allah and
              realize that happiness and
             envy cannot ever coexist in a person&#8217;s
             heart. This is because <b>happiness comes

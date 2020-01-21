@@ -15,7 +15,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="site-heading"> {{-- class="post-heading" --}}
+        <div class="post-heading"> {{-- class="site-heading" --}}
           <h1>{{ $post->title }}</h1>
           {{-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2> --}}
           <span class="meta">{!! $post->meta() !!}</span>
@@ -38,7 +38,7 @@
          {!! $post->content !!}
         </div>
         <div class="info">
-          <p class="system-says"><strong>Note:</strong> For full version of the sermon, please have a look at the video, shared on this page.</p>
+          <p class="system-says"><strong>Note:</strong> This is not the full version of the sermon. For full version please have a look at the video, shared on this page.</p>
         </div>
         {{-- <p> --}} 
           @forelse($post->tags as $tag)

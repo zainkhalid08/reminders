@@ -14,27 +14,28 @@ class PostController extends Controller
     use SeoHelper;
 
     /**
+     * Shows all posts
+     * 
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-
         $seo = [
             'title' => config('seo.post-index.title'),
             'meta' => config('seo.post-index.meta'),
         ];
         $seo = $this->mergeWithTemplate($seo);
 
-        // $posts = Post::latestPublishedFirst()->get();
         $posts = Post::latestPublishedFirst()->paginate(config('post.post-index'));
-        // dd($posts);
 
         return view('post.index', compact('posts', 'seo'));
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
+     * Shows a single post
+     * 
+     * @param \App\Http\Requests\PostShowRequest $request
      * @param \App\Post $post
      * @return \Illuminate\Http\Response
      */

@@ -12,7 +12,7 @@
                 return '@'+ this.minute + ':'+ this.second +'.';
             },
             makeTitle() {
-                return 'this piece of content starts at '+ this.minute + ' minute(s) ' + this.second + ' second(s) ' +'of the video shared on page.';
+                return 'Present at '+ this.minute + ' min(s) ' + this.second + ' sec(s) ' +'of the video shared on this page.';
             },
         },
         data() {

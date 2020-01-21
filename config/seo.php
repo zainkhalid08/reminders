@@ -26,4 +26,11 @@ return [
         ],
     ],
 
+    'feedback' => [
+        'title' => 'Feedback',
+        'meta' => [
+            'description' => 'Have something to say? Feedback on Reminders For Good'
+        ],
+    ],
+
 ];

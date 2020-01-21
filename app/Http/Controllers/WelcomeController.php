@@ -11,6 +11,8 @@ class WelcomeController extends Controller
     use SeoHelper;
 
     /**
+     * Welcome page is the root page a visitor sees
+     * 
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
@@ -22,9 +24,11 @@ class WelcomeController extends Controller
         ];
         $seo = $this->mergeWithTemplate($seo);
 
-        // dd($this->template());
         $posts = Post::latestPublishedFirst()->limit(config('post.welcome'))->get();
+
+        // for showing older sermons button
     	$total = Post::count();
+        
 	    return view('welcome', compact('posts', 'total', 'seo'));
     }
 }

@@ -181,7 +181,6 @@
       lengthFromEndingTag = 16;
       // appendContent(txt, lengthFromEndingTag);
       insertAtCaret('txtarea', txt);
-
     }
 
     function appendParagraph(){
@@ -223,13 +222,15 @@
     function appendDQuotesStart(){
       txt = '&#8220;';
       lengthFromEndingTag = 0;
-      appendContent(txt, lengthFromEndingTag);
+      // appendContent(txt, lengthFromEndingTag);
+      insertAtCaret('txtarea', txt);
     }
 
     function appendDQuotesEnd(){
       txt = '&#8221;';
       lengthFromEndingTag = 0;
-      appendContent(txt, lengthFromEndingTag);
+      // appendContent(txt, lengthFromEndingTag);
+      insertAtCaret('txtarea', txt);
     }
 
     /**
