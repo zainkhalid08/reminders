@@ -24,12 +24,10 @@
 </table>
 
 add 
-<code>
-	ADMIN_NAME='admin name here'
-	ADMIN_EMAIL=remindersforgood@gmail.com
-	ADMIN_PASSWORD='admin password here'
-	APP_DEBUG=false
-</code> 
+<code>ADMIN_NAME='admin name here'</code>
+<code>ADMIN_EMAIL=remindersforgood@gmail.com</code>
+<code>ADMIN_PASSWORD='admin password here'</code>
+<code>APP_DEBUG=false</code>
 
 2. After env settings are ready.
 ! After ensureing settings of env especially db certs etc
