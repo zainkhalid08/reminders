@@ -1,17 +1,29 @@
 # --- REMINDERS ---
-<small>last updated on 30th Dec 2019 | remindersforgood@gmail.com</small> 
+
+<small>last updated on 30th Dec 2019, remindersforgood@gmail.com</small> 
+
+
+<hr>
 
 ## DEPLOYMENTS
 
-# Going to staging
-1. .env
-APP_ENV=staging
-APP_DEBUG=false
-
-# Going to production
-1. .env
-APP_ENV=production
-APP_DEBUG=false
+<table>
+	<tr>
+		<th>Enviornment</th>
+		<th>APP_ENV</th>
+		<th>APP_DEBUG</th>
+	</tr>
+	<tr>
+		<td>staging</td>
+		<td>APP_ENV=staging</td>
+		<td>APP_DEBUG=false</td>
+	</tr>
+	<tr>
+		<td>production</td>
+		<td>APP_ENV=production</td>
+		<td>APP_DEBUG=false</td>
+	</tr>
+</table>
 
 # Installation
 ! After ensureing settings of env especially db certs etc
