@@ -30,6 +30,8 @@
 <code>ADMIN_PASSWORD='admin password here'</code> <br>
 <code>APP_DEBUG=false</code> <br>
 
+<pre>Tip: you can skip admin name, email and password and just go for php artisan fresh:install:once and it'll ask those...</pre>
+
 2. After env settings are ready.
 ! After ensureing settings of env especially db certs etc
 <code>php artisan fresh:install:once</code>
