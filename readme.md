@@ -32,8 +32,7 @@
 
 <pre>Tip: you can skip admin name, email and password and just go for php artisan fresh:install:once and it'll ask those...</pre>
 
-2. After env settings are ready.
-! After ensureing settings of env especially db certs etc
+2. After env settings are ready. Especially db certs etc <br>
 <code>php artisan fresh:install:once</code>
 
 ## SYSTEM FEATURES v1 lts
