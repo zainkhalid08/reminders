@@ -1,5 +1,5 @@
-## REMINDERS
-<i>last updated on 30th Dec 2019</i> remindersforgood@gmail.com
+#--- REMINDERS ---
+<small>last updated on 30th Dec 2019 | remindersforgood@gmail.com</small> 
 
 ## DEPLOYMENTS
 
