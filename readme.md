@@ -192,6 +192,7 @@ Front End Tests
         and send it to the view
         for eg. see WelcomeController@welcome
 7. use Model::create([]) to create the model not ->save(). As we do use model events to send mails... etc so just to get them triggered just as we want. 
+8. if you want to make use of a view composer then use availableData as a key
 
 # TODOS
 

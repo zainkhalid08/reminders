@@ -28,6 +28,19 @@ trait PostViewHelper
         return $tagsCombined;
     }
 
+    /**
+     * Separate tags as an array
+     * 
+     * @param  string $combinedTags comma separated
+     * @return array               
+     */
+    public function tagsSeparated($combinedTags = '') : array
+    {
+        $separatedRawTags = explode(',', $combinedTags);
+        $separatedFilteredTags = array_filter($separatedRawTags);
+        return $separatedRawTags;
+    }    
+
     public function readableDate()
     {
       return $this->date->format('d, M Y');

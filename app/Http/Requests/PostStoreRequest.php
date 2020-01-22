@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class PostStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,10 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
-        // if user can create post
+        if ( auth()->guest() || auth()->user()->cannotCreatePost() ) {
+            abort(404);
+        }
+        
         return true;
     }
 
@@ -34,21 +37,8 @@ class PostRequest extends FormRequest
             'tags' => 'required|string',
             'content' => 'required|string|min:10',
             'mins_read' => 'required|numeric|min:1',
-            'meta' => 'nullable|array',
+            'meta[description]' => 'required|string|min:160',
         ];
     }
-
-    /**
-     * Separate Combined Tags
-     * 
-     * @param  string $combinedTags comma separated
-     * @return array               
-     */
-    public function separateTags($combinedTags = '') : array
-    {
-        $separatedRawTags = explode(',', $combinedTags);
-        $separatedFilteredTags = array_filter($separatedRawTags);
-        return $separatedRawTags;
-    }    
 
 }

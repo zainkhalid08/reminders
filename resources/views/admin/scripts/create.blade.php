@@ -3,7 +3,7 @@
 
 		// Speakers
 		var speakers = [
-			@forelse($speakers as $speaker)
+			@forelse($availableData['speakers'] as $speaker)
 				'{{ $speaker->name }}',
 			@empty
 			@endforelse
@@ -17,7 +17,7 @@
 
 		// Locations
 		var locations = [
-			@forelse($locations as $location)
+			@forelse($availableData['locations'] as $location)
 				'{{ $location->name }}',
 			@empty
 			@endforelse
@@ -31,7 +31,7 @@
 
 	  	// Tags For autocomplete and tagging
 		var tags = [
-			@forelse($tags as $tag)
+			@forelse($availableData['tags'] as $tag)
 				'{{ $tag->name }}',
 			@empty
 			@endforelse

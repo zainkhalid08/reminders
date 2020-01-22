@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PostRequest;
+use App\Http\Requests\PostStoreRequest;
 use App\Jobs\ProcessPostContent;
 use App\Location;
 use App\Post;
 use App\Speaker;
-use App\Surah;
 use App\Tag;
+use App\Traits\PostViewHelper;
 use Illuminate\Http\Request;
 
 class AdminPostController extends Controller
 {
+    use PostViewHelper;
+
     /**
      * Shows ALL posts(published and unpublished)
      * 
@@ -31,23 +33,17 @@ class AdminPostController extends Controller
      */
     public function create()
     {
-        // dd('hit');
-        $createOrUpdate = 'create'; $formAction = route('admin.post.store'); $formMethod = 'POST';
-        // $this->formCreationStuff();
-
-        $this->getAllTagsSpeakersAndLocations($tags, $speakers, $locations, $surahs);
-
-        return view('admin.post.create_or_update', compact('tags', 'speakers', 'locations', 'createOrUpdate', 'formAction', 'formMethod', 'surahs'));
+        return view('admin.post.create_or_update');
     }
 
     /**
+     * Stores the post in db
+     * 
      * @param \App\Http\Requests\PostStoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request)
+    public function store(PostStoreRequest $request)
     {
-    	// dd($request->all());
-
     	$response = $this->storeOrUpdate($request);
 
     	if ($response['failed']) {
@@ -61,14 +57,10 @@ class AdminPostController extends Controller
 
     public function edit(Request $request, Post $post)
     {
-        $tags = ''; $speakers = ''; $locations = ''; $createOrUpdate = 'update'; $formAction = route('admin.post.update', $post->id); $formMethod = 'PUT'; $surahs = '';
-
-        $this->getAllTagsSpeakersAndLocations($tags, $speakers, $locations, $surahs);
-
-        return view('admin.post.create_or_update', compact('tags', 'speakers', 'locations', 'createOrUpdate', 'formAction', 'formMethod', 'post', 'surahs'));
+        return view('admin.post.create_or_update', compact('post'));
     }
 
-    public function update(PostRequest $request, Post $post)
+    public function update(PostStoreRequest $request, Post $post)
     {
     	$response = $this->storeOrUpdate($request, $post);
     	// dd($response);
@@ -88,14 +80,6 @@ class AdminPostController extends Controller
     	$post->publish();
     	$post->save();
     	return back();
-    }
-
-    protected function getAllTagsSpeakersAndLocations(&$tags, &$speakers, &$locations, &$surahs)
-    {
-        $tags = Tag::all();
-        $speakers = Speaker::all();
-        $locations = Location::all();
-        $surahs = Surah::all();
     }
 
     protected function storeOrUpdate($request, $post = '')
@@ -163,7 +147,7 @@ class AdminPostController extends Controller
     	}
 
     	// Attache Tags
-        $separateTags = $request->separateTags($request['tags']);
+        $separateTags = $this->tagsSeparated($request['tags']);
         $post->tags()->detach(); // detaching all tags for this post first             
     	foreach ($separateTags as $key => $tagName) {
     		$tags = Tag::where('name', $tagName);

@@ -1,3 +1,13 @@
+{{-- @var $availableData['tags'] --}} 
+{{-- @var $availableData['speakers'] --}} 
+{{-- @var $availableData['locations'] --}} 
+{{-- @var $availableData['surahs'] --}} 
+
+{{-- @var $formSettings['button'] --}} 
+{{-- @var $formSettings['action'] --}} 
+{{-- @var $formSettings['method'] --}} 
+
+
 @extends('admin.layouts.header_footer')
 
 @section('head')
@@ -21,16 +31,16 @@
           <!-- Project Card Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">{{ ucwords($createOrUpdate) }} Post</h6>
+              <h6 class="m-0 font-weight-bold text-primary">{{ ucwords($formSettings['button']) }} Post</h6>
             </div>
 
             <div class="card-body">
               <br>
               
                 <div>
-                  <form method="post" action="{{ $formAction }}" id="post-creation-or-updation-form">
+                  <form method="post" action="{{ $formSettings['action'] }}" id="post-creation-or-updation-form">
                     @csrf
-                    <input type="hidden" name="_method" value="{{ $formMethod }}">
+                    <input type="hidden" name="_method" value="{{ $formSettings['method'] }}">
                     <h4>Title</h4>
                     <div class="text-center">
                       <input type="text" name="title" style="width: 100%;" placeholder="The Last Day" value="{{ isset($post) ? $post->title : old('title') }}">
@@ -107,25 +117,25 @@
                     <h4>Meta Description</h4>
                      {{-- dd($post->meta) --}}
                     <div class="text-center">
-                      <input type="text" name="meta[description]" style="width: 100%;" placeholder="About this post..." value="{{ isset($post) ? $post->meta['description'] : old('meta[description]') }}">
+                      <input type="text" name="meta[description]" style="width: 100%;" placeholder="About this post..." value="{{ isset($post) ? $post->meta['description'] : old('meta[description]') }}" required>
                       @component('components.error', ['field' => 'meta[description]'])
                       @endcomponent
                     </div>
                     <h4>Meta Keywords</h4>
                     <div class="text-center">
-                      <input type="text" name="meta[keywords]" style="width: 100%;" placeholder="tags, for, this, post..." value="{{ isset($post) ? $post->meta['keywords'] : old('meta[keywords]') }}">
+                      <input type="text" name="meta[keywords]" style="width: 100%;" placeholder="tags, for, this, post..." value="{{ isset($post) ? $post->meta['keywords'] : old('meta[keywords]') }}" required>
                       @component('components.error', ['field' => 'meta[keywords]'])
                       @endcomponent
                     </div>
 
                     <div class="text-center">
                       <button type="button" class="btn btn-primary" style="margin-top: 2%;" onclick="event.preventDefault();
-                                                                                                    document.getElementById('post-creation-or-updation-form').submit();">{{ $createOrUpdate }}</button>
+                                                                                                    document.getElementById('post-creation-or-updation-form').submit();">{{ $formSettings['button'] }}</button>
                     </div>
                   </form> <br>
 
                   <h4>Surah Names</h4>
-                  @forelse($surahs as $surah)
+                  @forelse($availableData['surahs'] as $surah)
                     <span>{{ $surah->name }}, </span>
                   @empty
                   @endforelse
