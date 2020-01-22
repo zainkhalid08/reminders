@@ -1,6 +1,6 @@
  {{-- $meta should BE AN ARRAY --}}
  
-	<title>{{ $title }} | Friday Sermon | Reminders For Good</title>
+	<title>{{ $title }} | Reminders For Good</title>
 @if(config('app.env') !== 'staging')
 	@if (!is_null($meta))
 		@forelse($meta as $key => $value)

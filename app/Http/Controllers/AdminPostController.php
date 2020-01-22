@@ -31,8 +31,9 @@ class AdminPostController extends Controller
      */
     public function create()
     {
-        $tags = ''; $speakers = ''; $locations = ''; 
-        $createOrUpdate = 'create'; $formAction = route('admin.post.store'); $formMethod = 'POST'; $surahs = ''; 
+        // dd('hit');
+        $createOrUpdate = 'create'; $formAction = route('admin.post.store'); $formMethod = 'POST';
+        // $this->formCreationStuff();
 
         $this->getAllTagsSpeakersAndLocations($tags, $speakers, $locations, $surahs);
 
