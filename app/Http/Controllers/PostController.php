@@ -14,7 +14,7 @@ class PostController extends Controller
     use SeoHelper;
 
     /**
-     * Shows all posts
+     * Shows all PUBLISHED posts
      * 
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response

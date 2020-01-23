@@ -53,6 +53,11 @@
 # Supports
 1. HAVE TO BE TESTED there can be two speakers with same name but different locations 
 
+# Note
+<dl>
+	<dt>Post</dt>
+	<dd>When a tag is updated(attached and/or detached) for a post THEN THE POST ISN'T UNPUBLISHED. Otherwise it is</dd>
+</dl>
 
 ## Tests
 
@@ -193,7 +198,8 @@ Front End Tests
         for eg. see WelcomeController@welcome
 7. use Model::create([]) to create the model not ->save(). As we do use model events to send mails... etc so just to get them triggered just as we want. 
 8. if you want to make use of a view composer then use availableData as a key
-
+9. use updateOrCreate not createOrUpdate for your own functions
+10. we use Request classes for validation AS WELL AS FOR AUTHORIZATION 
 # TODOS
 
 NOT YET/IDEAS
@@ -226,7 +232,7 @@ NOT YET/IDEAS
 # CHECKLIST BEFORE DEPLOYMENT
 
 Make fonts locallll  (test by disabling the internet) (optional)
-1. refactor backend
+1. refactor backend DONE.
 2. refactor fronend
 3. finalize ayah extractor, 
 4. hadith extractor

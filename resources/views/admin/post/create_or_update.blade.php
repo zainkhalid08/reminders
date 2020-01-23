@@ -73,7 +73,7 @@
                     </div>
                     <h4>Tags</h4>
                     <div class="text-center">
-                      <input type="text" name="tags" style="width: 100%;" placeholder="tags here..." id="tags-autocomplete-with-tagging" value="{{ isset($post) ? $post->tagsCombined() : old('tags')  }}">
+                      <input type="text" name="tags" style="width: 100%;" placeholder="tags here..." id="tags-autocomplete-with-tagging" value="{{ isset($post) ? $post->combineTags() : old('tags')  }}">
                       @component('components.error', ['field' => 'tags'])
                       @endcomponent
                     </div>
@@ -118,13 +118,13 @@
                      {{-- dd($post->meta) --}}
                     <div class="text-center">
                       <input type="text" name="meta[description]" style="width: 100%;" placeholder="About this post..." value="{{ isset($post) ? $post->meta['description'] : old('meta[description]') }}" required>
-                      @component('components.error', ['field' => 'meta[description]'])
+                      @component('components.error', ['field' => 'meta.description'])
                       @endcomponent
                     </div>
                     <h4>Meta Keywords</h4>
                     <div class="text-center">
                       <input type="text" name="meta[keywords]" style="width: 100%;" placeholder="tags, for, this, post..." value="{{ isset($post) ? $post->meta['keywords'] : old('meta[keywords]') }}" required>
-                      @component('components.error', ['field' => 'meta[keywords]'])
+                      @component('components.error', ['field' => 'meta.keywords'])
                       @endcomponent
                     </div>
 

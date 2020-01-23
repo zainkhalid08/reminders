@@ -12,20 +12,20 @@ trait PostViewHelper
      * Combined tags of this post as a string
      *
      * @param \App\Post
-     * @return string $tagsCombined
+     * @return string $combineTags
      * 
-     * @example $post->tagsCombined()
+     * @example $post->combineTags()
      */
-    public function tagsCombined()
+    public function combineTags()
     {
-       $tagsCombined = '';
+       $combineTags = '';
        $tags = $this->tags;
        $i = 1;
        foreach ($tags as $tag) {
             $ending = ($i++ == count($tags) ? '' : ', ');
-            $tagsCombined .= $tag->name.$ending;
+            $combineTags .= $tag->name.$ending;
         } 
-        return $tagsCombined;
+        return $combineTags;
     }
 
     /**
@@ -34,7 +34,7 @@ trait PostViewHelper
      * @param  string $combinedTags comma separated
      * @return array               
      */
-    public function tagsSeparated($combinedTags = '') : array
+    public function separateTags($combinedTags = '') : array
     {
         $separatedRawTags = explode(',', $combinedTags);
         $separatedFilteredTags = array_filter($separatedRawTags);

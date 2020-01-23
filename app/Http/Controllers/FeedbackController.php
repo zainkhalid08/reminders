@@ -37,23 +37,24 @@ class FeedbackController extends Controller
     {
         try {
 
-        	$feedback = Feedback::create([
-        		'name' => $request['n3kIad3'],
-        		'email' => $request['eaWDsk2'],
-        		'message' => $request['mw2s8sJ'],
-        	]);
+        	// $feedback = Feedback::create([
+        	// 	'name' => $request['n3kIad3'],
+        	// 	'email' => $request['eaWDsk2'],
+        	// 	'message' => $request['mw2s8sJ'],
+        	// ]);
 
-        	Mail::to(config('admin.email'))->send(new FeedbackArrived($feedback));
+        	// Mail::to(config('admin.email'))->send(new FeedbackArrived($feedback));
 
         } catch (\Exception $exception) {
 
-            logger()->debug('mail wasn\'t sent to admin on feedback arrival.');
-            report($exception);
+            // logger()->debug('mail wasn\'t sent to admin on feedback arrival.');
+            // report($exception);
             return back()->with('message', ['fail', 'Something didn\'t go according to plan. Kindly leave your feedback at remindersforgood@gmail.com, apologies for the inconvinence.', 420000]); // 7mins
 
         }
+            return back()->with('message', ['fail', 'Something didn\'t go according to plan. Kindly leave your feedback at remindersforgood@gmail.com, apologies for the inconvinence.', 420000]); // 7mins
         
-    	return back()->with('message', ['success', 'Thanks for the feedback.']);
+    	// return back()->with('message', ['success', 'Thanks for the feedback.', 420000]);
     }
 
 }

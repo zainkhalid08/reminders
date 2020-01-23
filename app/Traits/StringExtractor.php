@@ -13,8 +13,6 @@ trait StringExtractor
    *
    * @param \App\Post
    * @return string $tagsCombined
-   * 
-   * @example $post->tagsCombined()
    */
   public function extractSubcontentFromBetween($content, $start, $end)
   {

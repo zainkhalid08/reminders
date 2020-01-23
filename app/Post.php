@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Jobs\ProcessPostContent;
 use App\Speaker;
 use App\Tag;
 use App\Traits\PostViewHelper;
@@ -57,6 +58,23 @@ class Post extends Model
         'published_at', 'date'
     ];
 
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+        $events = ['updated', 'created'];
+        foreach ($events as $event) {
+            static::{$event}(function ($post) {
+                $post->unpublish();
+                // ProcessPostContent::dispatch($post)/*->delay(now()->addMinutes(1))*/; // use delay when you have a queue driver setup
+            });
+        }
+    }
+
     public function speaker()
     {
         return $this->belongsTo(Speaker::class);
@@ -84,12 +102,14 @@ class Post extends Model
 
     public function publish() 
     {
-        return $this->published_at = now();
+        $this->published_at = now();
+        $this->save();
     }
 
     public function unpublish() 
     {
-        return $this->published_at = null;
+        $this->published_at = null;
+        $this->save();
     }
 
     public function scopeLatestPublishedFirst($query)
@@ -111,28 +131,6 @@ class Post extends Model
     public function setTitleAttribute($value)
     {
         $this->attributes['title'] = strtoupper($value);
-    }
-
-    /**
-     * Set the meta for the post
-     *
-     * @param  string  $value
-     * @return void
-     */
-    // public function setMetaAttribute($value)
-    // {
-    //     $this->attributes['meta'] = json_encode($value);
-    // }    
-
-    /**
-     * Get the meta for the post
-     *
-     * @param  string  $value
-     * @return void
-     */
-    // public function getMetaAttribute($value)
-    // {
-    //     return json_decode($value);
-    // }    
+    }  
 
 }

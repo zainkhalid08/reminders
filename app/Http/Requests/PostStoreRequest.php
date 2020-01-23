@@ -37,7 +37,7 @@ class PostStoreRequest extends FormRequest
             'tags' => 'required|string',
             'content' => 'required|string|min:10',
             'mins_read' => 'required|numeric|min:1',
-            'meta[description]' => 'required|string|min:160',
+            'meta.description' => 'required|string|max:160',
         ];
     }
 

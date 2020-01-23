@@ -26,8 +26,7 @@ class WelcomeController extends Controller
 
         $posts = Post::latestPublishedFirst()->limit(config('post.welcome'))->get();
 
-        // for showing older sermons button
-    	$total = Post::count();
+    	$total = Post::published()->count(); // for showing older sermons button
         
 	    return view('welcome', compact('posts', 'total', 'seo'));
     }
