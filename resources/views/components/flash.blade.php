@@ -38,6 +38,11 @@
 			        },
 			        mouse_over: "pause", // don't fade on mouse hover
 			        delay: delay, // 13s
+			        template: '<div class="success system-callout">'+
+					              '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>'+
+						          '<span data-notify="icon"></span>'+ 
+						          '<p class="system-says system-says-flash"><strong>Success:</strong> Thanks for the feedback.</p>'+
+					           '</div>'
 		    	}
 		    );
 	    }
