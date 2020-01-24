@@ -37,7 +37,7 @@ class ProcessPostContent implements ShouldQueue
     public function handle()
     {
         ExtractAyah::dispatch($this->post);
-        ExtractHadith::dispatch($this->post);
-        ExtractRawContent::dispatch($this->post);
+        // ExtractHadith::dispatch($this->post);
+        // ExtractRawContent::dispatch($this->post);
     }
 }

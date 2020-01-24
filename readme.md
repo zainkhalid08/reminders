@@ -235,6 +235,7 @@ NOT YET/IDEAS
 *add rel and perhaps logo on welcome...
 *write tests for post update and what other things that are left...
 * the feedback image is a bit upper than others as the text written is only feedback
+6. start/end in between hr... decide.P
 *google audit (really a long work and an art)
 
 
@@ -246,7 +247,6 @@ Make fonts locallll  (test by disabling the internet) (optional)
 3. finalize ayah extractor, 
 4. hadith extractor
 5. decide for search...
-6. start/end in between hr... decide.P
 20. Final test for main features... 
 extra
 21. make feedback notifications just like callcout...to make system announments concistant.

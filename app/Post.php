@@ -63,17 +63,17 @@ class Post extends Model
      *
      * @return void
      */
-    protected static function boot()
-    {
-        parent::boot();
-        $events = ['updated', 'created'];
-        foreach ($events as $event) {
-            static::{$event}(function ($post) {
-                $post->unpublish();
-                // ProcessPostContent::dispatch($post)/*->delay(now()->addMinutes(1))*/; // use delay when you have a queue driver setup
-            });
-        }
-    }
+    // protected static function boot()
+    // {
+    //     parent::boot();
+    //     $events = ['updated', 'created'];
+    //     foreach ($events as $event) {
+    //         static::{$event}(function ($post) {
+    //             $post->unpublish();
+    //             // ProcessPostContent::dispatch($post)->delay(now()->addMinutes(1)); // use delay when you have a queue driver setup
+    //         });
+    //     }
+    // }
 
     public function speaker()
     {

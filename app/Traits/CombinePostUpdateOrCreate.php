@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Jobs\ProcessPostContent;
 use App\Location;
 use App\Post;
 use App\Speaker;
@@ -104,6 +105,8 @@ trait CombinePostUpdateOrCreate
           'meta' => $request['meta'],
           'user_id' => auth()->id(),
       ]);     
+
+      ProcessPostContent::dispatch($post)/*->delay(now()->addMinutes(1))*/; // use delay when you have a queue driver setup
 
     } elseif ($this->isFromStore()) {
 

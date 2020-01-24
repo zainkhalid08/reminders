@@ -104,7 +104,8 @@
                     <button type="button" onclick="appendDQuotesStart()">&#8220;</button>
                     <button type="button" onclick="appendDQuotesEnd()">&#8221;</button>
                     <div class="text-center">
-                      <textarea id="txtarea" name="content" style="width: 100%;" rows="15" placeholder="Type here...">{{ isset($post) ? $post->content : old('content') }}</textarea>
+                      <!-- <textarea id="txtarea" name="content" style="width: 100%;" rows="15" placeholder="Type here...">{{ isset($post) ? $post->content : old('content') }}</textarea> -->
+                      <textarea id="txtarea" name="content" style="width: 100%;" rows="15" placeholder="Type here...">{{ old('content', isset($post) ? $post->content : '' ) }}</textarea>
                       @component('admin.components.error', ['field' => 'content'])
                       @endcomponent
                     </div>
