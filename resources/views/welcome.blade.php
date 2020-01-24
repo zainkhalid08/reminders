@@ -2,7 +2,6 @@
 
 @section('head')
 
-{{-- keep title as ucwords --}}
 @component('components.seo', ['title' => $seo['title'], 'meta' => $seo['meta']])
 @endcomponent
 

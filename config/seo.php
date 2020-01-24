@@ -7,6 +7,8 @@
     |--------------------------------------------------------------------------
     |
     | * if a route names has . in it then replace it with -
+    | * keep titles as ucwords
+    |
     |
     */
 

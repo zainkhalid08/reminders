@@ -2,7 +2,6 @@
 
 @section('head')
 
-{{-- keep title as ucwords --}}
 @component('components.seo', ['title' => $seo['title'], 'meta' => $seo['meta']])
 @endcomponent
 
@@ -13,7 +12,6 @@
 @component('components.header', ['heading' => 'Feedback', 'subheading' => 'Have something to say?', 'imageSrc' => asset('img/feedback.webp')])
 @endcomponent
 
-  <!-- Main Content -->
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
@@ -38,13 +36,6 @@
               @endcomponent
             </div>
           </div>
-          {{-- <div class="control-group">
-            <div class="form-group col-xs-12 floating-label-form-group controls">
-              <label>Phone Number</label>
-              <input type="tel" class="form-control" placeholder="Phone Number" required>
-              <p class="help-block text-danger"></p>
-            </div>
-          </div> --}}
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Message</label>
@@ -73,5 +64,5 @@
 @endsection
 
 @section('bottom_scripts')
-@include('components.flash')
+@include('components.scripts.flash')
 @endsection

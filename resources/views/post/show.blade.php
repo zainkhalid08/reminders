@@ -40,6 +40,8 @@
         <div class="info">
           <p class="system-says"><strong>Note:</strong> This is not the full version of the sermon. For full version please have a look at the video, shared on this page.</p>
         </div>
+        
+        {{-- To Show Tags --}} 
         {{-- <p> --}} 
           @forelse($post->tags as $tag)
             {{-- <span class="badge badge-pill badge-info">{{ $tag->name }}</span> --}}

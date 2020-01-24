@@ -205,7 +205,9 @@ Front End Tests
             'eaWDsk2' => 'nullable|string|email', // email
             'mw2s8sJ' => 'required|string|max:700', // message
             'Vw82iwl' => 'required|in:2,two', // verification
-
+12. resources/views/components will has dynamic html & scripts
+12. resources/views/components will have scripts and html related blade files
+14. resources/views/partials has static html
 
 # TODOS
 
@@ -239,8 +241,8 @@ NOT YET/IDEAS
 # CHECKLIST BEFORE DEPLOYMENT
 
 Make fonts locallll  (test by disabling the internet) (optional)
-1. refactor backend DONE.
-2. refactor fronend
+1. refactor backend (files & code) DONE.
+2. refactor fronend (files & code) DONE.
 3. finalize ayah extractor, 
 4. hadith extractor
 5. decide for search...
