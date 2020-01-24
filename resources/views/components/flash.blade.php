@@ -13,7 +13,8 @@
 		          case 'fail':
 		              icon = "la-times-circle";
 		              title = "Fail";
-		              type = "danger";
+		              // type = "danger";
+		              type = "fail";
 		              break;
 		          case 'warning':
 		              icon = "la-exclamation-circle";
@@ -29,19 +30,19 @@
 			        // settings
 			        type: type,
 			        animate: {
-			          enter: 'animated fadeInRight',
-			          exit: 'animated fadeOutRight'
+			          enter: 'animated fadeInDown',
+			          exit: 'animated fadeOutUp'
 			        },
 			        placement: {
 			          from: "top", // vertically
-			          align: "right" // horizontally
+			          align: "center" // horizontally
 			        },
 			        mouse_over: "pause", // don't fade on mouse hover
 			        delay: delay, // 13s
-			        template: '<div class="success system-callout">'+
+			        template: '<div class="{0} system-callout">'+
 					              '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>'+
 						          '<span data-notify="icon"></span>'+ 
-						          '<p class="system-says system-says-flash"><strong>Success:</strong> Thanks for the feedback.</p>'+
+						          '<p class="system-says"><strong>'+ title.toUpperCase() +':</strong> '+ message +'</p>'+
 					           '</div>'
 		    	}
 		    );

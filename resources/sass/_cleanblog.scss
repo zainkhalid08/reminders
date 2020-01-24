@@ -436,7 +436,26 @@ hr {
 /* system callout, making anouncments */
 .info {
   background-color: $system-says-secondary;
-  border-left: 6px solid $system-says-primary;
+  border-left: $system-says-border-left solid $system-says-primary;
   margin-bottom: 15px;
   padding: 4px 12px;
+}
+
+.success {
+  border-left: 8px solid #86d922/*#ffb039*/;
+}  
+
+.fail {
+  border-left: 8px solid red/*#ffb039*/;
+}  
+
+.system-callout {
+  background-color: #fffaae;
+  padding: 0px 12px;
+  left: 25% !important;
+  right: 25% !important;
+}
+
+.close {
+  padding: 4px 1px !important;
 }

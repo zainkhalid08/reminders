@@ -5,43 +5,6 @@
 {{-- keep title as ucwords --}}
 @component('components.seo', ['title' => $seo['title'], 'meta' => $seo['meta']])
 @endcomponent
-<style type="text/css">
-.success {
-  border-left: 6px solid #86d922/*#ffb039*/;
-}  
-
-.fail {
-  border-left: 6px solid red/*#ffb039*/;
-}  
-
-.system-callout {
-  background-color: #fffaae;
-  margin-bottom: 15px;
-  padding: 0px 12px;
-}
-
-.system-says-flash {
-  padding: 8px 4px;
-}
-
-.try-- {
-/*    display: inline-block;
-    margin: 0px auto;
-    position: fixed;
-    transition: all 0.5s ease-in-out 0s;
-    z-index: 1031;
-    top: 20px;
-    right: 20px;
-    animation-iteration-count: 1;
-*/
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1031;
-  /*margin: 0px auto;*/
-  /*display: inline-block;*/
-}
-</style>
 
 @endsection
 
@@ -71,13 +34,13 @@
           <p class="system-says system-says-flash"><strong>Success:</strong> Thanks for the feedback.</p>
         </div>
  -->
-        <div class="success system-callout">
+        <!-- <div class="success system-callout">
           <p class="system-says system-says-flash"><strong>Success:</strong> Thanks for the feedback.</p>
-        </div>
+        </div> -->
 
-        <div class="fail system-callout animated bounce delay-2s">
+        <!-- <div class="fail system-callout animated bounce delay-2s">
           <p class="system-says system-says-flash"><strong>Fail:</strong> Something didn't go according to plan. Kindly leave your feedback at remindersforgood@gmail.com, apologies for the inconvinence.</p>
-        </div>
+        </div> -->
 
         <p>To send an anonymous feedback, skip name and email.</p>
 
