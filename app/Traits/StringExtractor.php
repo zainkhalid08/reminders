@@ -11,10 +11,14 @@ trait StringExtractor
    /**
    * Combined tags of this post as a string
    *
-   * @param \App\Post
-   * @return string $tagsCombined
+   * @param string $content
+   * @param string $start
+   * @param string $end
+   * @return array 
+   *
+   * @example [0 => 'content b/w first occurance', 1 => 'content b/w second occurance']
    */
-  public function extractSubcontentFromBetween($content, $start, $end)
+  public function extractSubcontentsFromBetween($content, $start, $end) : array
   {
 
     $contents = array();

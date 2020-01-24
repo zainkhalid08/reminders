@@ -118,7 +118,7 @@
                     <h4>Meta Description</h4>
                      {{-- dd($post->meta) --}}
                     <div class="text-center">
-                      <input type="text" name="meta[description]" style="width: 100%;" placeholder="About this post..." value="{{ isset($post) ? $post->meta['description'] : old('meta[description]') }}" required>
+                      <input type="text" name="meta[description]" style="width: 100%;" placeholder="About this post..." value="{{ isset($post) ? $post->meta['description'] : old('meta.description') }}" required>
                       @component('admin.components.error', ['field' => 'meta.description'])
                       @endcomponent
                     </div>

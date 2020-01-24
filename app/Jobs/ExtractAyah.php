@@ -65,43 +65,34 @@ class ExtractAyah implements ShouldQueue
      * Execute the job.
      *
      * @return void
+     * 
+     * save content with ref(if it is available & valid)
      */
     public function handle()
     {
         $post = $this->post;
 
         $content = $post->content;
-        // dd($content);
-        // $ayahTexts = $this->extractSubcontentFromBetween($content, static::AYAH_STARTING_DELIMITER_FOREVER, static::AYAH_ENDING_DELIMITER_FOREVER);
-        $ayahTexts = $this->getAyahContent($content);
-        // dd($ayahTexts);
 
-        // $ayahRefs = $this->extractSubcontentFromBetween($content, static::AYAH_REF_STARTING_DELIMITER_FOREVER, static::AYAH_REF_ENDING_DELIMITER_FOREVER);
-        $ayahRefs = $this->getAyahRefContent($content);
+        $ayahTexts = $this->getAllAyahsContents($content);
+
+        $ayahRefs = $this->getAllAyahRefsContents($content);
         // dd($ayahRefs);
-
-        // if no contetn
-            // die
-        // if content
-            // no ref
-                // save content
-            // ref
-                // save content and ref
         
-        if ($this->contentIsEmpty($ayahTexts)) {
-            return;
-        } else {
-            if ($this->contentIsEmpty($ayahRefs)) {
-                // save content
-                // dd('hit');
-                $this->saveContentOnly($ayahTexts, $post);
-            } else {
-                // save content and ref
-                $this->saveContentAndRef($ayahTexts, $post, $ayahRefs);
+        if ($this->contentIsNotEmpty($ayahTexts)) {
+            foreach ($ayahTexts as $ayahNumber => $text) {
+                if ($this->keyDoesntExist($ayahNumber, $ayahRefs) || $this->refIsInvalid($ayahRefs[$ayahNumber])) { 
+                    Ayah::createBasedOnUniqueness($text, $post); // creating without ref
+                } else {
+                    Ayah::createBasedOnUniqueness($text, $post, $ayahRefs[$ayahNumber]);
+                }
             }
         }
+    }
 
-
+    protected function keyDoesntExist($key, $array)
+    {
+        return ! key_exists($key, $array);
     }
 
     /**
@@ -117,6 +108,7 @@ class ExtractAyah implements ShouldQueue
     {
 
         $reference = explode(':', $reference);
+        $reference = array_filter($reference);
         // dd($reference);
 
         $htmlTagFreeContent = $this->removeHtmlTags($text);
@@ -128,24 +120,27 @@ class ExtractAyah implements ShouldQueue
             $surah = Surah::where('name', $surahName)->first();
 
             if (is_null($surah)) {
-                $msg = 'used surah number instead of a name';
-                info('used surah number instead of a name');
-                die($msg);
+                $surahId = null;
+                $ayahNumber = null;
+                $msg = 'used surah number instead of a name or surah name is missing';
+                info($msg);
+                // return;
+            } else { // surah is found
+                $surahId = $surah->id;
             }
             // dd($surah);
 
-            $exists = Ayah::where('surah', $surah->id)->where('ayah', $ayahNumber)->exists();
+            $exists = Ayah::where('surah', $surahId)->where('ayah', $ayahNumber)->exists();
 
             if (! $exists) {
                 return  Ayah::create([
                             'content' => $htmlTagFreeContent,
                             'post_id' => $post->id,
-                            'surah' => $surah->id,
+                            'surah' => $surahId,
                             'ayah' => $ayahNumber,
                         ]);
             }
         } else {
-            dd('h');
             Ayah::create([
                 'content' => $htmlTagFreeContent,
                 'post_id' => $post->id,
@@ -155,74 +150,161 @@ class ExtractAyah implements ShouldQueue
     }
 
     /**
-     * Gets content of ayah
+     * Gets all ayahs with its contents
      * 
      * @param  string $content content
-     * @return string
+     * @return array
+     *
+     * @example   [0 => 'first ayah content', 1 => 'second ayah content']
      */
-    protected function getAyahContent($content)
+    protected function getAllAyahsContents($content) : array
     {
-        return $this->extractSubcontentFromBetween($content, static::AYAH_STARTING_DELIMITER_FOREVER, static::AYAH_ENDING_DELIMITER_FOREVER);
+        $allAyahs = $this->extractSubcontentsFromBetween($content, static::AYAH_STARTING_DELIMITER_FOREVER, static::AYAH_ENDING_DELIMITER_FOREVER);
+        return $this->removeAnyEmptyContent($allAyahs); 
     }    
 
     /**
-     * Gets content of ayah ayah reference
+     * Gets all ayahs reference's contents
      * 
      * @param  string $content content
      * @return string
+     *
+     * @example   [0 => 'first ayah ref content', 1 => 'second ayah ref content']
+     *
+     * NOTE: for an ayahs without ref it'll be ''
      */
-    protected function getAyahRefContent($content)
+    protected function getAllAyahRefsContents($content) : array
     {
-        return $this->extractSubcontentFromBetween($content, static::AYAH_REF_STARTING_DELIMITER_FOREVER, static::AYAH_REF_ENDING_DELIMITER_FOREVER);
-    }    
+        // $allAyahRefs = $this->extractSubcontentsFromBetween($content, static::AYAH_REF_STARTING_DELIMITER_FOREVER, static::AYAH_REF_ENDING_DELIMITER_FOREVER); 
+        // return $this->removeAnyEmptyContent($allAyahRefs);
+        return $this->extractSubcontentsFromBetween($content, static::AYAH_REF_STARTING_DELIMITER_FOREVER, static::AYAH_REF_ENDING_DELIMITER_FOREVER); 
+    }   
 
     /**
-     * Tells if content is empty
+     * Removes any ayahs/ayahRef with no content
+     *    
+     * @param  array $arrayOfStrings
+     * @return array
+     *
+     * @example html tags without content => [0 => 'ayah content', 1 => '', 2 => 'no content was present at key 1']
+     *
+     * NOTE: keys are preserved.
+     */
+    protected function removeAnyEmptyContent($arrayOfStrings) : array
+    {
+        return array_filter($arrayOfStrings);
+    } 
+
+    /**
+     * Tells if content is not empty
      * 
-     * @param  string $content 
+     * @param  array $content 
      * @return boolean
      */
-    protected function contentIsEmpty($content) : bool
+    protected function contentIsNotEmpty(array $arrayOfStrings) : bool
     {
-        $content = array_filter($content);
-        return empty($content);
+        $arrayOfStrings = array_filter($arrayOfStrings);
+        return ! empty($arrayOfStrings);
     }   
+
+    // protected function refsAreInvalid($arrayOfStrings) : bool 
+    // {
+    //     $arrayOfStrings = array_filter($arrayOfStrings);
+    //     if (!empty($arrayOfStrings)) {
+    //         foreach ($arrayOfStrings as $string) {
+    //             if ($this->refIsInvalid($string)) {
+    //                 return false;
+    //             }
+    //         }
+    //     } else {
+    //         return empty($arrayOfStrings);
+    //     }
+    //     return empty($arrayOfStrings);
+    // }
+
+    /**
+     * Tells if a reference is invalid
+     *     
+     * @param  string
+     * @return boolean
+     *
+     * NOTE: IF ANYTHING(EITHER SURAH NAME OR AYAH) IS MISSING, WE'LL CALL IT A MISTAKE HENCE IS INVALID
+     *
+     * CODITIONS FOR INVALIDITY
+     * 1. if both surah name and ayah number are not present
+     * 2. if surah name ! exists
+     * 3. if ayah number is > total ayahs of this surah
+     * 4. surah ref is already present
+     */
+    protected function refIsInvalid($reference) : bool
+    {
+        $splitedReference = explode(':', $reference);
+        $nonEmptySplitedReference = $this->removeAnyEmptyContent($splitedReference);
+
+        if (count($nonEmptySplitedReference) !== 2) {
+            return true;
+        }
+
+        $surahName = $nonEmptySplitedReference[0];
+        $ayahNumber = $nonEmptySplitedReference[1];
+
+        $surah = Surah::where('name', $surahName)->first();
+
+        if ( is_null($surah) || $ayahNumber > $surah->ayahs ) {
+            return true;
+        }
+
+        if (Ayah::referenceAlreadyExists($surah->id, $ayahNumber)) {
+            return true;
+        }
+
+        return false; 
+    }
+
+    // protected function saveContentOnly(array $ayahTexts, $post)
+    // {
+    //     foreach ($ayahTexts as $ayahNumber => $text) {
+    //         // search for similarity in db
+    //             // if there is :don't do anything
+    //             // if there isn't : create in db.
+    //         $isNotPresentPerhaps = true;
+    //         if (Ayah::count()) {
+
+    //             $ayahs = Ayah::all();
+    //             foreach ($ayahs as $ayah) {
+
+    //                 // dd($ayah->id);
+    //                 if ($this->areQuiteSimilar($ayah->content, $text, $percentage)) {
+    //                     $isNotPresentPerhaps = false;
+    //                     break;
+    //                 }
+
+                                                
+    //             }
+                
+    //             if ($isNotPresentPerhaps) {
+
+    //                 $this->createAyah($text, $post);
+    //             }
+    //             // dd('h');
+
+    //         } else {
+    //             // dd('hit');
+
+
+    //             // dd($ayahRefs);
+    //             $this->createAyah($text, $post);
+
+    //         }
+
+    //     }
+    // } 
 
     protected function saveContentOnly(array $ayahTexts, $post)
     {
         foreach ($ayahTexts as $ayahNumber => $text) {
-            // search for similarity in db
-                // if there is :don't do anything
-                // if there isn't : create in db.
-            $isNotPresentPerhaps = true;
-            if (Ayah::count()) {
 
-                $ayahs = Ayah::all();
-                foreach ($ayahs as $ayah) {
-
-                    // dd($ayah->id);
-                    if ($this->areQuiteSimilar($ayah->content, $text, $percentage)) {
-                        $isNotPresentPerhaps = false;
-                        break;
-                    }
-
-                                                
-                }
-                
-                if ($isNotPresentPerhaps) {
-
-                    $this->createAyah($text, $post);
-                }
-                // dd('h');
-
-            } else {
-                // dd('hit');
-
-
-                // dd($ayahRefs);
-                $this->createAyah($text, $post);
-
-            }
+            Ayah::createBasedOnUniqueness($text);
 
         }
     } 

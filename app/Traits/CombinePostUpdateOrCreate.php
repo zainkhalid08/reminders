@@ -122,6 +122,8 @@ trait CombinePostUpdateOrCreate
           'user_id' => auth()->id(),
         ]);
 
+      ProcessPostContent::dispatch($post)/*->delay(now()->addMinutes(1))*/; // use delay when you have a queue driver setup
+      
     }
 
     /* Tags */
