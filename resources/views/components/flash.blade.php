@@ -9,22 +9,19 @@
 		          case 'success':
 		              icon = "la-check-circle";
 		              title = "Success";
+		              type = "success";
 		              break;
 		          case 'fail':
 		              icon = "la-times-circle";
 		              title = "Fail";
-		              // type = "danger";
 		              type = "fail";
 		              break;
-		          case 'warning':
-		              icon = "la-exclamation-circle";
-		              title = "Warning";
 		    }
 
 		    $.notify(
 		    	{
 				    // options
-			        title: "<strong>"+title+"</strong><br>",
+			        title: title,
 			        message: message 
 		      	}, {
 			        // settings
@@ -39,7 +36,7 @@
 			        },
 			        mouse_over: "pause", // don't fade on mouse hover
 			        delay: delay, // 13s
-			        template: '<div class="{0} system-callout">'+
+			        template: '<div class="{0}  system-callout">'+
 					              '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>'+
 						          '<span data-notify="icon"></span>'+ 
 						          '<p class="system-says"><strong>'+ title.toUpperCase() +':</strong> '+ message +'</p>'+
@@ -51,7 +48,7 @@
     </script>
 @endif
 
-
+{{-- To Show Validation Errors --}}
 @if($errors->any())
     <script type="text/javascript">
         jQuery(document).ready(function(){
@@ -59,6 +56,5 @@
 	            scrollTop: $("form").offset().top
 	        }, 2000);
         });
-
     </script>
 @endif

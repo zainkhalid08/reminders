@@ -18,30 +18,6 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         
-<!--         <div data-notify="container" class="col-xs-11 col-sm-4 alert alert-danger animated fadeInRight" role="alert" data-notify-position="top-right" style="display: inline-block; margin: 0px auto; position: fixed; transition: all 0.5s ease-in-out 0s; z-index: 1031; top: 20px; right: 20px; animation-iteration-count: 1;">
-          <button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>
-          <span data-notify="icon"></span> 
-          <span data-notify="title">
-            <strong>Fail</strong><br>
-          </span> 
-          <span data-notify="message">Something didn't go according to plan. Kindly leave your feedback at remindersforgood@gmail.com, apologies for the inconvinence.</span>
-          <a href="#" target="_blank" data-notify="url"></a>
-        </div>        
- -->
-<!--         <div class="success system-callout try-- animated slideInDown ">
-          <button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>
-          <span data-notify="icon"></span> 
-          <p class="system-says system-says-flash"><strong>Success:</strong> Thanks for the feedback.</p>
-        </div>
- -->
-        <!-- <div class="success system-callout">
-          <p class="system-says system-says-flash"><strong>Success:</strong> Thanks for the feedback.</p>
-        </div> -->
-
-        <!-- <div class="fail system-callout animated bounce delay-2s">
-          <p class="system-says system-says-flash"><strong>Fail:</strong> Something didn't go according to plan. Kindly leave your feedback at remindersforgood@gmail.com, apologies for the inconvinence.</p>
-        </div> -->
-
         <p>To send an anonymous feedback, skip name and email.</p>
 
         <form method="post" action="{{ route('feedback.store') }}">

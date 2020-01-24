@@ -442,11 +442,11 @@ hr {
 }
 
 .success {
-  border-left: 8px solid #86d922/*#ffb039*/;
+  border-left: 8px solid $system-says-success;
 }  
 
 .fail {
-  border-left: 8px solid red/*#ffb039*/;
+  border-left: 8px solid $system-says-fail;
 }  
 
 .system-callout {
@@ -456,6 +456,7 @@ hr {
   right: 25% !important;
 }
 
+/* x at a system's callout */
 .close {
   padding: 4px 1px !important;
 }
