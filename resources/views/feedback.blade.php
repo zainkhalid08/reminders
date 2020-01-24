@@ -26,7 +26,7 @@
             <div class="form-group floating-label-form-group controls">
               <label>Name</label>
               <input type="text" name="n3kIad3" class="form-control" placeholder="Name (optional)"  value="{{ old('name') }}">
-              @component('components.feedback_error', ['field' => 'name'])
+              @component('components.error', ['field' => 'n3kIad3'])
               @endcomponent
             </div>
           </div>
@@ -34,7 +34,7 @@
             <div class="form-group floating-label-form-group controls">
               <label>Email</label>
               <input type="email" name="eaWDsk2" class="form-control" placeholder="Email (optional)" value="{{ old('email') }}">
-              @component('components.feedback_error', ['field' => 'email'])
+              @component('components.error', ['field' => 'eaWDsk2'])
               @endcomponent
             </div>
           </div>
@@ -48,16 +48,16 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Message</label>
-              <textarea rows="5" name="mw2s8sJ" class="form-control" placeholder="Message (required)" required>{{ old('message') }}</textarea>
-              @component('components.feedback_error', ['field' => 'message'])
+              <textarea rows="5" name="mw2s8sJ" class="form-control" placeholder="Message (required)" required>{{ old('mw2s8sJ') }}</textarea>
+              @component('components.error', ['field' => 'mw2s8sJ'])
               @endcomponent
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Five minus three equals?</label>
-              <input type="text" name="Vw82iwl" class="form-control" placeholder="Five minus three equals? (required)" value="{{ old('verification') }}" required>
-              @component('components.feedback_error', ['field' => 'verification'])
+              <input type="text" name="Vw82iwl" class="form-control" placeholder="Five minus three equals? (required)" value="{{ old('Vw82iwl') }}" required>
+              @component('components.error', ['field' => 'Vw82iwl'])
               @endcomponent
             </div>
           </div>

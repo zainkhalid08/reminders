@@ -200,6 +200,13 @@ Front End Tests
 8. if you want to make use of a view composer then use availableData as a key
 9. use updateOrCreate not createOrUpdate for your own functions
 10. we use Request classes for validation AS WELL AS FOR AUTHORIZATION 
+11. input fileds corespond to
+            'n3kIad3' => 'nullable|string', // name
+            'eaWDsk2' => 'nullable|string|email', // email
+            'mw2s8sJ' => 'required|string|max:700', // message
+            'Vw82iwl' => 'required|in:2,two', // verification
+
+
 # TODOS
 
 NOT YET/IDEAS

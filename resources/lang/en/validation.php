@@ -129,19 +129,20 @@ return [
     */
 
     'custom' => [
-        'n3kIad3' => [
+        'n3kIad3' => [ // // name
             'string' => 'Please enter string.',
         ],
-        'eaWDsk2' => [
+        'eaWDsk2' => [ // // email
             'email' => 'Please enter a valid email. If you are willing to enter one.',
             'string' => 'Please enter string.',
         ],
-        'mw2s8sJ' => [
+        'mw2s8sJ' => [ // message
             'required' => 'Please enter a message.',
             'string' => 'Please enter string.',
             'max' => 'Please note the message cannot exceed :max characters.',
         ],
-        'Vw82iwl' => [
+        'Vw82iwl' => [ // verification
+            'required' => 'Please answer 5-3=?',
             'in' => 'The answer is invalid, please try again.'
         ],
 
