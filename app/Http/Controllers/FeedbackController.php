@@ -35,7 +35,6 @@ class FeedbackController extends Controller
      */
     public function store(FeedbackRequest $request)
     {
-        return back()->with('message', ['success', 'Thanks for the feedback.', 420000]);
         try {
 
         	$feedback = Feedback::create([

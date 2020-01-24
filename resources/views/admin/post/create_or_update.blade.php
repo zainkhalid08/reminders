@@ -44,37 +44,37 @@
                     <h4>Title</h4>
                     <div class="text-center">
                       <input type="text" name="title" style="width: 100%;" placeholder="The Last Day" value="{{ isset($post) ? $post->title : old('title') }}">
-                      @component('components.error', ['field' => 'title'])
+                      @component('admin.components.error', ['field' => 'title'])
                       @endcomponent
                     </div>
                     <h4>Speaker</h4>
                     <div class="text-center">
                       <input type="text" name="speaker" style="width: 100%;" placeholder="Sheikh Salaah Budaair"  id="speaker-autocomplete" value="{{ isset($post) ? $post->speaker->name : old('speaker') }}">
-                      @component('components.error', ['field' => 'speaker'])
+                      @component('admin.components.error', ['field' => 'speaker'])
                       @endcomponent
                     </div>
                     <h4>Location</h4>
                     <div class="text-center">
                       <input type="text" name="location" style="width: 100%;" placeholder="Masjid Al Haram" id="location-autocomplete" value="{{ isset($post) ? $post->location->name : old('location') }}">
-                      @component('components.error', ['field' => 'location'])
+                      @component('admin.components.error', ['field' => 'location'])
                       @endcomponent
                     </div>
                     <h4>Date</h4>
                     <div class="text-center">
                       <input type="date" name="date" style="width: 100%;" placeholder="Date" value="{{ isset($post) ? $post->date->format('Y-m-d') : old('date') }}">
-                      @component('components.error', ['field' => 'date'])
+                      @component('admin.components.error', ['field' => 'date'])
                       @endcomponent
                     </div>
                     <h4>Video</h4>
                     <div class="text-center">
                       <input type="text" name="video_src" style="width: 100%;" placeholder="https://www.youtube.com/embed/" value="{{ isset($post) ? $post->video_src : old('video_src', 'https://www.youtube.com/embed/') }}">
-                      @component('components.error', ['field' => 'video_src'])
+                      @component('admin.components.error', ['field' => 'video_src'])
                       @endcomponent
                     </div>
                     <h4>Tags</h4>
                     <div class="text-center">
                       <input type="text" name="tags" style="width: 100%;" placeholder="tags here..." id="tags-autocomplete-with-tagging" value="{{ isset($post) ? $post->combineTags() : old('tags')  }}">
-                      @component('components.error', ['field' => 'tags'])
+                      @component('admin.components.error', ['field' => 'tags'])
                       @endcomponent
                     </div>
                     <div>
@@ -105,26 +105,26 @@
                     <button type="button" onclick="appendDQuotesEnd()">&#8221;</button>
                     <div class="text-center">
                       <textarea id="txtarea" name="content" style="width: 100%;" rows="15" placeholder="Type here...">{{ isset($post) ? $post->content : old('content') }}</textarea>
-                      @component('components.error', ['field' => 'content'])
+                      @component('admin.components.error', ['field' => 'content'])
                       @endcomponent
                     </div>
                     <h4>Mins Read</h4>
                     <div class="text-center">
                       <input type="number" name="mins_read" min="1" style="width: 100%;" placeholder="1" value="{{ isset($post) ? $post->mins_read : old('mins_read') }}">
-                      @component('components.error', ['field' => 'mins_read'])
+                      @component('admin.components.error', ['field' => 'mins_read'])
                       @endcomponent
                     </div>
                     <h4>Meta Description</h4>
                      {{-- dd($post->meta) --}}
                     <div class="text-center">
                       <input type="text" name="meta[description]" style="width: 100%;" placeholder="About this post..." value="{{ isset($post) ? $post->meta['description'] : old('meta[description]') }}" required>
-                      @component('components.error', ['field' => 'meta.description'])
+                      @component('admin.components.error', ['field' => 'meta.description'])
                       @endcomponent
                     </div>
                     <h4>Meta Keywords</h4>
                     <div class="text-center">
                       <input type="text" name="meta[keywords]" style="width: 100%;" placeholder="tags, for, this, post..." value="{{ isset($post) ? $post->meta['keywords'] : old('meta[keywords]') }}" required>
-                      @component('components.error', ['field' => 'meta.keywords'])
+                      @component('admin.components.error', ['field' => 'meta.keywords'])
                       @endcomponent
                     </div>
 
