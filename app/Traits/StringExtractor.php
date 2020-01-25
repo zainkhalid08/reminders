@@ -17,8 +17,11 @@ trait StringExtractor
    * @return array 
    *
    * @example [0 => 'content b/w first occurance', 1 => 'content b/w second occurance']
+   *
+   * NOTE: For the case if occurance($start and $end) is found but no content
+   * is present in between then '' for that occurance like  [0 => '']   
    */
-  public function extractSubcontentsFromBetween($content, $start, $end) : array
+  public function extractContentsFromBetween($content, $start, $end) : array
   {
 
     $contents = array();
@@ -91,5 +94,6 @@ trait StringExtractor
     $surah = Surah::findOrFail($surahNumber[0]);
     return $surah->name.$delimiter.$surahNumber[1]; 
   }  
+
 
 }
