@@ -22,4 +22,15 @@ class Surah extends Model
      */
     public $timestamps = false;
 
+    /**
+     * Converts surah name to its number
+     * 
+     * @param  string $name 
+     * @return int       
+     */
+    protected static function nameToNumber($name) : int
+    {
+        return static::where('name', $name)->first()->id;
+    }
+
 }

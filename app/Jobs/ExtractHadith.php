@@ -70,64 +70,64 @@ class ExtractHadith implements ShouldQueue
         $post = $this->post;
 
         $content = $post->content;
-        $hadithTexts = $this->extractSubcontentFromBetween($content, static::HADITH_STARTING_DELIMITER_FOREVER, static::HADITH_ENDING_DELIMITER_FOREVER);
-        // dd($hadithTexts);
-        $hadithRefs = $this->extractSubcontentFromBetween($content, static::HADITH_REF_STARTING_DELIMITER_FOREVER, static::HADITH_REF_ENDING_DELIMITER_FOREVER);
-        // dd($hadithRefs);
 
-            // search for similarity in db
-                // if there is :don't do anything
-                // if there isn't : create in db.
-        foreach ($hadithTexts as $key => $text) {
-            
-            if (Hadith::count()) {
-                $isNotPresentPerhaps = true;
+        $hadithTexts = $this->getAllHadithsContents($content);
 
-                $hadiths = Hadith::all();
-                foreach ($hadiths as $hadith) {
-
-                    // dd($hadith->id);
-                    if ($this->areQuiteSimilar($hadith->content, $text, $percentage)) {
-                        $isNotPresentPerhaps = false;
-                        break;
-                    }
-
-                                                
+        $hadithRefs = $this->getAllHadithRefsContents($content);
+        
+        if ($this->contentIsNotEmpty($hadithTexts)) {
+            foreach ($hadithTexts as $hadithNumber => $text) {
+                if ($this->keyDoesntExist($hadithNumber, $hadithRefs) || $this->refIsInvalid($hadithRefs[$hadithNumber])) { 
+                    Hadith::createBasedOnUniqueness($text, $post); // creating without ref
+                } else {
+                    Hadith::createBasedOnUniqueness($text, $post, $hadithRefs[$hadithNumber]);
                 }
-                
-                if ($isNotPresentPerhaps) {
-
-                    $this->createHadith($text, $post, $hadithRefs[$key]);
-                }
-
-
-            } else {
-
-                $this->createHadith($text, $post, $hadithRefs[$key]);
-
             }
-
         }
     }
 
     /**
-     * Creates Hadith
+     * Gets all hadiths with its contents
      * 
-     * @param  string $text content
-     * @param  \App\Post $post 
-     * @param  string $reference
-     * 
-     * @return \App\Hadith
+     * @param  string $content content
+     * @return array
+     *
+     * @example   [0 => 'first hadith content', 1 => 'second hadith content']
      */
-    protected function createHadith($text, $post, $reference)
+    protected function getAllHadithsContents($content) : array
     {
-        $htmlTagFreeContent = $this->removeHtmlTags($text);
+        $allhadiths = $this->extractContentsFromBetween($content, static::HADITH_STARTING_DELIMITER_FOREVER, static::HADITH_ENDING_DELIMITER_FOREVER);
+        return array_filter($allhadiths); 
+    }    
 
-        return  Hadith::create([
-                    'content' => $htmlTagFreeContent,
-                    'post_id' => $post->id,
-                    'reference' => $reference,
-                ]);
+    /**
+     * Gets all Hadiths reference's contents
+     * 
+     * @param  string $content content
+     * @return string
+     *
+     * @example   [0 => 'first Hadith ref content', 1 => 'second Hadith ref content']
+     *
+     * NOTE: for an Hadiths without ref it'll be ''
+     */
+    protected function getAllHadithRefsContents($content) : array
+    {
+        return $this->extractContentsFromBetween($content, static::HADITH_REF_STARTING_DELIMITER_FOREVER, static::HADITH_REF_ENDING_DELIMITER_FOREVER); 
+    }   
+
+    /**
+     * Tells if a reference is invalid
+     * if it is just numeric we'll
+     * call it an invalid one.
+     *     
+     * @param  string
+     * @return boolean
+     */
+    protected function refIsInvalid($reference) : bool
+    {
+        return is_numeric($reference) ? true : false;
     }
+
+
 
 }

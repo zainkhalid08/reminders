@@ -2,12 +2,14 @@
 
 namespace App;
 
+use App\Contracts\SimilarityCheckable;
+use App\Helpers\SimilarityChecker;
 use App\Post;
 use App\Surah;
 use App\Traits\StringExtractor;
 use Illuminate\Database\Eloquent\Model;
 
-class Ayah extends Model
+class Ayah extends Model implements SimilarityCheckable
 {
 	use StringExtractor;
 
@@ -17,6 +19,26 @@ class Ayah extends Model
      * @var array
      */
     protected $fillable = ['content', 'post_id', 'surah_number', 'ayah_number'];
+
+    /**
+     * Part of the contract App\Contracts\SimilarityCheckable
+     * 
+     * @return string 
+     */
+    public function content() : string
+    {
+    	return $this->content;
+    }
+
+    /**
+     * Part of the contract App\Contracts\SimilarityCheckable
+     * 
+     * @return float 
+     */
+    public function threshold() : float
+    {
+    	return 60.0;
+    }
 
     /**
      * Creates ayah with/without ref
@@ -30,37 +52,30 @@ class Ayah extends Model
     {
     	if (static::count()) {
 
-    		if (static::isQuiteUnique($content)) {
-    			static::createContentWithRefIfPresent($content, $post, $reference);
+    		$similarityChecker = new SimilarityChecker(new static);
+
+    		if ($similarityChecker->isQuiteUnique($content)) {
+    			static::createAyah($content, $post, $reference);
     		}
 
     	} else {
-			static::createContentWithRefIfPresent($content, $post, $reference);
+			static::createAyah($content, $post, $reference);
     	}
     }
 
     /**
-     * Tells if this ayah is quite unique by
-     * comparing with those present in db
-     * 	
-     * @param  string  $content 
-     * @return boolean
+     * Creates ayah with/without reference
+     * 
+     * @param  string $content   
+     * @param  App\Post $post      
+     * @param  string $reference
+     * @return void            
      */
-    protected static function isQuiteUnique($content) : bool
+    protected static function createAyah($content, $post, $reference = '') : void
     {
-    	foreach (static::all() as $ayah) {
-			if (static::areQuiteSimilar($ayah->content, $content)) {
-				return false;
-			}
-    	}
-	    return true;
-    }
-
-    protected static function createContentWithRefIfPresent($content, $post, $reference = '')
-    {
-    	if ($reference !== '') {
+    	if (static::referenceIsPresent($reference)) {
 	        $splitedReference = explode(':', $reference);
-	        $surahNumber = static::surahNameToNumber($splitedReference[0]);
+	        $surahNumber = Surah::nameToNumber($splitedReference[0]);
 			static::create([
 				'content' => $content,
 				'surah_number' => $surahNumber,
@@ -75,25 +90,22 @@ class Ayah extends Model
     	}
     }
 
-    public static function referenceAlreadyExists($surahNumber, $ayahNumber)
+    /**
+     * Tells if this reference already exists
+     * 
+     * @param  int $surahNumber 
+     * @param  int $ayahNumber  
+     * @return boolean              
+     */
+    public static function referenceAlreadyExists($surahNumber, $ayahNumber) : bool
     {
     	return static::where('surah_number', $surahNumber)->where('ayah_number', $ayahNumber)->exists();
     }
 
-    protected static function surahNameToNumber($name) : int
+    protected static function referenceIsPresent($reference) : bool
     {
-    	return Surah::where('name', $name)->first()->id;
+    	return $reference !== '';
     }
-
-
-    public static function areQuiteSimilar($first, $second, &$percentage = 0.0) : bool
-    {
-	    $similarilyPercentageThreshold = 60.0;
-	    $first = strtoupper($first);
-	    $second = strtoupper($second);
-	    $similarityResults = similar_text($first, $second, $percentage);
-	    return $percentage >= $similarilyPercentageThreshold ? true : false;
-	}
 
 
 }

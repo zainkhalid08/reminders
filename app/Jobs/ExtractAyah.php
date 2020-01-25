@@ -77,7 +77,6 @@ class ExtractAyah implements ShouldQueue
         $ayahTexts = $this->getAllAyahsContents($content);
 
         $ayahRefs = $this->getAllAyahRefsContents($content);
-        // dd($ayahRefs);
         
         if ($this->contentIsNotEmpty($ayahTexts)) {
             foreach ($ayahTexts as $ayahNumber => $text) {
@@ -118,24 +117,6 @@ class ExtractAyah implements ShouldQueue
     {
         return $this->extractContentsFromBetween($content, static::AYAH_REF_STARTING_DELIMITER_FOREVER, static::AYAH_REF_ENDING_DELIMITER_FOREVER); 
     }   
-
-    /**
-     * Tells if content is not empty
-     * 
-     * @param  array $content 
-     * @return boolean
-     */
-    protected function contentIsNotEmpty(array $arrayOfStrings) : bool
-    {
-        $arrayOfStrings = array_filter($arrayOfStrings);
-        return ! empty($arrayOfStrings);
-    }   
-
-    protected function keyDoesntExist($key, $array)
-    {
-        return ! key_exists($key, $array);
-    }
-
 
 
     /**

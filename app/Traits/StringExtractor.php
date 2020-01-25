@@ -53,24 +53,6 @@ trait StringExtractor
   }
 
   /**
-   * Tells if two strings are similar
-   * 
-   * @param  string $first              
-   * @param  string $second             
-   * @param  float  $percentage  minimum similarity requirement
-   * 
-   * @return boolean
-   */
-  public function areQuiteSimilar($first, $second, &$percentage = 0.0) : bool
-  {
-    $similarilyPercentageThreshold = 60.0;
-    $first = strtoupper($first);
-    $second = strtoupper($second);
-    $similarityResults = similar_text($first, $second, $percentage);
-    return $percentage >= $similarilyPercentageThreshold ? true : false;
-  }
-
-  /**
    * Removes only html tags not special chars like &nbsp;
    *  
    * @param  string $content
@@ -82,18 +64,21 @@ trait StringExtractor
   }
 
   /**
-   * Converts 2:44 to baqrah:44 
-   *  
-   * @param  string $reference eg. 2:44
-   * @return string eg. baqrah:44
+   * Tells if content is not empty
+   * 
+   * @param  array $content 
+   * @return boolean
    */
-  public function surahNumberToName($reference) : string
+  protected function contentIsNotEmpty(array $arrayOfStrings) : bool
   {
-    $delimiter = ':';
-    $surahNumber = explode($delimiter, $reference); 
-    $surah = Surah::findOrFail($surahNumber[0]);
-    return $surah->name.$delimiter.$surahNumber[1]; 
-  }  
+      $arrayOfStrings = array_filter($arrayOfStrings);
+      return ! empty($arrayOfStrings);
+  }   
+  
+  protected function keyDoesntExist($key, $array) : bool
+  {
+      return ! key_exists($key, $array);
+  }
 
 
 }
