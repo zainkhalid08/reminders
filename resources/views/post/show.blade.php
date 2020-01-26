@@ -38,7 +38,7 @@
          {!! $post->content !!}
         </div>
         <div class="info">
-          <p class="system-says"><strong>Note:</strong> This is not the full version of the sermon. For full version please have a look at the video, shared on this page.</p>
+          <p class="system-says"><strong>Note:</strong> This is not the full version of the sermon. For full version, please have a look at the video shared on this page.</p>
         </div>
         
         {{-- To Show Tags --}} 
