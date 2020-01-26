@@ -208,6 +208,8 @@ Front End Tests
 12. resources/views/components will has dynamic html & scripts
 12. resources/views/components will have scripts and html related blade files
 14. resources/views/partials has static html
+15. when a new html speacial char is allowable in admin post creation make sure it is removed in filtering process by adding it to StringExtractor.php getHtmlSpecialChars()
+16. raw_content in post, ayahs, hadiths is used for searching 
 
 # TODOS
 

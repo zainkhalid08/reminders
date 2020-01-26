@@ -18,7 +18,7 @@ class Ayah extends Model implements SimilarityCheckable
      *
      * @var array
      */
-    protected $fillable = ['content', 'post_id', 'surah_number', 'ayah_number'];
+    protected $fillable = ['content', 'raw_content', 'post_id', 'surah_number', 'ayah_number'];
 
     /**
      * Part of the contract App\Contracts\SimilarityCheckable
@@ -78,6 +78,7 @@ class Ayah extends Model implements SimilarityCheckable
 	        $surahNumber = Surah::nameToNumber($splitedReference[0]);
 			static::create([
 				'content' => $content,
+                'raw_content' => (new static)->removeHtmlChars($content),
 				'surah_number' => $surahNumber,
 				'ayah_number' => $splitedReference[1],
 				'post_id' => $post->id,
@@ -85,6 +86,7 @@ class Ayah extends Model implements SimilarityCheckable
     	} else {
 			static::create([
 				'content' => $content,
+                'raw_content' => (new static)->removeHtmlChars($content),
 				'post_id' => $post->id,
 			]);
     	}

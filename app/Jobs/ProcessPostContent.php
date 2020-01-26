@@ -38,6 +38,6 @@ class ProcessPostContent implements ShouldQueue
     {
         ExtractAyah::dispatch($this->post);
         ExtractHadith::dispatch($this->post);
-        // ExtractRawContent::dispatch($this->post);
+        ExtractRawContent::dispatch($this->post);
     }
 }

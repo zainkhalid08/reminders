@@ -16,6 +16,7 @@ class CreateAyahsTable extends Migration
         Schema::create('ayahs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->longText('content');
+            $table->longText('raw_content')->nullable();
             $table->integer('surah_number')->nullable();
             $table->integer('ayah_number')->nullable();
             $table->unsignedBigInteger('post_id');

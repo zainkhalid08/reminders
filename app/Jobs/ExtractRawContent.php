@@ -37,8 +37,7 @@ class ExtractRawContent implements ShouldQueue
     public function handle()
     {
         $post = $this->post;
-        $rawContent = $this->removeHtmlTags($post->content);
-        $rawContent = str_replace(["\r", "\n", "&hellip;", "&nbsp;", "&#8220;", "&#8221;", "&amp;", "&#8217;"], '', $rawContent);
+        $rawContent = $this->removeHtmlChars($post->content);
         $post->raw_content = $rawContent;
         $post->save();
     }

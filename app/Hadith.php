@@ -4,16 +4,18 @@ namespace App;
 
 use App\Contracts\SimilarityCheckable;
 use App\Helpers\SimilarityChecker;
+use App\Traits\StringExtractor;
 use Illuminate\Database\Eloquent\Model;
 
 class Hadith extends Model implements SimilarityCheckable
 {
+    use StringExtractor;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['content', 'post_id', 'reference'];
+    protected $fillable = ['content', 'raw_content', 'post_id', 'reference'];
 
     /**
      * Part of the contract App\Contracts\SimilarityCheckable
@@ -71,6 +73,7 @@ class Hadith extends Model implements SimilarityCheckable
     	$reference = static::referenceIsPresent($reference) ? $reference : null;
 		static::create([
             'content' => $content,
+            'raw_content' => (new static)->removeHtmlChars($content),
             'post_id' => $post->id,
             'reference' => $reference,
         ]);

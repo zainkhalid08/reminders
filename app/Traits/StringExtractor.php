@@ -53,14 +53,52 @@ trait StringExtractor
   }
 
   /**
+   * List of html tags that come in 
+   * posts made by admin
+   * 
+   * @return array
+   */
+  protected function getAmpersandHtmlSpecialChars()
+  {
+    return [
+        "&hellip;", 
+        "&nbsp;", "&#8220;", "&#8221;",
+        "&amp;", "&#8217;"
+    ];
+  }
+
+  /**
+   * List of non ampersand html tags that come in 
+   * posts made by admin
+   * 
+   * @return array
+   */
+  protected function getNonAmpersandHtmlSpecialChars()
+  {
+    return [
+        "\r", "\n",
+    ];
+  }
+
+  /**
    * Removes only html tags not special chars like &nbsp;
    *  
    * @param  string $content
    * @return string          
    */
-  public function removeHtmlTags($content) : string
+  public function removeHtmlChars($content) : string
   {
-    return strip_tags($content);
+    // 'look   <p>this carefully   </p>as there is a space before and after the html tag.'
+    // 'look    <p>this carefully    </p>as there is a space before and after the html tag.'
+    // 'look    this carefully    as there is a space before and after the html tag.'
+    // 'look  this carefully  as there is a space before and after the html tag.'
+
+    $content = str_replace('<', ' <', $content);
+    $content = strip_tags($content);
+    $content = str_replace( '  ', ' ', $content ); // from left whenever there are two consecutive spaces i'll replace them with 1
+    $content = str_replace($this->getAmpersandHtmlSpecialChars(), ' ', $content);
+    $content = str_replace($this->getNonAmpersandHtmlSpecialChars(), '', $content);
+    return $content;
   }
 
   /**
