@@ -71,7 +71,7 @@
                       @component('admin.components.error', ['field' => 'video_src'])
                       @endcomponent
                     </div>
-                    <h4>Tags</h4>
+                    <h4>Tags (add , after entering)</h4>
                     <div class="text-center">
                       <input type="text" name="tags" style="width: 100%;" placeholder="tags here..." id="tags-autocomplete-with-tagging" value="{{ isset($post) ? $post->combineTags() : old('tags')  }}">
                       @component('admin.components.error', ['field' => 'tags'])

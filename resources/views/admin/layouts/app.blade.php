@@ -8,8 +8,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+
+  {{-- To prevent most search engine web crawlers from indexing a page REF: https://support.google.com/webmasters/answer/93710?hl=en --}}
+  <meta name="robots" content="noindex">
 
   <title></title>
 
