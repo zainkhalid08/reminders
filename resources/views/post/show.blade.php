@@ -34,7 +34,7 @@
           <iframe width="560" height="315" src="{{ $post->video_src }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <span class="caption text-muted">© Rights of the audio belong to <a href="http://www.haramain.com/app" target="_blank">Haramain Recordings</a></span>
-        <div id="app">
+        <div id="JwuWiw3">
          {!! $post->content !!}
         </div>
         <div class="info">

@@ -130,6 +130,14 @@ MANUAL TESTS
 			p | if rfr attribute is present and has text it still show the text
 			p | if the text shown is capitalized
 			p | if the text shown is surrounded in parenthesis
+			tests for ayah extractro
+			<ayah ayah="Al-Baqara:77"ayah>a</ayah> -> should create with ref a => 2 77
+			<ayah ayah="sdsds:77"ayah>b</ayah> -> should create b WITHOUT
+			<ayah ayah=":77"ayah>c</ayah> -> should create c WITHOUT
+			<ayah ayah=":"ayah>d</ayah> -> should create d WITHOUT
+			<ayah ayah=""ayah>no contetn</ayah> -> should create without ref
+			<ayah ayah="aaaaaaaaaaa"ayah>eee</ayah> -> should create without ref
+			<ayah ayah="333333333333"ayah>ffffff</ayah> -> should create without ref
 
 		hadith
 			p | if rfr attribute is not present it still show HADITH without any errors
@@ -215,12 +223,16 @@ Front End Tests
 
 NOT YET/IDEAS
 *if the video isn't loaded from youtube...is there a way to tell... or prevent that ugly message....
-*pagination on olderfriday sermons
 *show all tables in admin panel
 *about post
 	*adding a meaning of difficult words as a title eg. <span title="diminish the worth or value of (a quality or achievement). From Oxford">detracts</span>
 	*to highlight the text blue... where imp for posts
 	*play the video of on time click from that time on youtube vieo
+	see if tags are repopulated
+make keywords as post tags and make it an automatic process, no need to waste time on it.
+make a command that will clean unused tags... every 6 months // coz if i add a tag to a post(it is created) and then i detach it (it statys in tags table...)
+have to test if i update even a single thing is it unpublished... or if i change nothing and just update THEN...
+decide on use of can middleware with policies...
 *roles
 *views count for a post.
 *tags description on admin, to show description on hover
@@ -246,18 +258,19 @@ NOT YET/IDEAS
 Make fonts locallll  (test by disabling the internet) (optional)
 1. refactor backend (files & code) DONE.
 2. refactor fronend (files & code) DONE.
-3. finalize ayah extractor, 
-4. hadith extractor
-5. decide for search...
+3. finalize ayah extractor, DONE
+4. hadith extractor DONE
+5. decide for search... DONE
 20. Final test for main features... 
 extra
-21. make feedback notifications just like callcout...to make system announments concistant.
 22. finalize the titles and descriptions for 3 pages
 
 # STAGING/LIVE CHECKLIST
 17. make sure that public directories arne't accessable. FIRST WE'LL GO FOR staging.remindersforgood.com and then...
 
 # DONE
+21. make feedback notifications just like callcout...to make system announments concistant.
+*pagination on olderfriday sermons
 *decide the header image
 ?*force a format of all the content shown to user especially the post heading and subheadings. 
 *decide a design for ayah, hadith

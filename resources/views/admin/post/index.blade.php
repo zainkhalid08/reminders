@@ -79,7 +79,7 @@
 
 @section('page-script')
   <script src="{{ asset('admnistratorassetsonly/vendor/datatables/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('admnistratorassetsonly/fvendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset('admnistratorassetsonly/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
   <script src="{{ asset('admnistratorassetsonly/js/demo/datatables-demo.js') }}"></script>
 
 @endsection

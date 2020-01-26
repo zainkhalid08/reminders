@@ -30,5 +30,5 @@ Vue.component('tyme', require('./components/TymeComponent.vue').default);
  */
 
 const app = new Vue({
-    el: '#app',
+    el: '#JwuWiw3',
 });
