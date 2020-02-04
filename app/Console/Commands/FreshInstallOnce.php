@@ -46,17 +46,17 @@ class FreshInstallOnce extends Command
         if ( empty(config('admin.name')) || empty(config('admin.email')) || empty(config('admin.password'))  ) {
             $name = '';
             while ( empty($name) ) {
-                $name = $this->ask('What is user\'s name?');
+                $name = $this->ask('Type admin\'s name.');
             }
 
             $email = '';
             while ( empty($email) ) {
-                $email = $this->ask('What is user\'s email?');
+                $email = $this->ask('Type admin\'s email.');
             }
 
             $password = '';
             while ( empty($password) ) {
-                $password = $this->secret('What is user\'s password?');
+                $password = $this->secret('Type admin\'s password.');
             }
             $message = 'Alhamdulillah work done! We\'ve also set ADMIN_NAME= ADMIN_EMAIL= ADMIN_PASSWORD= in env.';
         } else {

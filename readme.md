@@ -187,6 +187,11 @@ Front End Tests
 1. p | apx. have title approximate at all 3 places where you see apx.
 2. 
 
+	General User Perpective Tests
+	1. home page everything looks good in general
+	2. the navbar hides and shows as expected.
+	
+
 # CODE DOCUMENTATION
  app envornments are local, staging (staging not STAGING)
 1. views/partials : where front end partials are kept

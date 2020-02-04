@@ -23,7 +23,7 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Name</label>
-              <input type="text" name="n3kIad3" class="form-control" placeholder="Name (optional)"  value="{{ old('name') }}">
+              <input type="text" name="n3kIad3" class="form-control" placeholder="Name (optional)"  value="{{ old('n3kIad3') }}">
               @component('components.error', ['field' => 'n3kIad3'])
               @endcomponent
             </div>
@@ -31,7 +31,7 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Email</label>
-              <input type="email" name="eaWDsk2" class="form-control" placeholder="Email (optional)" value="{{ old('email') }}">
+              <input type="email" name="eaWDsk2" class="form-control" placeholder="Email (optional)" value="{{ old('eaWDsk2') }}">
               @component('components.error', ['field' => 'eaWDsk2'])
               @endcomponent
             </div>
