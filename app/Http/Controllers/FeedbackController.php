@@ -43,7 +43,7 @@ class FeedbackController extends Controller
         		'message' => $request['mw2s8sJ'],
         	]);
 
-        	Mail::to(config('admin.email'))->send(new FeedbackArrived($feedback));
+        	// Mail::to(config('admin.email'))->send(new FeedbackArrived($feedback));
 
         } catch (\Exception $exception) {
 
