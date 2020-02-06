@@ -456,7 +456,7 @@ hr {
   right: 25% !important;
 }
 
-/* x at a system's callout */
-.system-close {
-  padding: 4px 1px !important;
+/* x at a system's callout .close is bootstraps default */
+.system-callout .close {
+  padding: 4px 1px !important; 
 }

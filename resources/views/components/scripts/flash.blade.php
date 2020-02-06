@@ -37,7 +37,7 @@
 			        mouse_over: "pause", // don't fade on mouse hover
 			        delay: delay, // 13s
 			        template: '<div class="{0}  system-callout">'+
-					              '<button type="button" aria-hidden="true" class="system-close" data-notify="dismiss">×</button>'+
+					              '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>'+
 						          '<span data-notify="icon"></span>'+ 
 						          '<p class="system-says"><strong>'+ title.toUpperCase() +':</strong> '+ message +'</p>'+
 					           '</div>'
