@@ -20,7 +20,7 @@ const mix = require('laravel-mix');
 // ], 'public/js/vendor.js');
 
 // To only compile app.js has vue components, might need to extend so kept separate
-mix.js('resources/js/app.js', 'public/js') 
+// mix.js('resources/js/app.js', 'public/js') 
 
 // To only compile styles
-// mix.sass('resources/sass/app.scss', 'public/css')
+mix.sass('resources/sass/app.scss', 'public/css')
