@@ -23,7 +23,7 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Name</label>
-              <input type="text" name="n3kIad3" class="form-control" placeholder="Name (optional)"  value="{{ old('n3kIad3') }}">
+              <input type="text" name="n3kIad3" class="form-control" placeholder="Name (optional)"  value="{{ old('n3kIad3') }}" maxlength="51">
               @component('components.error', ['field' => 'n3kIad3'])
               @endcomponent
             </div>
@@ -31,7 +31,7 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Email</label>
-              <input type="email" name="eaWDsk2" class="form-control" placeholder="Email (optional)" value="{{ old('eaWDsk2') }}">
+              <input type="email" name="eaWDsk2" class="form-control" placeholder="Email (optional)" value="{{ old('eaWDsk2') }}" maxlength="254">
               @component('components.error', ['field' => 'eaWDsk2'])
               @endcomponent
             </div>
@@ -39,7 +39,7 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Message</label>
-              <textarea rows="5" name="mw2s8sJ" class="form-control" placeholder="Message (required)" required>{{ old('mw2s8sJ') }}</textarea>
+              <textarea rows="5" name="mw2s8sJ" class="form-control" placeholder="Message (required)" required maxlength="700">{{ old('mw2s8sJ') }}</textarea>
               @component('components.error', ['field' => 'mw2s8sJ'])
               @endcomponent
             </div>
@@ -47,7 +47,7 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Five minus three equals?</label>
-              <input type="text" name="Vw82iwl" class="form-control" placeholder="Five minus three equals? (required)" value="{{ old('Vw82iwl') }}" required>
+              <input type="text" name="Vw82iwl" class="form-control" placeholder="Five minus three equals? (required)" value="{{ old('Vw82iwl') }}" required maxlength="15">
               @component('components.error', ['field' => 'Vw82iwl'])
               @endcomponent
             </div>

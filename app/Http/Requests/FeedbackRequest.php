@@ -39,10 +39,10 @@ class FeedbackRequest extends FormRequest
     public function rules()
     {
         return [
-            'n3kIad3' => 'nullable|string', // name
-            'eaWDsk2' => 'nullable|string|email', // email
+            'n3kIad3' => 'nullable|string|max:51', // name
+            'eaWDsk2' => 'nullable|string|email|max:254', // email
             'mw2s8sJ' => 'required|string|max:700', // message
-            'Vw82iwl' => 'required|in:2,two', // verification
+            'Vw82iwl' => 'required|in:2,two|max:15', // verification
         ];
     }
 }
