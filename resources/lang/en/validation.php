@@ -131,19 +131,22 @@ return [
     'custom' => [
         'n3kIad3' => [ // // name
             'string' => 'Please enter string.',
+            'max' => 'Please note the name cannot exceed :max characters.',
         ],
         'eaWDsk2' => [ // // email
             'email' => 'Please enter a valid email. If you are willing to enter one.',
             'string' => 'Please enter string.',
+            'max' => 'Please note the email cannot exceed :max characters.',
         ],
         'mw2s8sJ' => [ // message
             'required' => 'Please enter a message.',
             'string' => 'Please enter string.',
             'max' => 'Please note the message cannot exceed :max characters.',
         ],
-        'Vw82iwl' => [ // verification
+        'Vw82iwl' => [ // verification we'll call it answer for the user
             'required' => 'Please answer 5-3=?',
             'in' => 'The answer is invalid, please try again.'
+            'max' => 'Please note the answer cannot exceed :max characters.',
         ],
 
     ],
