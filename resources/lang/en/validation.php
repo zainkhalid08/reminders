@@ -145,7 +145,7 @@ return [
         ],
         'Vw82iwl' => [ // verification we'll call it answer for the user
             'required' => 'Please answer 5-3=?',
-            'in' => 'The answer is invalid, please try again.'
+            'in' => 'The answer is invalid, please try again.',
             'max' => 'Please note the answer cannot exceed :max characters.',
         ],
 
