@@ -55,7 +55,7 @@
                     </div>
                     <h4>Location</h4>
                     <div class="text-center">
-                      <input type="text" name="location" style="width: 100%;" placeholder="Masjid Al Haram" id="location-autocomplete" value="{{ isset($post) ? $post->location->name : old('location') }}">
+                      <input type="text" name="location" style="width: 100%;" placeholder="Masjid Al Haram" id="location-autocomplete" value="{{ isset($post) ? $post->location->name : old('location', 'Masjid Al Haram') }}">
                       @component('admin.components.error', ['field' => 'location'])
                       @endcomponent
                     </div>

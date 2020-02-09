@@ -26,7 +26,7 @@ class FeedbackRequest extends FormRequest
     protected function prepareForValidation()
     {
         $data = $this->all();
-        $data['Vw82iwl'] = strtolower($data['Vw82iwl']); // verification (checking for spam)
+        $data['Vw82iwl'] = strtolower($data['Vw82iwl']); // allowing Two, tWo, twO...
         $this->replace($data);
     }
 
@@ -42,7 +42,7 @@ class FeedbackRequest extends FormRequest
             'n3kIad3' => 'nullable|string|max:51', // name
             'eaWDsk2' => 'nullable|string|email|max:254', // email
             'mw2s8sJ' => 'required|string|max:700', // message
-            'Vw82iwl' => 'required|string|in:2,two|max:15', // verification
+            'Vw82iwl' => 'required|string|in:2,two|max:9', // verification (checking for spam)
         ];
     }
 }
