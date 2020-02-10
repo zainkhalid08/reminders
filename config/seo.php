@@ -22,7 +22,7 @@ return [
     ],
 
     'post-index' => [
-        'title' => 'Blog On Friday Sermons Of Masjid Al Haram',
+        'title' => 'Older Friday Sermons Of Masjid Al Haram',
         'meta' => [
             'description' => 'Older friday sermons of masjid al haram.'
         ],

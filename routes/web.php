@@ -38,8 +38,8 @@ Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(
 	Route::put('post/{post}/publish', 'AdminPostPublisherController@publish')->name('post.update.publish');
 });
 
-// Route::get('/', 'WelcomeController@welcome')->name('welcome')->middleware('cache.headers:private;max_age=36000'); // [1]
-Route::get('/', 'WelcomeController@welcome')->name('welcome');
+Route::get('/', 'WelcomeController@welcome')->name('welcome')->middleware('cache.headers:public;max_age=36000'); // [1]
+// Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
 Route::get('friday-sermons', 'PostController@index')->name('post.index'); 
 
