@@ -10,13 +10,16 @@
         <ul>
           <li>ayah tag</li>
             <ul>
-              <li>leave blank "" OR
-              <li>type full proper reference 'Al-Baqara:155'</li>
+              <li>leave blank "" OR </li>
+              <li>type full proper reference "Al-Baqara:155"</li>
+              <li>only use double quotes</li>
+              <li>the surah name should be from the list below to ensure correct spelling and then more importantly further extraction of ayah</li>
             </ul>
           <li>hadith tag</li>
             <ul>
-              <li>leave blank "" OR
-              <li>type correct reference 'muslim' as anything typed in between quotes will be shown as is.</li>
+              <li>leave blank "" OR </li>
+              <li>type correct reference "muslim" as anything typed in between quotes will be shown as is.</li>
+              <li>only use double quotes</li>
             </ul>
           <li>tyme tag</li>
             <ul>

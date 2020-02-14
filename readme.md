@@ -273,6 +273,10 @@ extra
 # STAGING/LIVE CHECKLIST
 17. make sure that public directories arne't accessable. FIRST WE'LL GO FOR staging.remindersforgood.com and then...
 
+# TIMELINE
+First commit 26th Dec 2019
+First Deployment to production 10th Feb 2020 (1 month 15 days)
+
 # DONE
 21. make feedback notifications just like callcout...to make system announments concistant.
 *pagination on olderfriday sermons

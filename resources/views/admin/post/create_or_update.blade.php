@@ -86,11 +86,6 @@
                         *speaker comments in {{'<p></p>'}} <br>
                         *to bold {{'<b></b>'}} <br>
 
-                        NOTE: NO spaces between "> of hadith
-                              ref="" use double quotes
-                              starting be as is without any space ref="
-                              the surah name should be from that seeder class
-                      
                     </div>
                     <h4>Content</h4>
                     <button type="button" onclick="appendAyah()">ayah</button>
