@@ -49,9 +49,11 @@ class AdminPostController extends Controller
      */
     public function store(PostStoreRequest $request)
     {
-    	$this->updateOrCreate();
+    	$post = $this->updateOrCreate();
 
-        return redirect()->route('admin.post.index');
+        $route = $this->getRouteBySubmissionType($request, $post);
+
+        return redirect()->to($route);
     }
 
     /**
@@ -71,9 +73,11 @@ class AdminPostController extends Controller
 
     public function update(PostStoreRequest $request, Post $post)
     {
-    	$this->updateOrCreate($post);
+    	$post = $this->updateOrCreate($post);
 
-        return redirect()->route('admin.post.index');
+        $route = $this->getRouteBySubmissionType($request, $post);
+
+        return redirect()->to($route);
     }
 
 }

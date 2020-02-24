@@ -83,4 +83,40 @@ class AdminPostControllerTest extends TestCase
             $this->stringComparatorAssertion($postTags[$i]['name'], $tags[$i]);
         }
     }
+
+    public function test_on_creation_and_updation_when_done_is_pressed_it_redirects_to_all_posts_of_admin_page()
+    {
+        $user = User::first();
+
+        $data = $this->validFields(['redirects_to' => 'admin_all_posts']);
+
+        // $this->withoutExceptionHandling();
+
+        $response = $this->actingAs($user)
+                         ->post(route('admin.post.store'), $data); 
+
+        $expected = route('admin.post.index');
+
+        $response->assertRedirect($expected);       
+    }
+
+    public function test_on_creation_and_updation_when_save_is_pressed_it_redirects_to_that_post_edit_page()
+    {
+        $user = User::first();
+
+        $data = $this->validFields(['redirects_to' => 'post_edit']);
+
+        // $this->withoutExceptionHandling();
+
+        $response = $this->actingAs($user)
+                         ->post(route('admin.post.store'), $data); 
+
+        $post = Post::latest()->first();
+
+        $expected = route('admin.post.edit', $post->id);
+
+        $response->assertRedirect($expected);       
+    }
+
+
 }

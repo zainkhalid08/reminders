@@ -126,8 +126,8 @@
                     </div>
 
                     <div class="text-center">
-                      <button type="button" class="btn btn-primary" style="margin-top: 2%;" onclick="event.preventDefault();
-                                                                                                    document.getElementById('post-creation-or-updation-form').submit();">{{ $formSettings['button'] }}</button>
+                      <button type="submit" name="redirects_to" class="btn btn-primary" style="margin-top: 2%;" form="post-creation-or-updation-form" value="admin_all_posts">Done</button>
+                      <button type="submit" name="redirects_to" class="btn btn-primary" style="margin-top: 2%;" form="post-creation-or-updation-form" value="post_edit">Save</button>
                     </div>
                   </form> <br>
 
@@ -203,7 +203,7 @@
     }    
 
     function appendHellip(){
-      txt = '&hellip;';
+      txt = ' &hellip; ';
       lengthFromEndingTag = 0;
       appendContent(txt, lengthFromEndingTag);
     }

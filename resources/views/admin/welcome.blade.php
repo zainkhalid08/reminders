@@ -23,6 +23,7 @@
             </ul>
           <li>tyme tag</li>
             <ul>
+              <li>Comes within {{ '<p></p>' }} tags.</li>
               <li>ENSURE to type BOTH min and sec. Can't skip, or else you'll see @:.</li>
             </ul>
         </ul>
