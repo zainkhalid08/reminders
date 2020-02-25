@@ -9,11 +9,12 @@ use App\Speaker;
 use App\Tag;
 use App\Traits\CombinePostUpdateOrCreate;
 use App\Traits\PostViewHelper;
+use App\Traits\GivesRouteBySubmissionType;
 use Illuminate\Http\Request;
 
 class AdminPostController extends Controller
 {
-    use CombinePostUpdateOrCreate, PostViewHelper;
+    use CombinePostUpdateOrCreate, PostViewHelper, GivesRouteBySubmissionType;
 
     /**
      * Shows ALL posts(published and unpublished)
