@@ -49,7 +49,7 @@ trait PostViewHelper
     public function isFitToBeNew()
     {
       $allowedDaysToBeNew = 3;
-      return $this->created_at->diffInDays(now()) <= $allowedDaysToBeNew;
+      return $this->updated_at->diffInDays(now()) <= $allowedDaysToBeNew;
     }
 
     /**
