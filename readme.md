@@ -227,6 +227,9 @@ Front End Tests
 # TODOS
 
 NOT YET/IDEAS
+*system for spellings consistency
+*remove keywords, have the tags as keywords by system
+*system for search... before it may be hard to catch up.
 *if the video isn't loaded from youtube...is there a way to tell... or prevent that ugly message....
 *show all tables in admin panel
 *about post
@@ -235,7 +238,7 @@ NOT YET/IDEAS
 	*play the video of on time click from that time on youtube vieo
 	see if tags are repopulated
 make keywords as post tags and make it an automatic process, no need to waste time on it.
-make a command that will clean unused tags... every 6 months // coz if i add a tag to a post(it is created) and then i detach it (it statys in tags table...)
+make a command that will clean unused tags... every 6 months // coz if i add a tag to a post(it is created) and then i detach it (it statys in tags table...)...cron job
 have to test if i update even a single thing is it unpublished... or if i change nothing and just update THEN...
 decide on use of can middleware with policies...
 *roles
@@ -244,7 +247,6 @@ decide on use of can middleware with policies...
 *have a component dua also perhaps.
 *search feature
 *useful links perhaps
-*feedback from visitors
 *to crop the images a little further to decrease size bits...
 *admin,stats of visitors to store in db
 *static pages, privacy policy, about us, terms of service... etc

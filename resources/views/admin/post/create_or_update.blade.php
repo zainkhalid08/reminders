@@ -72,7 +72,7 @@
                       @component('admin.components.error', ['field' => 'video_src'])
                       @endcomponent
                     </div>
-                    <h4>Tags (add , after entering)</h4>
+                    <h4>Tags (type , after entering)</h4>
                     <div class="text-center">
                       <input type="text" name="tags" style="width: 100%;" placeholder="tags here..." id="tags-autocomplete-with-tagging" value="{{ isset($post) ? $post->combineTags() : old('tags')  }}">
                       @component('admin.components.error', ['field' => 'tags'])
@@ -140,13 +140,24 @@
                   <h4>Hadith Book Names</h4>
                   <span>Bukhari</span>
 
+                  <!-- <h4>Names Spellings Consistency Checker</h4> -->
+
                   <h4>Post Content Checklist</h4>
-                  <span>room for removal</span>
-                  <span>gramatical spelling</span>
-                  <span>name spelling</span>
-                  <span>punctuation</span>
-                  <span>what to bold for good reading exp</span>
-                  <span>add @time</span>
+                  <ol>
+                    <li>room for removal</li>
+                    <li>headings if possible</li>
+                    <li>gramatical spelling</li>
+                    <li>name spelling</li>
+                    <li>punctuation</li>
+                    <li>what to bold for good reading exp</li>
+                    <li>where places to add @time</li>
+                    <!-- <li>lowwer case after {{ '&hellip;' }}</li> -->
+                    <li>minutes read is it</li>
+                    <li>check translations... which to keep</li>
+                    <li>finalize tags</li>
+                    <li>meta description</li>
+                    <li>final read</li>
+                  </ol>
 
 
 
