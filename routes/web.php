@@ -23,7 +23,8 @@ Route::get('292833337372939-dbverdk', function(){
 		Mail::to(config('admin.email'))->send(new FeedbackArrived($feedback));
 
 	} catch(\Exception $exception) {
-
+		
+        report($exception);
 		return 'fails';
 
 	}
