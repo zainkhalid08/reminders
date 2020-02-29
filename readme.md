@@ -227,6 +227,7 @@ Front End Tests
 # TODOS
 
 NOT YET/IDEAS
+*send mail from server on feedback arrival...
 *system for spellings consistency
 *remove keywords, have the tags as keywords by system
 *system for search... before it may be hard to catch up.

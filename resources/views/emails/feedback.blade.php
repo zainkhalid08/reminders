@@ -5,7 +5,9 @@
 <p>Email: {{ $feedback->email ?? 'not given' }}</p>
 <p>Message: {{ $feedback->message ?? 'not given' }}</p>
 
-<small>Remember this was a feedback form NOT A CONTACT. Reply sin't a must</small><br>
+<small>
+	<i>Remember this was a feedback form NOT A CONTACT. Reply isn't a must</i>
+</small><br>
 
 Thanks,
 {{ config('app.name') }}

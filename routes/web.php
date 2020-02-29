@@ -1,5 +1,9 @@
 <?php
 
+use App\Feedback;
+use App\Mail\FeedbackArrived;
+use Illuminate\Support\Facades\Mail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,7 +14,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('292833337372939-dbverdk', function(){
 
+	$feedback = Feedback::latest()->first();
+
+	try {
+
+		Mail::to(config('admin.email'))->send(new FeedbackArrived($feedback));
+
+	} catch(\Exception $exception) {
+
+		return 'fails';
+
+	}
+
+	return 'success';
+
+});
 Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(function () {
 	Route::get('/', 'Auth\LoginController@showLoginForm')->name('login.view');
 	Route::post('login', 'Auth\LoginController@login')->name('login');
