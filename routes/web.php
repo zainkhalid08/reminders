@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Mail;
 */
 Route::get('292833337372939-dbverdk', function(){
 
-	$feedback = Feedback::latest()->first();
+	$feedback = new Feedback(['name' => 'here', 'email' => 'test@test.com', 'message' => 'good working']);
 
 	try {
 
