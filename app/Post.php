@@ -91,7 +91,7 @@ class Post extends Model
 
     public function scopePublished($query)
     {
-        return $query->whereNotNull('is_published');
+        return $query->where('is_published', true);
     }
 
     public function isUnpublished() : bool
