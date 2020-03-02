@@ -29,7 +29,8 @@ class CreatePostsTable extends Migration
             $table->tinyInteger('mins_read')->nullable();
             $table->mediumText('meta')->nullable()->description('casts to array i.e json by laravel see App\Post $casts property eg. ["description" => "some sort of description", "keywords" => "some, sort, of, keywords"]');
             $table->unsignedBigInteger('user_id');
-            $table->timestamp('published_at')->nullable();
+            $table->timestamp('published_at')->nullable()->description('Is used to sort posts. Once set, doesn\'t change.
+                                                                        So this column is the time when post was published for the first time.');
 
             $table->foreign('speaker_id')->references('id')->on('speakers')->onDelete('cascade');
             $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');

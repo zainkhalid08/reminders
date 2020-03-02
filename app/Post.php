@@ -91,29 +91,24 @@ class Post extends Model
 
     public function scopePublished($query)
     {
-        return $query->whereNotNull('published_at');
+        return $query->whereNotNull('is_published');
     }
 
     public function isUnpublished() : bool
     {
-        return ! $this->published_at;
+        return ! $this->is_published;
     }
 
     public function publish() 
     {
-        $this->published_at = now();
+        $this->is_published = true;
         $this->save();
     }
 
     public function unpublish() 
     {
-        $this->published_at = null;
+        $this->is_published = false;
         $this->save();
-    }
-
-    public function scopeLatestPublishedFirst($query)
-    {
-        return $query->published()->latest('published_at');
     }
 
     public function tags()
