@@ -33,6 +33,7 @@
           <li>when a post is published after editing then it appears at the same place where it appeared previously. As published_at isn't changed, rather it stays the same when it did at the first time.(when published first time)</li>
         </ul>
       </div>
+      <h1 class="h3 text-gray-800">Documentaion</h1>
     </div>
     <!-- /.container-fluid -->
 @endsection
