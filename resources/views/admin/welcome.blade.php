@@ -28,6 +28,7 @@
             </ul>
         </ul>
       </div>
+      <h1 class="h3 text-gray-800">Documentaion</h1>
     </div>
     <!-- /.container-fluid -->
 @endsection
