@@ -46,7 +46,7 @@ trait PostViewHelper
       return $this->date->format('d, M Y');
     }
 
-    public function isFitToBeNew()
+    public function isFitToBeNew() : bool
     {
       $allowedDaysToBeNew = 3;
       return $this->updated_at->diffInDays(now()) <= $allowedDaysToBeNew;

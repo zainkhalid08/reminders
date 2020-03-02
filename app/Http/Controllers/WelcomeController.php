@@ -24,9 +24,11 @@ class WelcomeController extends Controller
         ];
         $seo = $this->mergeWithTemplate($seo);
 
-        $posts = Post::latestPublishedFirst()->limit(config('post.welcome'))->get();
+        $publishedPosts = Post::published();
 
-    	$total = Post::published()->count(); // for showing older sermons button
+        $posts = $publishedPosts->latest('published_at')->limit(config('post.welcome'))->get();
+
+    	$total = $publishedPosts->count(); // for showing older sermons button
         
 	    return view('welcome', compact('posts', 'total', 'seo'));
     }
