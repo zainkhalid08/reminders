@@ -68,8 +68,6 @@ class Post extends Model
     //     $events = ['updated', 'created'];
     //     foreach ($events as $event) {
     //         static::{$event}(function ($post) {
-    //             $post->unpublish();
-    //             // ProcessPostContent::dispatch($post)->delay(now()->addMinutes(1)); // use delay when you have a queue driver setup
     //         });
     //     }
     // }
@@ -102,6 +100,9 @@ class Post extends Model
     public function publish() 
     {
         $this->is_published = true;
+        if (is_null($this->published_at)) { // to see if it is being published first time
+            $this->published_at = now();
+        }
         $this->save();
     }
 
