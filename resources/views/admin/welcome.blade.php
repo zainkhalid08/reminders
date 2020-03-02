@@ -27,13 +27,12 @@
               <li>ENSURE to type BOTH min and sec. Can't skip, or else you'll see @:.</li>
             </ul>
         </ul>
-        <h2>Documentation</h2>
+      </div>
+      <h1 class="h3 text-gray-800">Documentaion</h1>
         <ul>
           <li>when a post is edited, it is unpublished automatically.(is_published becomes 0)</li>
           <li>when a post is published after editing then it appears at the same place where it appeared previously. As published_at isn't changed, rather it stays the same when it did at the first time.(when published first time)</li>
         </ul>
-      </div>
-      <h1 class="h3 text-gray-800">Documentaion</h1>
     </div>
     <!-- /.container-fluid -->
 @endsection
