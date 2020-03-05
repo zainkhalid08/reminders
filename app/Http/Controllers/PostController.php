@@ -27,7 +27,9 @@ class PostController extends Controller
         ];
         $seo = $this->mergeWithTemplate($seo);
 
-        $posts = Post::latestPublishedFirst()->paginate(config('post.post-index'));
+        $publishedPosts = Post::published();
+
+        $posts = $publishedPosts->latest('published_at')->paginate(config('post.post-index'));
 
         return view('post.index', compact('posts', 'seo'));
     }
