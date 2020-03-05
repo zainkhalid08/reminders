@@ -8,6 +8,7 @@ use App\Post;
 use App\Speaker;
 use App\Surah;
 use App\Tag;
+use App\Word;
 
 
 trait CombinePostUpdateOrCreate
@@ -61,17 +62,18 @@ trait CombinePostUpdateOrCreate
   }  
 
   /**
-   * Gets all tags, speakers, locations and surahs
+   * Gets all tags, speakers, locations, surahs, words
    * 
    * @return array
    */
-  protected function getAllTagsSpeakersLocationsAndSurahs() : array
+  protected function getAllTagsSpeakersLocationsSurahsAndMore() : array
   {
     $data = [];
     $data['tags'] = Tag::all();
     $data['speakers'] = Speaker::all();
     $data['locations'] = Location::all();
     $data['surahs'] = Surah::all();
+    $data['words'] = Word::all();
     return $data;
   }
 
@@ -90,6 +92,9 @@ trait CombinePostUpdateOrCreate
 
     /* Speaker */
     $speaker = Speaker::updateOrCreate(['name' => $request['speaker'], 'location_id' => $location->id]);        
+
+    /* Word */
+    $this->wordsUpdateOrCreate($post, $request);
 
     /* Update Or Create */
     if ($this->isFromUpdate()) {
@@ -145,11 +150,28 @@ trait CombinePostUpdateOrCreate
   {
     $post->tags()->detach(); // detaching all tags for this post first             
 
-    $separateTags = $this->separateTags($request['tags']);
+    $separateTags = $this->splitWordsOn(',', $request['tags']);
     foreach ($separateTags as $key => $tagName) {
 
       $tag = Tag::updateOrCreate(['name' => $tagName]);
       $post->tags()->attach($tag->id);            
+
+    }
+  }
+
+  /**
+   * Update or create words from this post.
+   * 
+   * @param  App\Post $post    
+   * @param  \Illuminate\Http\Request $request 
+   * @return void          
+   */
+  protected function wordsUpdateOrCreate($post, $request)
+  {
+    $separateTags = $this->splitWordsOn(',', $request['words']); // rf
+    foreach ($separateTags as $key => $tagName) {
+
+      $word = Word::updateOrCreate(['name' => $tagName]);
 
     }
   }

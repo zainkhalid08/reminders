@@ -29,16 +29,16 @@ trait PostViewHelper
     }
 
     /**
-     * Separate tags as an array
+     * Separate words as an array
      * 
-     * @param  string $combinedTags comma separated
+     * @param  string $combinedWords comma separated
      * @return array               
      */
-    public function separateTags($combinedTags = '') : array
+    public function splitWordsOn($delimiter, $combinedWords) : array
     {
-        $separatedRawTags = explode(',', $combinedTags);
-        $separatedFilteredTags = array_filter($separatedRawTags);
-        return $separatedRawTags;
+        $splittedRawWords = explode($delimiter, $combinedWords);
+        $filteredWords = array_filter($splittedRawWords);
+        return $filteredWords;
     }    
 
     public function readableDate()

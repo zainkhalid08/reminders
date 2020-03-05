@@ -29,6 +29,21 @@
 
 	  	$('#location-autocomplete').easyAutocomplete(options);
 
+		// Words
+		var words = [
+			@forelse($availableData['words'] as $word)
+				'{{ $word->name }}',
+			@empty
+			@endforelse
+		];
+
+		var options = {
+			data: words,
+		};
+
+	  	$('#word-autocomplete').easyAutocomplete(options);
+
+
 	  	// Tags For autocomplete and tagging
 		var tags = [
 			@forelse($availableData['tags'] as $tag)

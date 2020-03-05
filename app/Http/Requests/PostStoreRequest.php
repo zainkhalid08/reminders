@@ -21,6 +21,18 @@ class PostStoreRequest extends FormRequest
     }
 
     /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        $data = $this->all();
+        $data['words'] = strtolower($data['words']); // to keep words unique, in words table, for spellings
+        $this->replace($data);
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -38,6 +50,7 @@ class PostStoreRequest extends FormRequest
             'content' => 'required|string|min:10',
             'mins_read' => 'required|numeric|min:1',
             'meta.description' => 'required|string|max:160',
+            'words' => 'nullable|string',
         ];
     }
 

@@ -140,7 +140,10 @@
                   <h4>Hadith Book Names</h4>
                   <span>Bukhari</span>
 
-                  <!-- <h4>Names Spellings Consistency Checker</h4> -->
+                  <h4>Spellings Consistency Checker/Maker</h4>
+                  <div class="text-center">
+                    <input type="text" name="words" style="width: 100%;" placeholder="check here... or for new eg. salaf, Yusuf, Waqoob"  id="word-autocomplete" form="post-creation-or-updation-form">
+                  </div>
 
                   <h4>Post Content Checklist</h4>
                   <ol>
