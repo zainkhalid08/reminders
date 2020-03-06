@@ -19,6 +19,6 @@ class Word extends Model
      */
     public function setNameAttribute($value)
     {
-        $this->attributes['name'] = strtolower($value);
+        $this->attributes['name'] = strtolower(trim($value));
     }
 }
