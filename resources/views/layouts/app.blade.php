@@ -47,7 +47,7 @@
                   </a>
                 </li>
               </ul> --}}
-                <p class="copyright text-muted"><a href="#thanks" data-toggle="modal" data-target="#thanks">Thanks</a> | <a href="{{ route('feedback') }}" target="_blank">Feedback</a> | <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/" target="_blank"><img alt="Creative Commons License" title="Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)" style="border-width:0" src="{{ asset('img/cc.webp') }}" /></a></p>
+                <p class="copyright text-muted"><a href="#thanks" data-toggle="modal" data-target="#thanks">Thanks</a> | <a href="{{ route('feedback') }}" target="_blank" rel="noreferrer">Feedback</a> | <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/" target="_blank" rel="noreferrer"><img alt="Creative Commons License" title="Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)" style="border-width:0" src="{{ asset('img/cc.webp') }}" /></a></p>
               @include('partials.footer_modals')
             </div>
           </div>
