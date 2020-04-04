@@ -1,20 +1,6 @@
 <script>
 	$(function() {
 
-		// Speakers
-		var speakers = [
-			@forelse($availableData['speakers'] as $speaker)
-				'{{ $speaker->name }}',
-			@empty
-			@endforelse
-		];
-
-		var options = {
-			data: speakers,
-		};
-
-	  	$('#speaker-autocomplete').easyAutocomplete(options);
-
 		// Locations
 		var locations = [
 			@forelse($availableData['locations'] as $location)

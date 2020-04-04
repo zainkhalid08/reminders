@@ -49,7 +49,7 @@
                     </div>
                     <h4>Speaker</h4>
                     <div class="text-center">
-                      <input type="text" name="speaker" style="width: 100%;" placeholder="Sheikh Salaah Budaair"  id="speaker-autocomplete" value="{{ isset($post) ? $post->speaker->name : old('speaker') }}">
+                      <input type="text" name="speaker" style="width: 100%;" placeholder="Sheikh Salaah Budaair" value="{{ isset($post) ? $post->speaker->name : old('speaker') }}">
                       @component('admin.components.error', ['field' => 'speaker'])
                       @endcomponent
                     </div>
@@ -146,6 +146,12 @@
                   
                   <h4>Hadith Book Names Checker</h4>
                   <span>Bukhari, Muslim</span>
+
+                  <h4>Speaker Name Checker</h4>
+                  @forelse($availableData['speakers'] as $speaker)
+                    <span>{{ $speaker->name }}, </span>
+                  @empty
+                  @endforelse
 
                   <h4>Words Checker</h4>
                   @forelse($availableData['words'] as $word)
