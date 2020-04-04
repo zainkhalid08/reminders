@@ -131,19 +131,34 @@
                     </div>
                   </form> <br>
 
-                  <h4>Surah Names</h4>
+                  <hr>
+                                    
+                  <center>
+                    <h2>Spelling Checker</h2>
+                    <small>(for consistency & accurate search)</small>
+                  </center>
+
+                  <h4>Surah Names Checker</h4>
                   @forelse($availableData['surahs'] as $surah)
                     <span>{{ $surah->name }}, </span>
                   @empty
                   @endforelse
                   
-                  <h4>Hadith Book Names</h4>
-                  <span>Bukhari</span>
+                  <h4>Hadith Book Names Checker</h4>
+                  <span>Bukhari, Muslim</span>
 
-                  <h4>Spellings Consistency Checker/Maker</h4>
+                  <h4>Words Checker</h4>
+                  @forelse($availableData['words'] as $word)
+                    <span>{{ $word->name }}, </span>
+                  @empty
+                  @endforelse
+
+                  <h4>Add New Word(s)</h4> 
                   <div class="text-center">
-                    <input type="text" name="words" style="width: 100%;" placeholder="check here... or for new eg. salaf, Yusuf, Waqoob"  id="word-autocomplete" form="post-creation-or-updation-form">
+                    <input type="text" name="words" style="width: 100%;" placeholder="for new eg. salaf, Yusuf, Waqoob"   form="post-creation-or-updation-form">
                   </div>
+
+                  <hr>
 
                   <h4>Post Content Checklist</h4>
                   <ol>
@@ -154,19 +169,12 @@
                     <li>punctuation</li>
                     <li>what to bold for good reading exp</li>
                     <li>where places to add @time</li>
-                    <!-- <li>lowwer case after {{ '&hellip;' }}</li> -->
                     <li>minutes read is it</li>
                     <li>check translations... which to keep</li>
                     <li>finalize tags</li>
                     <li>meta description</li>
                     <li>final read</li>
                   </ol>
-
-
-
-                  <div class="text-center">
-                   <i>1. the references mentioned in the sermon will be told, only for the case of hadith</i><br>
-                  </div> 
                 </div>
             </div>
           </div>        
