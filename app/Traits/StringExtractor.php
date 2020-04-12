@@ -63,7 +63,8 @@ trait StringExtractor
     return [
         "&hellip;", 
         "&nbsp;", "&#8220;", "&#8221;",
-        "&amp;", "&#8217;"
+        "&amp;", "&#8217;", "&mdash;",
+        "&ndash;"
     ];
   }
 

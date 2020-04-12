@@ -114,7 +114,7 @@
                     <h4>Meta Description</h4>
                      {{-- dd($post->meta) --}}
                     <div class="text-center">
-                      <input type="text" name="meta[description]" style="width: 100%;" placeholder="About this post..." value="{{ isset($post) ? $post->meta['description'] : old('meta.description') }}" required>
+                      <input type="text" name="meta[description]" style="width: 100%;" placeholder="About this post..." value="{{ old('meta.description', isset($post) ? $post->meta['description'] : '') }}" required maxlength="160">
                       @component('admin.components.error', ['field' => 'meta.description'])
                       @endcomponent
                     </div>
@@ -145,7 +145,7 @@
                   @endforelse
                   
                   <h4>Hadith Book Names Checker</h4>
-                  <span>Bukhari, Muslim</span>
+                  <span>Bukhari, Muslim, Tirmidhi, Sanan Abi Dawood</span>
 
                   <h4>Speaker Name Checker</h4>
                   @forelse($availableData['speakers'] as $speaker)

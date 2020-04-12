@@ -9,8 +9,8 @@
     <div class="container-fluid">
 
       <!-- Page Heading -->
-      <h1 class="h3 mb-2 text-gray-800">Posts</h1>
-      <p class="mb-4"></p> {{-- kept empty intentionally, to keep alignment consistent with other pages as otherwise the card goes up  --}}
+      <!-- <h1 class="h3 mb-2 text-gray-800">Posts</h1> -->
+      <!-- <p class="mb-4"></p> --> {{-- kept empty intentionally, to keep alignment consistent with other pages as otherwise the card goes up  --}}
 
       <!-- DataTales Example -->
       <div class="card shadow mb-4">

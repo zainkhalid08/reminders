@@ -5,6 +5,11 @@
 
 <hr>
 
+## TODOS
+
+- sytem to add og:title and such tags for seo...
+- maybe have separate js for home page and separate for post pages...
+
 ## DEPLOYMENTS
 
 1. First make env file.
@@ -223,6 +228,37 @@ Front End Tests
 14. resources/views/partials has static html
 15. when a new html speacial char is allowable in admin post creation make sure it is removed in filtering process by adding it to StringExtractor.php getHtmlSpecialChars()
 16. raw_content in post, ayahs, hadiths is used for searching 
+
+
+## Versioning
+
+For transparency and insight into our release cycle, releases will be numbered with the follow format:
+
+`<major>.<minor>.<patch>`
+
+And constructed with the following guidelines:
+
+* Breaking backwards compatibility bumps the major
+* New additions without breaking backwards compatibility bumps the minor
+* Bug fixes and misc changes bump the patch
+
+For more information on semantic versioning, please visit http://semver.org/.
+
+## Testing
+
+To run the tests you first need to update all git submodules.
+
+    $ git submodule init
+    $ git submodule update
+
+Unit tests are written using [QUnit](http://qunitjs.com/). To run them, open `test/index.html`
+in a browser.
+
+Use [node](http://nodejs.org/) to run all tests from the
+[mustache spec](https://github.com/mustache/spec).
+
+    $ node test/spec.js
+
 
 # TODOS
 
