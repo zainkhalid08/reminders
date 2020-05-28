@@ -33,6 +33,10 @@
           <li>when a post is edited, it is unpublished automatically.(is_published becomes 0)</li>
           <li>when a post is published after editing then it appears at the same place where it appeared previously. As published_at isn't changed, rather it stays the same when it did at the first time.(when published first time)</li>
         </ul>
+      <h1 class="h3 text-gray-800">Rules</h1>
+        <ul>
+          <li>"Or do you, [O Muhammad], ask them for payment? But the reward of your Lord is best, and He is the best of providers." [ Al-Mumenoon:72]</li>
+        </ul>
     </div>
     <!-- /.container-fluid -->
 @endsection

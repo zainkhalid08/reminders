@@ -16,12 +16,7 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        // if (auth()->check() && auth()->user()->cannotCreatePost()) {
-        //     abort(404);
-        // } 
-
         // only /maker should be accessable all other should be 404
-        // dd(auth()->check());
         if ( auth()->guest() && $this->isAForbiddenRoute($request) || auth()->check() && auth()->user()->cannotCreatePost() ) {
             abort(404);
         }
@@ -31,7 +26,8 @@ class AdminMiddleware
 
     /**
      * Routes names that anyone can access 
-     * though are kept open for ADMIN
+     * though, are kept open for ADMIN
+     * only
      * 
      * @return array 
      */
