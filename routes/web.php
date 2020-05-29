@@ -1,8 +1,6 @@
 <?php
 
-use App\Feedback;
-use App\Mail\FeedbackArrived;
-use Illuminate\Support\Facades\Mail;
+use App\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,20 +14,14 @@ use Illuminate\Support\Facades\Mail;
 */
 Route::get('292833337372939-dbverdk', function(){
 
-	$feedback = new Feedback(['name' => 'here', 'email' => 'test@test.com', 'message' => 'good working']);
-
-	try {
-
-		Mail::to(config('admin.email'))->send(new FeedbackArrived($feedback));
-
-	} catch(\Exception $exception) {
-		
-        report($exception);
-		return 'fails';
-
+	$posts = Post::all();
+	foreach ($posts as $post) {
+		if (strpos($post->video_src, 'rel=') !== false) {
+		    echo 'uh';
+		} else {
+		    echo 'duh';
+		}
 	}
-
-	return 'success';
 
 });
 Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(function () {
