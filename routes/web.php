@@ -13,16 +13,16 @@ use App\Post;
 |
 */
 Route::get('292833337372939dbverdk', function(){
-
-	$posts = Post::all();
-	foreach ($posts as $key => $post) {
-		if (strpos($post->video_src, '?rel=0') !== false) {
-			$post->video_src = rtrim($post->video_src, '?rel=0');
-			$post->save();
-		} else {
-		    echo 'duh';
-		}
-	}
+	abort(404);
+	// $posts = Post::all();
+	// foreach ($posts as $key => $post) {
+	// 	if (strpos($post->video_src, '?rel=0') !== false) {
+	// 		$post->video_src = rtrim($post->video_src, '?rel=0');
+	// 		$post->save();
+	// 	} else {
+	// 	    echo 'duh';
+	// 	}
+	// }
 
 });
 Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(function () {
