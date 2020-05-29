@@ -15,9 +15,9 @@ use App\Post;
 Route::get('292833337372939dbverdk', function(){
 
 	$posts = Post::all();
-	foreach ($posts as $post) {
-		if (strpos($post->video_src, 'rel=') !== false) {
-		    echo 'uh';
+	foreach ($posts as $key => $post) {
+		if (strpos($post->video_src, '?rel=') !== false) {
+		    echo $key.' uh <br>';
 		} else {
 		    echo 'duh';
 		}
