@@ -12,7 +12,7 @@ use App\Post;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('292833337372939-dbverdk', function(){
+Route::get('292833337372939dbverdk', function(){
 
 	$posts = Post::all();
 	foreach ($posts as $post) {
