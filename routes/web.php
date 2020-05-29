@@ -16,7 +16,7 @@ Route::get('292833337372939dbverdk', function(){
 
 	$posts = Post::all();
 	foreach ($posts as $key => $post) {
-		if (strpos($post->video_src, '?rel=') !== false) {
+		if (strpos($post->video_src, '?rel=0') !== false) {
 		    echo $key.' uh <br>';
 		} else {
 		    echo 'duh';
