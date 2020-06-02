@@ -1,7 +1,5 @@
 <?php
 
-use App\Post;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,20 +9,13 @@ use App\Post;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+| NOTE: Don't have closure routes as they can't be cached and
+| our deployment script caches.
+|
 */
-Route::get('292833337372939dbverdk', function(){
-	abort(404);
-	// $posts = Post::all();
-	// foreach ($posts as $key => $post) {
-	// 	if (strpos($post->video_src, '?rel=0') !== false) {
-	// 		$post->video_src = rtrim($post->video_src, '?rel=0');
-	// 		$post->save();
-	// 	} else {
-	// 	    echo 'duh';
-	// 	}
-	// }
 
-});
+Route::get('292833337372939dbverdk', 'PlayController@operate');
+
 Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(function () {
 	Route::get('/', 'Auth\LoginController@showLoginForm')->name('login.view');
 	Route::post('login', 'Auth\LoginController@login')->name('login');
@@ -42,7 +33,7 @@ Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(
 	Route::put('post/{post}/publish', 'AdminPostPublisherController@publish')->name('post.update.publish');
 });
 
-Route::middleware(['cache.headers:public;max_age=36000'])->group(function () { // [1]
+// Route::middleware(['cache.headers:public;max_age=36000'])->group(function () { // [1]
 
 	Route::get('/', 'WelcomeController@welcome')->name('welcome'); 
 	Route::get('friday-sermons', 'PostController@index')->name('post.index'); 
@@ -51,7 +42,7 @@ Route::middleware(['cache.headers:public;max_age=36000'])->group(function () { /
 	Route::get('friday-sermon/{post}/{title?}/{location?}', 'PostController@show')->name('post.show');
 
 	Route::get('/feedback', 'FeedbackController@create')->name('feedback');
-});
+// });
 
 Route::post('/feedback', 'FeedbackController@store')->name('feedback.store');
 
