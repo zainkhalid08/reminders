@@ -57,7 +57,9 @@
 
 @section('bottom_scripts')
 
+
 {{-- Vue & its components --}}
 <script src="{{ asset('js/app.js') }}"></script>
+
 
 @endsection
