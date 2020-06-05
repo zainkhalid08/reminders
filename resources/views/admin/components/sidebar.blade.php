@@ -13,18 +13,22 @@
   <hr class="sidebar-divider my-0">
 
 
-  <!-- Nav Item - Planner -->
   <li class="nav-item">
     <a class="nav-link" href="{{ route('admin.post.create') }}">
       <i class="fas fa-fw fa-crosshairs"></i>
       <span>Create Post</span></a>
   </li> 
 
-  <!-- Nav Item - Planner -->
   <li class="nav-item">
     <a class="nav-link" href="{{ route('admin.post.index') }}">
       <i class="fas fa-fw fa-search"></i>
       <span>All Posts</span></a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('admin.feedback.index') }}">
+      <i class="fas fa-fw fa-comment-dots"></i>
+      <span>Feedbacks</span></a>
   </li>
 
   <!-- Divider -->

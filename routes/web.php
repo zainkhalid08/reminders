@@ -31,6 +31,9 @@ Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(
 	Route::get('post/{post}/edit', 'AdminPostController@edit')->name('post.edit');
 	Route::put('post/{post}', 'AdminPostController@update')->name('post.update');
 	Route::put('post/{post}/publish', 'AdminPostPublisherController@publish')->name('post.update.publish');
+
+	Route::get('/feedbacks', 'AdminController@feedbacks')->name('feedback.index');
+
 });
 
 // Route::middleware(['cache.headers:public;max_age=36000'])->group(function () { // [1]
