@@ -56,8 +56,7 @@
 @endsection
 
 @section('bottom_scripts')
-<script>
-  var tg = document.createElement('script'); tg.src = "https://www.youtube.com/iframe_api"; var fst = document.getElementsByTagName('script')[0]; fst.parentNode.insertBefore(tg, fst); var player; var timer; function onYouTubeIframeAPIReady() {player = new YT.Player('funfyu'); } function pauseVideo() {player.pauseVideo(); } </script>
+<script> var tg = document.createElement('script'); tg.src = "https://www.youtube.com/iframe_api"; var fst = document.getElementsByTagName('script')[0]; fst.parentNode.insertBefore(tg, fst); var player; var timer; function onYouTubeIframeAPIReady() {player = new YT.Player('funfyu'); } function pauseVideo() {player.pauseVideo(); } </script>
 {{-- Vue & its components --}}
 <script src="{{ mix('js/app.js') }}"></script>
 
