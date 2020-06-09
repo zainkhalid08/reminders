@@ -9,57 +9,47 @@
     <div class="container-fluid">
 
       <!-- Page Heading -->
-      <!-- <h1 class="h3 mb-2 text-gray-800">Posts</h1> -->
+      <!-- <h1 class="h3 mb-2 text-gray-800">feedbacks</h1> -->
       <!-- <p class="mb-4"></p> --> {{-- kept empty intentionally, to keep alignment consistent with other pages as otherwise the card goes up  --}}
 
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Your Posts</h6>
+          <h6 class="m-0 font-weight-bold text-primary">Your Feedbacks</h6>
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            @forelse($posts as $post)
+            @forelse($feedbacks as $feedback)
               @if ($loop->first)
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th>Sr</th>
-                      <th>Title</th>
-                      <th>Location</th>
-                      <th>Operations</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Message</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th>Sr</th>
-                      <th>Title</th>
-                      <th>Location</th>
-                      <th>Operations</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Message</th>
                     </tr>
                   </tfoot>
                   <tbody>
               @endif      
-                    <tr id="post-row-{{ $loop->iteration }}">
+                    <tr id="feedback-row-{{ $loop->iteration }}">
                       <td>{{ $loop->iteration }}</td>
                       <td>
-                        <div id="post-name-{{ $loop->iteration }}"> {{ $post->title }} </div>
+                        <div id="feedback-name-{{ $loop->iteration }}"> {{ $feedback->name }} </div>
                       </td>
                       <td>
-                        <div id="post-name-{{ $loop->iteration }}"> {{ $post->location->name }} </div>
+                        <div id="feedback-name-{{ $loop->iteration }}"> {{ $feedback->email }} </div>
                       </td>
                       <td>
-                        <a href="{{ route('admin.post.edit', $post->id) }}">edit</a> |
-                        <a href="{{ $post->seoRoute('post.show') }}" target="_blank" rel="noreferrer">preview</a> |
-                        @if($post->isUnpublished())
-                          @php($route = route('admin.post.update.publish', $post->id))
-                          @php($formId = 'publish_form_'.$loop->iteration)
-                          <a href="{{ $route }}" onclick="event.preventDefault();document.getElementById('{{ $formId }}').submit();">pub</a>
-                          <form method="post" action="{{ $route }}" id="{{ $formId }}">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}" form="{{ $formId }}">
-                            <input type="hidden" name="_method" value="PUT" form="{{ $formId }}">
-                          </form>
-                        @endif
+                        <div id="feedback-name-{{ $loop->iteration }}"> {{ $feedback->message }} </div>
                       </td>
                     </tr>
               @if ($loop->last)
@@ -67,7 +57,7 @@
                 </table> 
               @endif
             @empty
-              <p>No posts found</p>
+              <p>No feedbacks found</p>
             @endforelse
           </div>
         </div>
