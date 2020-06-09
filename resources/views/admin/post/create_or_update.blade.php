@@ -67,7 +67,7 @@
                     </div>
                     <h4>Video</h4>
                     <div class="text-center">
-                      <input type="text" name="video_src" style="width: 100%;" placeholder="https://www.youtube.com/embed/" value="{{ isset($post) ? $post->video_src : old('video_src', 'https://www.youtube.com/embed/?rel=0') }}">
+                      <input type="text" name="video_src" style="width: 100%;" placeholder="https://www.youtube.com/embed/" value="{{ isset($post) ? $post->video_src : old('video_src', 'https://www.youtube.com/embed/') }}">
                     *eg {{'...embed/KJq08q7qfr4?rel=0'}} <br>
                       @component('admin.components.error', ['field' => 'video_src'])
                       @endcomponent
