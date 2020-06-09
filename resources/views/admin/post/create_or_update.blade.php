@@ -145,7 +145,7 @@
                   @endforelse
                   
                   <h4>Hadith Book Names Checker</h4>
-                  <span>Bukhari, Muslim, Tirmidhi, Sanan Abi Dawood, Ibn Hibban, Ibn Majah, </span>
+                  <span>Bukhari, Muslim, Tirmidhi, Sunan Abi Dawood, Ibn Hibban, Ibn Majah, </span>
 
                   <h4>Speaker Name Checker</h4>
                   @forelse($availableData['speakers'] as $speaker)
