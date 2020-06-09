@@ -57,19 +57,7 @@
 
 @section('bottom_scripts')
 <script>
-  var tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  var player; var timer;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('funfyu');
-  }
-  function pauseVideo() {
-    player.pauseVideo();
-  }
-</script>
-
+  var tg = document.createElement('script'); tg.src = "https://www.youtube.com/iframe_api"; var fst = document.getElementsByTagName('script')[0]; fst.parentNode.insertBefore(tg, fst); var player; var timer; function onYouTubeIframeAPIReady() {player = new YT.Player('funfyu'); } function pauseVideo() {player.pauseVideo(); } </script>
 {{-- Vue & its components --}}
 <script src="{{ mix('js/app.js') }}"></script>
 
