@@ -63,9 +63,7 @@
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   var player; var timer;
   function onYouTubeIframeAPIReady() {
-    console.log('1');
     player = new YT.Player('funfyu');
-    console.log(player);
   }
   function pauseVideo() {
     player.pauseVideo();
