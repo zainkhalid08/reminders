@@ -24,3 +24,7 @@ mix.js('resources/js/app.js', 'public/js')
 
 // To only compile styles
 // mix.sass('resources/sass/app.scss', 'public/css')
+
+if (mix.inProduction()) {
+    mix.version();
+}

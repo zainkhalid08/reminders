@@ -12,7 +12,7 @@
                 return '@'+ this.minute + ':'+ this.second +'.';
             },
             makeTitle() {
-                return 'Present at '+ this.minute + ' min(s) ' + this.second + ' sec(s) ' +'of the video shared on this page.';
+                return 'Play at '+ this.minute + ' min(s) ' + this.second + ' sec(s) ' +'for some seconds.';
             },
             playHere() {
                 event.preventDefault(); // to prevent scroll to top behaviour
