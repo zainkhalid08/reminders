@@ -140,7 +140,7 @@
 
                   <h4>Surah Names Checker</h4>
                   @forelse($availableData['surahs'] as $surah)
-                    <span>{{ $surah->name }}, </span>
+                    <span>{{ $loop->iteration.'. '.$surah->name }}, </span>
                   @empty
                   @endforelse
                   

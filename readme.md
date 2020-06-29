@@ -242,6 +242,11 @@ And constructed with the following guidelines:
 * New additions without breaking backwards compatibility bumps the minor
 * Bug fixes and misc changes bump the patch
 
+*shifted to v0.0.0 versioning v<major>.<minor>.<patch>
+major: is for the front end user i.e. the visitors
+minor: is a feature but is usually behind the hood, eg. for admin
+patch: is small bug fixes.
+
 For more information on semantic versioning, please visit http://semver.org/.
 
 ## Testing
