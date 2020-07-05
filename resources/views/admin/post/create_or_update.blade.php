@@ -120,7 +120,7 @@
                     </div>
                     <h4>Meta Keywords</h4>
                     <div class="text-center">
-                      <input type="text" name="meta[keywords]" style="width: 100%;" placeholder="tags, for, this, post..." value="{{ old('meta[keywords]', isset($post) ? $post->meta['keywords'] : '') }}" required>
+                      <input type="text" name="meta[keywords]" style="width: 100%;" placeholder="tags, for, this, post..." value="{{ old('meta.keywords', isset($post) ? $post->meta['keywords'] : '') }}" required>
                       @component('admin.components.error', ['field' => 'meta.keywords'])
                       @endcomponent
                     </div>
