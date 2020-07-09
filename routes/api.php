@@ -16,3 +16,12 @@ use Illuminate\Http\Request;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+Route::get('/testendpoint2', function (Request $request) {
+    return [
+    	'data' => [
+    		['id'=>1, 'name'=>'loerore', 'category'=>['name'=>'cate']],
+    		['id'=>2, 'name'=>'srore', 'category'=>['name'=>'date2']]
+    	]
+    ];
+});
