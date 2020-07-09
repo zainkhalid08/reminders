@@ -29,5 +29,5 @@ Route::get('/testendpoint2', function (Request $request) {
     // 		['id'=>2, 'name'=>'srore', 'category'=>['name'=>'date2']]
     // 	]
     // ];
-    return ['id' => 1];
+    return 'OK';
 });
