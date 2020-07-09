@@ -24,7 +24,7 @@ Route::get('/testendpoint2', function (Request $request) {
 	header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 	header("Access-Control-Allow-Credentials", "true");
     return [
-    	'data' => [
+    	'timeSubcategories' => [
     		['id'=>1, 'name'=>'loerore', 'category'=>['name'=>'cate']],
     		['id'=>2, 'name'=>'srore', 'category'=>['name'=>'date2']]
     	]
