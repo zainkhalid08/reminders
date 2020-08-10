@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146593164-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date()); gtag('config', 'UA-146593164-1');
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#317EFB"/>
@@ -47,7 +52,7 @@
                   </a>
                 </li>
               </ul> --}}
-                <p class="copyright text-muted"><a href="#thanks" data-toggle="modal" data-target="#thanks">Thanks</a> | <a href="{{ route('feedback') }}" target="_blank" rel="noreferrer">Feedback</a> | <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/" target="_blank" rel="noreferrer"><img alt="Creative Commons License" title="Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)" style="border-width:0" src="{{ asset('img/cc.webp') }}" /></a></p>
+                <p class="copyright text-muted"><a href="{{ route('legal') }}" target="_blank" rel="noreferrer">Legal</a> | <a href="#thanks" data-toggle="modal" data-target="#thanks">Thanks</a> | <a href="{{ route('feedback') }}" target="_blank" rel="noreferrer">Feedback</a> | <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/" target="_blank" rel="noreferrer"><img alt="Creative Commons License" title="Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)" style="border-width:0" src="{{ asset('img/cc.webp') }}" /></a></p>
               @include('partials.footer_modals')
             </div>
           </div>
