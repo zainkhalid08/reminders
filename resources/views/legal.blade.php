@@ -9,7 +9,7 @@
 
 @section('header-and-main-content')
 
-@component('components.header', ['heading' => 'Legal', 'subheading' => '', 'imageSrc' => asset('img/feedback.webp')])
+@component('components.header', ['heading' => 'Legal', 'subheading' => '', 'imageSrc' => asset('img/legal.webp')])
 @endcomponent
 
   <div class="container">
