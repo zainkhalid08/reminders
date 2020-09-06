@@ -31,6 +31,12 @@
       <span>Feedbacks</span></a>
   </li>
 
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('admin.tag.index') }}">
+      <i class="fas fa-fw fa-tags"></i>
+      <span>Tags</span></a>
+  </li>
+
   <!-- Divider -->
   <hr class="sidebar-divider">
 

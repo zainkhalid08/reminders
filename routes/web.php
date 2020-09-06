@@ -33,6 +33,7 @@ Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(
 	Route::put('post/{post}/publish', 'AdminPostPublisherController@publish')->name('post.update.publish');
 
 	Route::get('/feedbacks', 'AdminController@feedbacks')->name('feedback.index');
+	Route::get('/tags', 'AdminController@tags')->name('tag.index');
 
 });
 
