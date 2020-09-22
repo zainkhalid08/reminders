@@ -4,7 +4,16 @@
 
 @component('components.seo', ['title' => $post->titleHtmlTag(), 'meta' => $post->meta])
 @endcomponent
-
+{{-- For Making First Letter Of First Para Within #JwuWiw Capital. --}} {{-- Placed here as this doesn't seem to be used anywhere else --}}
+<style type="text/css">
+#JwuWiw > p:first-of-type:first-letter {
+    float: left;
+    font-size: 63px;
+    line-height: 1;
+    font-weight: bold;
+    margin-right: 9px;
+}  
+</style>
 @endsection
 
 @section('header-and-main-content')

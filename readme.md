@@ -1,9 +1,16 @@
 # --- REMINDERS ---
 
-<small>last updated on 30th Dec 2019, remindersforgood@gmail.com</small> 
-
+<small>last updated on 22nd Sep 2020, remindersforgood@gmail.com</small> 
 
 <hr>
+
+## Frontend 
+
+###Colors
+
+#ffb039 goldenish -> new badge
+#fffaae light yellow -> note background
+#JwuWiw id is used for initializing VUE and for drop capping first para inside it.
 
 ## TODOS
 
