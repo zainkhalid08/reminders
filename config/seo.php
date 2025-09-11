@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    'legal' => [
+        'title' => 'Legal',
+        'meta' => [
+            'description' => ''
+        ],
+    ]
+
 ];

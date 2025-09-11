@@ -8,6 +8,10 @@
       <div class=" align-items-center justify-content-between mb-4">
         <h1 class="h3 text-gray-800">Place Admin Instructions Here</h1>
         <ul>
+          <li>Starting of the post</li>
+            <ul>
+              <li>!DO not start with @2:22 (<tyme> tag) or ...(hellips). As css makes first letter of first para capital(dropcaps)</li>
+            </ul>
           <li>ayah tag</li>
             <ul>
               <li>leave blank "" OR </li>

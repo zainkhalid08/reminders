@@ -33,6 +33,7 @@ Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(
 	Route::put('post/{post}/publish', 'AdminPostPublisherController@publish')->name('post.update.publish');
 
 	Route::get('/feedbacks', 'AdminController@feedbacks')->name('feedback.index');
+	Route::get('/tags', 'AdminController@tags')->name('tag.index');
 
 });
 
@@ -45,6 +46,7 @@ Route::prefix(config('admin.slug'))->middleware('admin')->name('admin.')->group(
 	Route::get('friday-sermon/{post}/{title?}/{location?}', 'PostController@show')->name('post.show');
 
 	Route::get('/feedback', 'FeedbackController@create')->name('feedback');
+	Route::get('/legal', 'LegalController@create')->name('legal');
 // });
 
 Route::post('/feedback', 'FeedbackController@store')->name('feedback.store');

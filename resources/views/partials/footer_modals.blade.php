@@ -14,6 +14,7 @@
           <li>To Jeshoots, the home and older friday sermons page photos, are created by them.</li>
           <li>To Quino Al, the feedback page photo, is created by them.</li>
           <li>To <a href="https://startbootstrap.com" target="_blank" rel="noreferrer">Start Bootstrap</a>, the starter theme is created by them.</li>
+          <li>To <a href="http://www.htmldog.com" target="_blank" rel="noreferrer">HTML Dog</a>, for the free tutorial on dropcaps.</li>
         </ul>
       </div>
       <div class="modal-footer">

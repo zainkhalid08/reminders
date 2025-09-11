@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Feedback;
+use App\Tag;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -28,6 +29,17 @@ class AdminController extends Controller
     {
     	$feedbacks = Feedback::latest()->get();
         return view('admin.feedbacks', ['feedbacks' => $feedbacks]);
+    }
+
+    /**
+     * Shows all tags received
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function tags()
+    {
+        $tags = Tag::latest()->get();
+        return view('admin.tags', ['tags' => $tags]);
     }
 
 }
