@@ -11,12 +11,54 @@
 
 ## Demo screenshots
 
-![Home](demo/homepage.png)
-![Posts list](demo/homepageScrolled.png)
-![Single post with YouTube](demo/blogYt.png)
-![Single post](demo/blog.png)
-![Post with headings](demo/blogWithHeadings.png)
-![Admin posts](demo/blogsAdminPanel.png)
+<p align="center">
+  <img src="demo/1_homepageFull.png" alt="Homepage full">
+  <br />
+  <small>Homepage full</small>
+  
+</p>
+
+<p align="center">
+  <img src="demo/2_blog.png" alt="Blog list">
+  <br />
+  <small>Blog with youtube video at the top</small>
+  
+</p>
+
+<p align="center">
+  <img src="demo/3_blog.png" alt="Blog post">
+  <br />
+  <small>Blog post</small>
+  
+</p>
+
+<p align="center">
+  <img src="demo/3a_blog.png" alt="Blog post (alt)">
+  <br />
+  <small>Blog post with headings</small>
+  
+</p>
+
+<p align="center">
+  <img src="demo/4_feedback.png" alt="Feedback">
+  <br />
+  <small>Feedback</small>
+  
+</p>
+
+<p align="center">
+  <img src="demo/5_legal.png" alt="Legal">
+  <br />
+  <small>Legal</small>
+  
+</p>
+
+<p align="center">
+  <img src="demo/6%20blogs%20in%20admin%20panel.png" alt="Admin posts">
+  <br />
+  <small>Admin posts</small>
+  
+</p>
 
 
 
